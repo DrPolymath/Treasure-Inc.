@@ -1,0 +1,77 @@
+/* Navigation Bar*/
+nav {
+	background-color: #DEE7E6;
+}
+
+img {
+	margin: 0px 15px;
+}
+
+#navLink, #signInBtn {
+	font-family: "Gill Sans MT";
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	padding: 0px 20px;
+}
+
+.nav-item {
+	
+}
+
+#navLink:hover {
+	color: #49655C;
+}
+
+#signInBtn {
+	background-color: #49655C;
+	border-radius: 25px;
+	padding: 10px 40px;
+}
+
+#signInBtn:hover {
+	color: #49655C;
+	background-color: #ffffff;
+}
+
+/*Content*/
+#homeContent {
+	background-color: #90D4CC;
+	min-height: 763px;
+}
+#aboutUsContent {
+	background-color: #DEE7E6;
+	min-height: 763px;
+}
+
+#gamesContent {
+	background-color: #90D4CC;
+	min-height: 763px;
+}
+
+.row {
+	min-height: 763px;
+	margin-top: 50px;
+}
+
+#joinUsBtn {
+	font-family: "Gill Sans MT";
+	font-size: 40px;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #F0750F;
+	border-radius: 25px;
+	margin: 75px;
+	padding: 10px;
+}
+
+#joinUsBtn:hover {
+	color: #F0750F;
+	background-color: #ffffff;
+}
+
+/*Footer*/
+footer {
+	background-color: #49655C;
+	min-height: 200px;
+}
