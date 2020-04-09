@@ -1,0 +1,12 @@
+html, body {
+	height: 100%;
+}
+
+#LoginContent, #SignUpContent {
+	background-color: #90D4CC;
+  	background-image: url("LoginBgPic.svg");
+  	height: 100%; 
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: 1200px;
+}
