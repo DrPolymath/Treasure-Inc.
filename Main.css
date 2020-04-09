@@ -1,4 +1,10 @@
-/* Navigation Bar*/
+/* General */
+
+p {
+	font-family: "Gill Sans MT";
+}
+
+/*Navigation Bar*/
 nav {
 	background-color: #DEE7E6;
 }
@@ -49,9 +55,9 @@ img {
 #gamesContent {
 	background-color: #90D4CC;
 	min-height: 763px;
-	padding-top: 50px;
 }
 
+/*HomeContent*/
 #joinUsBtn {
 	font-family: "Gill Sans MT";
 	font-size: 40px;
@@ -68,6 +74,7 @@ img {
 	background-color: #ffffff;
 }
 
+/*AboutUsContent*/
 #desc {
 	width: 500px;
 	height: 200px;
@@ -84,6 +91,67 @@ img {
 	font-weight: bold;
 }
 
+/*GamesContent*/
+#gameTitle {
+	font-family: "Gill Sans MT";
+	font-size: 3vw;
+	color: white;
+	padding-top: 100px;
+	padding-bottom: 30px;
+	font-weight: bold;
+	text-shadow: 2px 2px #8a795d;
+}
+
+.gameInfo {
+	background: #DEE7E6;
+	height: 470px;
+	width: 1000px;
+}
+.gameName {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+.gameData {
+	background: #DEE7E6;
+	padding: 5px 10px;
+}
+
+.gameVenuePic {
+	height: 250px;
+}
+
+.gamePlayerUpdates {
+	height: 220px;
+}
+
+.pLayerUpdateData{
+	background: #F0750F;
+	color: white;
+	font-weight: bold;
+	padding: 25px;
+	border-radius: 50%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+	filter: invert(1);
+}
+
+#viewGames {
+	background-color: #49655C;
+	color: #ffffff;
+	padding: 10px;
+	margin: 20px;
+	width: 200px;
+	border-radius: 25px;
+}
+
+#viewGames:hover {
+	color: #49655C;
+	background-color: #ffffff;
+}
+
 /*Footer*/
 footer {
 	background-color: #49655C;
@@ -91,7 +159,6 @@ footer {
 }
 
 .footerContent {
-	font-family: "Gill Sans MT";
 	color: white;
 	padding-top: 20px;
 }
