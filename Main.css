@@ -21,10 +21,6 @@ img {
 	padding: 0px 20px;
 }
 
-.nav-item {
-	
-}
-
 #navLink:hover {
 	color: #49655C;
 }
@@ -158,7 +154,7 @@ img {
 /*Footer*/
 footer {
 	background-color: #49655C;
-	min-height: 200px;c
+	min-height: 200px;
 }
 
 .footerContent {
