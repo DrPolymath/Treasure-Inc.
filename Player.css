@@ -1,0 +1,75 @@
+/*Navigation Bar*/
+nav {
+	background-color: #DEE7E6;
+}
+
+#greeting {
+	padding-top: 20px;
+	padding-right: 20px;
+	font-family: "Gill Sans MT";
+	font-weight: bold;
+	color: #49655C;
+}
+
+.dropdown-toggle::after { 
+    content: none; 
+}
+
+/* Content */
+#PlayerContent {
+	height: 675px;
+	background-color: #F2F2F2;
+}
+
+/* Footer */
+footer {
+	background-color: #49655C;
+	height: 88px;
+	color: white;
+	display: flex;
+  	align-items: center;
+}
+
+#leftFooter {
+	font-size: 0.75vw;
+}
+
+#socialMedia {
+	font-weight: bold;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
+  text-decoration: none;
+  margin: 0px 3px;
+  border-radius: 50%;
+  transition: transform .2s;
+}
+
+.fa:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+    color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
