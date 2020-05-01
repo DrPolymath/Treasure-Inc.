@@ -1,6 +1,26 @@
+/* General */
+* {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html, body {
+	max-height: 100%;
+}
+
 /*Navigation Bar*/
 nav {
 	background-color: #DEE7E6;
+}
+
+.btn {
+  background-color: #49655C;
+  color: white;
+}
+
+.btn:hover {
+  background-color: white;
+  color: #49655C;
+  border-color: #49655C;
 }
 
 #greeting {
@@ -17,17 +37,31 @@ nav {
 
 /* Content */
 #OrganiserContent {
-	height: 675px;
-	background-color: #F2F2F2;
+	height: 88%;
+  background-color: #F2F2F2;
+}
+
+.contentTitle {
+  padding-top: 7rem;
+  padding-left: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.card {
+  margin: 0rem 2.5rem;
+}
+
+.form-group {
+  margin: 1.5rem;
 }
 
 /* Footer */
 footer {
 	background-color: #49655C;
-	height: 88px;
+	height: 12%;
 	color: white;
 	display: flex;
-  	align-items: center;
+  align-items: center;
 }
 
 #leftFooter {
@@ -72,4 +106,18 @@ footer {
 .fa-instagram {
   background: #125688;
   color: white;
+}
+
+/*Organiser - Add Game*/
+
+.btnOAG {
+  width: 222px;
+}
+
+.formAG {
+ padding: 5px;
+}
+
+.btnOGD {
+  width: 226px;
 }

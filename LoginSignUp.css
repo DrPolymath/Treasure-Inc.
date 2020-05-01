@@ -1,5 +1,7 @@
 html, body {
 	height: 100%;
+	font-family: lovelo;
+	color: #49655C;
 }
 
 #LoginContent, #SignUpContent {
@@ -8,5 +10,65 @@ html, body {
   	height: 100%; 
   	background-position: center;
   	background-repeat: no-repeat;
-  	background-size: 1200px;
+	background-size: 1200px;
+	padding: 50px;  
 }
+
+.card {
+	background-color: #DEE7E6;
+}
+
+h1, h2 {
+	color: #49655C;
+	font-family: lovelo line;
+}
+
+a {
+	color: #49655C;
+}
+
+a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+#cardLogin{
+	width: 500px;
+}
+
+#cardSignUp{
+	width: 700px;
+}
+
+.form-control-login {
+	border: none;
+	width: 350px;
+}
+
+input[type=email].fcEmail{
+	background-color: #DEE7E6;
+	border: none;
+	width: 350px;
+}
+
+.form-control-register {
+	border: none;
+}
+
+.btn {
+	background-color: #49655C;
+	color: white;
+}
+  
+.btn:hover {
+	background-color: white;
+	color: #49655C;
+	border-color: #49655C;
+}
+
+#smallLink {
+	font-size: 10px;
+}
+
+
+

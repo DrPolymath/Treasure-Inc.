@@ -12,8 +12,49 @@
 	<link rel="stylesheet" type="text/css" href="LoginSignUp.css">
 </head>
 <body>
-	<div id="LoginContent" class="container-fluid">
-		
+	<div id="LoginContent" class="container-fluid" align="center">
+		<div id="cardLogin" class="card shadow">
+			<div class="card-body">
+				<div align="left"><a href="Main.html"><img src="Back.svg" width="20"></a></div>
+				<h1>LOGIN</h1>
+				<img src="Avatar Icon.svg" width="150" class="m-4">
+				<form>
+					<div class="form-group m-4">
+						<input type="email" class="form-control form-control-login" id="email" name="email" placeholder="email" required>
+					</div>
+					<div class="form-group m-4">
+						<input type="password" class="form-control form-control-login" id="password" id="password" placeholder="password" required>
+					</div>
+					<button type="submit" class="btn m-2">LOGIN</button>
+				</form>
+				<div id="smallLink">
+					Don't have an account? <a href="SignUp.html">Sign Up</a><br>
+					<a href="#" data-target="#forgotPasswordModal" data-toggle="modal">Forgot your password?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body" align="center">
+					<div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<h2 class="modal-title p-4">Forgot password</h2>
+					<form>
+						<div class="form-group">
+							<input type="email" class="form-control fcEmail" id="email" name="email" placeholder="EMAIL" required>
+						</div>
+						<button type="submit" class="btn m-3">submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

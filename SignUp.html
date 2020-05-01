@@ -12,8 +12,64 @@
 	<link rel="stylesheet" type="text/css" href="LoginSignUp.css">
 </head>
 <body>
-	<div id="SignUpContent" class="container-fluid">
-		
+	<div id="SignUpContent" class="container-fluid" align="center">
+		<div id="cardSignUp" class="card shadow">
+			<div class="card-body">
+				<div align="left"><a href="Login.html"><img src="Back.svg" width="20"></a></div>
+			</div>
+			<h1>SIGN UP</h1>
+			<div class="p-5">
+				<form>
+					<div class="form-group row">
+						<label for="name" class="col-sm-4 col-form-label">Name</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control form-control-register" id="name" naem="name" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="email" class="col-sm-4 col-form-label">Email Address</label>
+						<div class="col-sm-8">
+							<input type="email" class="form-control form-control-register" id="email" name="email" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="phoneNumber" class="col-sm-4 col-form-label">Phone Number</label>
+						<div class="col-sm-8">
+							<input type="number" class="form-control form-control-register" id="phoneNumber" name="phoneNumber" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="date" class="col-sm-4 col-form-label">Date</label>
+						<div class="col-sm-8">
+							<input type="date" class="form-control form-control-register" id="date" name="date" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="registerAs" class="col-sm-4 col-form-label">Register As</label>
+						<div class="col-sm-8">
+							<select class="form-control form-control-register" id="registerAs" name="registerAs" required>
+								<option selected disabled>Select user category</option>
+								<option>Organiser</option>
+								<option>Player</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="password" class="col-sm-4 col-form-label">Password</label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control form-control-register" id="password" name="password" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="confirmPassword" class="col-sm-4 col-form-label">Confirm Password</label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control form-control-register" id="confirmPassword" name="confirmPassword" required>
+						</div>
+					</div>
+					<button type="submit" class="btn m-2">register</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -53,7 +53,70 @@
 	</nav>
 
 	<div id="OrganiserContent" class="container-fluid">
-		
+		<h3 class="contentTitle">Scavanger Hunt</h3>
+			<div class="card shadow">
+				<form>
+					<div class="row">
+						<div class="col-sm-4">
+							<img src="Scenery1.jpg" class="img-fluid">
+						</div>
+						<div class="col-sm-8 px-0">
+							<div class="row">
+								<div class="col px-0">
+									<div class="form-group row px-0">
+										<label for="gameVenue" class="col-form-label col-sm-3">Venue</label>
+										<div class="col-sm-9 mx-0">
+											<input type="text" class="form-control" id="gameVenue" readonly>
+										</div>
+									</div>
+									<div class="form-group row px-0">
+										<label for="gameDate" class="col-form-label col-sm-3">Date</label>
+										<div class="col-sm-9 mx-0">
+											<input type="date" class="form-control" id="gameDate" readonly>
+										</div>
+									</div>
+									<div class="form-group row px-0">
+										<label for="gameTime" class="col-form-label col-sm-3">Time</label>
+										<div class="col-sm-9 mx-0">
+											<input type="time" class="form-control" id="gameTime" readonly>
+										</div>
+									</div>
+								</div>
+								<div class="col px-0">
+									<div class="form-group row px-0">
+										<label for="gameFee" class="col-form-label col-sm-4">Fee</label>
+										<div class="col-sm-8 mx-0">
+											<input type="number" class="form-control" id="gameFee" readonly>
+										</div>
+									</div>
+									<div class="form-group row px-0">
+										<label for="gameTeam" class="col-form-label col-sm-4">Team Required</label>
+										<div class="col-sm-8 mx-0">
+											<input type="number" class="form-control" id="gameTeam" readonly>
+										</div>
+									</div>
+									<div class="form-group row px-0">
+										<label for="gamePlayer" class="col-form-label col-sm-4">Player per Team</label>
+										<div class="col-sm-8 mx-0">
+											<input type="number" class="form-control" id="gamePlayer" readonly>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="gameDesc">Game Description</label>
+								<textarea class="form-control" id="gameDesc" rows="4" readonly></textarea>
+							</div>
+							<div class="form-group" align="center">
+								<button type="button" class="btn btnOGD">View Team List</button>
+								<button type="button" class="btn btnOGD">Create Notification</button>
+								<button type="submit" class="btn btnOGD">Delete Game</button>
+								<button type="button" class="btn btnOGD">Update Game</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
 	</div>
 
 	<footer>

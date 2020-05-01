@@ -10,7 +10,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="Main.css">
-	<script src="Main.js"></script>
 </head>
 <body>
 	<!-- Navigation Bar -->
@@ -37,7 +36,7 @@
 					<a id="navLink" class="nav-link" href="#gamesContent">Games</a>
 				</li>
 			</ul>
-			<a id="signInBtn" class="nav-link" href="">Sign In</a>
+			<a id="signInBtn" class="nav-link" href="Login.html">Sign In</a>
 		</div>
 
 	</nav>
@@ -45,11 +44,11 @@
 	<!-- Home Content -->
 	<div id="homeContent" class="container-fluid">
 		<div class="row align-items-center">
-			<div class="col-lg-6" align="center">
-				<img class="img-fluid" src="BgPic.svg" width="625" height="550">
+			<div id="hideBg" class="col-sm-6 p-5" align="center">
+				<img class="img-fluid m-3" src="BgPic.svg">
 			</div>
-			<div class="col-lg-6" align="center">
-				<img class="img-fluid" src="Logo Text.svg" width="400" height="100">
+			<div id="logoTextContainer" class="col-sm-6" align="center">
+				<img class="img-fluid" src="Logo Text.svg">
 				<a id="joinUsBtn" class="nav-link" href="">JOIN US</a>
 			</div>
 		</div>
@@ -59,7 +58,7 @@
 	<div id="aboutUsContent" class="container-fluid">
 		<div class="row align-items-center">
 			<div class="col-sm-6" align="center">
-				<img class="img-fluid" src="PlayerAvatarsIcon.svg" width="" height="">
+				<img class="img-fluid" src="PlayerAvatarsIcon.svg">
 			</div>
 			<div class="col-sm-6" align="center">
 				<div id="desc" class="card shadow">
@@ -68,7 +67,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row align-items-center">
+		<div id="rowChange" class="row align-items-center">
 			<div class="col-sm-6" align="center">
 				<div id="desc" class="card shadow">
 					<h4 class="card-title">ORGANIZERS</h4>
@@ -76,7 +75,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6" align="center">
-				<img class="img-fluid" src="OrganizerAvatarsIcon.svg" width="" height="">
+				<img class="img-fluid" src="OrganizerAvatarsIcon.svg">
 			</div>
 		</div>
 	</div>
@@ -88,32 +87,32 @@
 			<div class="carousel-inner">
 			    <div class="carousel-item active">
 			      	<div class="gameInfo row shadow">
-			      		<div class="col-lg-5 px-0">
+			      		<div class="col-sm-5 px-0">
 			      			<div class="container-fluid px-0">
 			      				<img src="Scenery1.jpg" class="gameVenuePic img-fluid mx-0 w-100">
 			      			</div>
 			      			<div class="container">
 				      			<div class="gamePlayerUpdates row align-items-center">
-				      				<div class="col-lg-3" align="center">
+				      				<div class="col-sm-3" align="center">
 				      					<p>Total Team Joined</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p class="pLayerUpdateData">5/7</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p class="">Total Player</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p class="pLayerUpdateData">15</p>
 				      				</div>
 				      			</div>
 				      		</div>
 			      		</div>
-  						<div class="col-lg-7" style="background: white">
+  						<div class="col-sm-7" style="background: white">
   							<div class="container" align="justify">
   								<h5 class="gameName">Urban Secret</h5>
   								<div class="row">
-  									<div class="col-lg-6">
+  									<div class="col-sm-6">
   										<label>Venue</label>
   										<p class="gameData">FSKTM, University of Malaya</p>
   										<label>Date</label>
@@ -121,7 +120,7 @@
   										<label>Time</label>
   										<p class="gameData">7:00 am</p>
   									</div>
-  									<div class="col-lg-6">
+  									<div class="col-sm-6">
   										<label>Registration Fee</label>
   										<p class="gameData">RM 40</p>
   										<label>Team Required</label>
@@ -138,32 +137,32 @@
 			    </div>
 			    <div class="carousel-item">
 			      	<div class="gameInfo row shadow">
-			      		<div class="col-lg-5 px-0">
+			      		<div class="col-sm-5 px-0">
 			      			<div class="container-fluid px-0">
 			      				<img src="Scenery2.jpg" class="gameVenuePic img-fluid mx-0 w-100">
 			      			</div>
 			      			<div class="container">
 				      			<div class="gamePlayerUpdates row align-items-center">
-				      				<div class="col-lg-3" align="center">
+				      				<div class="col-sm-3" align="center">
 				      					<p>Total Team Joined</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p class="pLayerUpdateData">5/7</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p>Total Player</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p class="pLayerUpdateData">15</p>
 				      				</div>
 				      			</div>
 				      		</div>
 			      		</div>
-  						<div class="col-lg-7" style="background: white">
+  						<div class="col-sm-7" style="background: white">
   							<div class="container" align="justify">
   								<h5 class="gameName">Urban Secret</h5>
   								<div class="row">
-  									<div class="col-lg-6">
+  									<div class="col-sm-6">
   										<label>Venue</label>
   										<p class="gameData">FSKTM, University of Malaya</p>
   										<label>Date</label>
@@ -171,7 +170,7 @@
   										<label>Time</label>
   										<p class="gameData">7:00 am</p>
   									</div>
-  									<div class="col-lg-6">
+  									<div class="col-sm-6">
   										<label>Registration Fee</label>
   										<p class="gameData">RM 40</p>
   										<label>Team Required</label>
@@ -188,32 +187,32 @@
 			    </div>
 			    <div class="carousel-item">
 			      	<div class="gameInfo row shadow">
-			      		<div class="col-lg-5 px-0">
+			      		<div class="col-sm-5 px-0">
 			      			<div class="container-fluid px-0">
 			      				<img src="Scenery3.jpeg" class="gameVenuePic img-fluid mx-0 w-100">
 			      			</div>
 			      			<div class="container">
 				      			<div class="gamePlayerUpdates row align-items-center">
-				      				<div class="col-lg-3" align="center">
+				      				<div class="col-sm-3" align="center">
 				      					<p>Total Team Joined</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p class="pLayerUpdateData">5/7</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p>Total Player</p>
 				      				</div>
-				      				<div class="col-lg-3">
+				      				<div class="col-sm-3">
 				      					<p class="pLayerUpdateData">15</p>
 				      				</div>
 				      			</div>
 				      		</div>
 			      		</div>
-  						<div class="col-lg-7" style="background: white">
+  						<div class="col-sm-7" style="background: white">
   							<div class="container" align="justify">
   								<h5 class="gameName">Urban Secret</h5>
   								<div class="row">
-  									<div class="col-lg-6">
+  									<div class="col-sm-6">
   										<label>Venue</label>
   										<p class="gameData">FSKTM, University of Malaya</p>
   										<label>Date</label>
@@ -221,7 +220,7 @@
   										<label>Time</label>
   										<p class="gameData">7:00 am</p>
   									</div>
-  									<div class="col-lg-6">
+  									<div class="col-sm-6">
   										<label>Registration Fee</label>
   										<p class="gameData">RM 40</p>
   										<label>Team Required</label>
@@ -282,5 +281,6 @@
 		</div>
 	</footer>
 
+	<script src="Main.js"></script>
 </body>
 </html>

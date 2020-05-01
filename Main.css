@@ -1,24 +1,22 @@
 /* General */
+* {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
-p {
-	font-family: "Gill Sans MT";
+html, body {
+	height: 100%;
 }
 
 /*Navigation Bar*/
 nav {
 	background-color: #DEE7E6;
-}
-
-img {
-	margin: 0px 15px;
+	font-weight: bold;
+	font-size: 1.25rem;
 }
 
 #navLink, #signInBtn {
-	font-family: "Gill Sans MT";
-	font-size: 20px;
-	font-weight: bold;
 	color: #ffffff;
-	padding: 0px 20px;
+	padding: 0rem 2rem;
 }
 
 #navLink:hover {
@@ -28,7 +26,7 @@ img {
 #signInBtn {
 	background-color: #49655C;
 	border-radius: 25px;
-	padding: 10px 40px;
+	padding: 0.5rem 2.5rem;
 }
 
 #signInBtn:hover {
@@ -39,30 +37,30 @@ img {
 /*Content*/
 #homeContent {
 	background-color: #90D4CC;
-	min-height: 763px;
-	padding-top: 130px;
+	height: 100%;
+	padding-top: 5rem;
 }
 #aboutUsContent {
 	background-color: #DEE7E6;
-	min-height: 763px;
-	padding-top: 100px;
+	height: 100%;
+	padding-top: 4.5rem;
 }
 
 #gamesContent {
 	background-color: #90D4CC;
-	min-height: 763px;
+	height: 100%;
 }
 
 /*HomeContent*/
 #joinUsBtn {
-	font-family: "Gill Sans MT";
-	font-size: 40px;
+	font-size: 4vh;
 	font-weight: bold;
 	color: #ffffff;
 	background-color: #F0750F;
-	border-radius: 25px;
-	margin: 75px 150px;
-	padding: 10px;
+	border-radius: 1rem;
+	max-width: 30rem;
+	margin-top: 3rem;
+	border-style: none;
 }
 
 #joinUsBtn:hover {
@@ -72,28 +70,26 @@ img {
 
 /*AboutUsContent*/
 #desc {
-	width: 500px;
-	height: 200px;
+	max-width: 35rem;
+	max-height: 14rem;
 	background-color: #F0750F;
 	color: #ffffff;
-	padding: 40px 20px;
+	padding: 2rem 1.5rem;
 	border-style: none;
-	font-family: "Gill Sans MT";
-	font-size: 20px;
+	font-size: 2.25vh;
 }
 
 .card-title {
-	padding-bottom: 10px;
+	padding-bottom: 0.75rem;
 	font-weight: bold;
 }
 
 /*GamesContent*/
 #gameTitle {
-	font-family: "Gill Sans MT";
-	font-size: 3vw;
+	font-size: 40px;
 	color: white;
-	padding-top: 100px;
-	padding-bottom: 30px;
+	padding-top: 7rem;
+	padding-bottom: 2rem;
 	font-weight: bold;
 	text-shadow: 2px 2px #8a795d;
 }
@@ -149,33 +145,32 @@ img {
 	background-color: #ffffff;
 }
 
-
-
 /*Footer*/
 footer {
 	background-color: #49655C;
-	min-height: 200px;
+	padding: 1rem;
 }
 
 .footerContent {
 	color: white;
-	padding-top: 20px;
 }
 
 #openFooter {
-	font-size: 1.25vw;
+	font-size: 1.75vh;
+	font-weight: bold;
 }
 
 #closeFooter {
-	font-size: 1vw;
+	font-size: 1.5vh;
+	padding-top: 1rem;
 }
 
 .fa {
-  padding: 10px;
-  font-size: 30px;
-  width: 50px;
+  padding: 0.75rem;
+  font-size: 2vw;
+  max-width: 3.5rem;
   text-decoration: none;
-  margin: 0px 3px;
+  margin: 0rem 0.25rem;
   border-radius: 50%;
   transition: transform .2s;
 }
@@ -204,4 +199,34 @@ footer {
 .fa-instagram {
   background: #125688;
   color: white;
+}
+
+/* Phone */
+@media only screen and (max-width : 576px) {
+
+	/* Navigation Bar */
+
+	nav {
+		font-size: 1rem;
+	}
+
+	/* Home */
+	#hideBg {
+		display: none;
+	}
+
+	#logoTextContainer {
+		padding-top: 5rem;
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+
+	#joinUsBtn {
+		
+	}
+
+	/* About us */
+	#rowChange {
+		flex-direction: column-reverse;
+	}
 }
