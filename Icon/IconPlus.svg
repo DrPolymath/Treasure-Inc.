@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="109.29" height="109.29" viewBox="0 0 109.29 109.29">
+  <g id="IconPlus" transform="translate(-1707 -762.711)">
+    <circle id="IconBg" cx="54.645" cy="54.645" r="54.645" transform="translate(1707 762.711)" fill="#49655c"/>
+    <g id="PlusIcon" transform="translate(1731.704 787.758)">
+      <rect id="Rect2" width="59.881" height="13.185" rx="6.592" transform="translate(0 23.348)" fill="#fff"/>
+      <rect id="Rect1" width="59.881" height="13.185" rx="6.592" transform="translate(36.533 1) rotate(90)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -1,3 +1,4 @@
+//navbar dropdown
 $(document).ready(function(){
   $('.dropdown-submenu a.test').on("click", function(e){
     $(this).next('ul').toggle();
@@ -13,3 +14,7 @@ $('#customFile').on('change',function(){
   //replace the "Choose a file" label
   $(this).next('.custom-file-label').html(fileName);
 })
+
+$(".gameCard").click(function(){
+  window.location.href = "/html/Organiser - Game Detail.html";
+});
