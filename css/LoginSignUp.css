@@ -6,7 +6,7 @@ html, body {
 
 #LoginContent, #SignUpContent {
 	background-color: #90D4CC;
-  	background-image: url("LoginBgPic.svg");
+  	background-image: url("/Icon/LoginBgPic.svg");
   	height: 100%; 
   	background-position: center;
   	background-repeat: no-repeat;
