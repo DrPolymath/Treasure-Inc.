@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="exception">
 <head>
 	<title>Treasure Inc.</title>
 	<meta charset="utf-8">
@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/Organiser.css">
 </head>
-<body>
+<body class="exception">
 	<!-- Navigation Bar -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
@@ -128,7 +128,7 @@
 								<textarea class="form-control" id="gameDesc" rows="4" readonly>The game requires the players to find the treasure that have been buried by the ancient people. There will be 4 stage before the player can discovered the treasure's location. The player need to solve the riddle in every stage in order to proceed to the next stage.</textarea>
 							</div>
 							<div class="form-group" align="center">
-								<button type="button" class="btn btnOGD">View Team List</button>
+								<button id="teamList" type="button" class="btn btnOGD">Team List</button>
 								<button type="button" class="btn btnOGD" data-toggle="modal" data-target="#createNotificationModal">Create Notification</button>
 								<button type="submit" class="btn btnOGD">Delete Game</button>
 								<button type="button" class="btn btnOGD" data-toggle="modal" data-target="#updateGameModal">Update Game</button>
@@ -137,6 +137,121 @@
 					</div>
 				</form>
 			</div>
+
+		<div id="teamListPanel">
+			<div class="row" align="center">
+				<input  type="text" id="searchFilter" onkeyup="searchFilter()" placeholder="Search..">
+			</div>
+	
+			<div class="row">
+				<div class="col-sm-6">
+					<h4 id="TeamName">Kapten Boleh</h4>
+				</div>
+			</div>
+			
+			<table align ="center" class="table">
+				<tr>
+					<th>No</th>
+					<th>Name</th>
+					<th>Role</th>
+					<th>Identification Number</th>
+					<th>Phone Number</th>
+					<th>E-mail</th>
+				</tr>
+				<tbody id="data">
+					<tr>
+						<td>1</td>
+						<td>Muhammad Luqman bin Sulaiman</td>
+						<td>Leader</td>
+						<td>990715105697</td>
+						<td>0192615483</td>
+						<td>luqmans1599@gmail.com</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Muhammad Zikri bin Mohd Yunan</td>
+						<td>Team Member</td>
+						<td>976545641532</td>
+						<td>0156842358</td>
+						<td>muhammadzikri10@gmail.com</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Ali bin Hussin</td>
+						<td>Team Member</td>
+						<td>995125321056</td>
+						<td>0215683548</td>
+						<td>fortune@gmail.com</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Ahmad Ahlami bin Anuar</td>
+						<td>Team Member</td>
+						<td>995125321056</td>
+						<td>0215683548</td>
+						<td>mr.ahlami@gmail.com</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>Muhammad Faiz</td>
+						<td>Team Member</td>
+						<td>995125321056</td>
+						<td>0215683548</td>
+						<td>faiztomyam@gmail.com</td>
+					</tr>
+				</tbody>
+			</table>
+	
+			<div class="row">
+				<div class="col-sm-6">
+					<h4 id="TeamName">Barli Suam</h4>
+				</div>
+			</div>			
+			<table align ="center" class="table">
+				<tr>
+					<th>No</th>
+					<th>Name</th>
+					<th>Role</th>
+					<th>Identification Number</th>
+					<th>Phone Number</th>
+					<th>E-mail</th>
+				</tr>
+				<tbody id=data>
+					<tr>
+						<td>1</td>
+						<td>Najmuddin Zain</td>
+						<td>Leader</td>
+						<td>990715105697</td>
+						<td>0192615483</td>
+						<td>dinobambino@gmail.com</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Ady Rahimy</td>
+						<td>Team Member</td>
+						<td>976545641532</td>
+						<td>0156842358</td>
+						<td>adystoner@gmail.com</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Fahmi Abu Yamin</td>
+						<td>Team Member</td>
+						<td>995125321056</td>
+						<td>0215683548</td>
+						<td>manusiagagah@gmail.com</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Amin Saiful</td>
+						<td>Team Member</td>
+						<td>995125321056</td>
+						<td>0215683548</td>
+						<td>aminsaia@gmail.com</td>
+					</tr>
+				</tbody>
+			</table>	
+		</div>
 	</div>
 
 	<footer>

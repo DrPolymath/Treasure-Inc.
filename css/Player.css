@@ -1,3 +1,13 @@
+/*General*/
+
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html, body {
+	height: 100%;
+}
+
 /*Navigation Bar*/
 nav {
 	background-color: #DEE7E6;
@@ -15,19 +25,55 @@ nav {
     content: none; 
 }
 
+.btn {
+  background-color: #49655C;
+  color: white;
+}
+
+.btn:hover {
+  background-color: white;
+  color: #49655C;
+  border-color: #49655C;
+}
+
+.iconAv {
+  transition: transform .2s;
+}
+
+.iconAv:hover {
+  transform: scale(1.1);
+}
+
 /* Content */
 #PlayerContent {
-	height: 675px;
-	background-color: #F2F2F2;
+	height: 90%;
+  background-color: #F2F2F2;
+}
+
+.contentTitle, .backNav {
+  padding-top: 7rem;
+  padding-left: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.backNav {
+  text-decoration: none;
+  color: #49655C;
+  font-weight: bold;
+}
+
+.backNav:hover {
+  text-decoration: none;
+  color: white;
 }
 
 /* Footer */
 footer {
 	background-color: #49655C;
-	height: 88px;
+	height: 10%;
 	color: white;
 	display: flex;
-  	align-items: center;
+  align-items: center;
 }
 
 #leftFooter {
@@ -72,4 +118,24 @@ footer {
 .fa-instagram {
   background: #125688;
   color: white;
+}
+
+/*Player - Profle*/
+
+.profileCard {
+  min-height: 27rem;
+}
+
+.socialMediaIcon {
+  transition: transform .2s;
+}
+
+.socialMediaIcon:hover {
+  transform: scale(1.1);
+}
+
+.gamesCard {
+  background-color: #DEE7E6;
+  width: 12rem;
+  border: none;
 }

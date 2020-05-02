@@ -8,11 +8,6 @@ html, body {
 	height: 100%;
 }
 
-/*Navigation Bar*/
-nav {
-	background-color: #DEE7E6;
-}
-
 .btn {
   background-color: #49655C;
   color: white;
@@ -22,6 +17,11 @@ nav {
   background-color: white;
   color: #49655C;
   border-color: #49655C;
+}
+
+/*Navigation Bar*/
+nav {
+	background-color: #DEE7E6;
 }
 
 #greeting {
@@ -48,6 +48,7 @@ nav {
 #OrganiserContent {
 	height: 90%;
   background-color: #F2F2F2;
+  color: #49655C;
 }
 
 .contentTitle, .backNav {
@@ -169,6 +170,10 @@ footer {
 
 .btnOGD {
   width: 226px;
+}
+
+#teamListPanel{
+  display: none;
 }
 
 /*Organiser - Profle*/

@@ -18,3 +18,7 @@ $('#customFile').on('change',function(){
 $(".gameCard").click(function(){
   window.location.href = "/html/Organiser - Game Detail.html";
 });
+
+$("#teamList").click(function(){
+  $("#teamListPanel").slideToggle();
+});
