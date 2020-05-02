@@ -206,7 +206,7 @@ footer {
 
 .socialMediaIcon {
 	transition: transform .2s;
-  }
+}
   
 .socialMediaIcon:hover {
 	transform: scale(1.1);
