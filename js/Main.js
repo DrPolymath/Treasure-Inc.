@@ -24,5 +24,21 @@ $(document).ready(function(){
       });
     }  // End if
   });
+
+  $("#searchFilter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#data tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+});
+
+$("#viewGames").click(function(){
+  $("#gameListPanel").slideToggle();
+});
+
+$(".gameCard").click(function(){
+  $("#gameDetailModal").modal("show")
 });
 
