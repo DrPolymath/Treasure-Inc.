@@ -5,6 +5,12 @@ $(document).ready(function(){
     e.stopPropagation();
     e.preventDefault();
   });
+  $("#searchFilter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#data tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });
 
 //Organiser - Add Game

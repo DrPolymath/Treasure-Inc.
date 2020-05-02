@@ -42,7 +42,7 @@
 	    							<li><a class="dropdown-item" href="#">No message.</a></li>
 	    						</ul>
 	    					</li>
-	    					<li><a class="dropdown-item" href="#">Sign Out</a></li>
+	    					<li><a class="dropdown-item" href="/html/Main.html">Sign Out</a></li>
 	  					</ul>
 	  				</div>
 				</li>
@@ -138,119 +138,151 @@
 				</form>
 			</div>
 
-		<div id="teamListPanel">
-			<div class="row" align="center">
-				<input  type="text" id="searchFilter" onkeyup="searchFilter()" placeholder="Search..">
-			</div>
-	
-			<div class="row">
-				<div class="col-sm-6">
-					<h4 id="TeamName">Kapten Boleh</h4>
-				</div>
+		<div id="teamListPanel" class="p-2" align="center">
+			<div class="p-5">
+				<h1 class="font-weight-bold">Team Player List</h1>
 			</div>
 			
-			<table align ="center" class="table">
-				<tr>
-					<th>No</th>
-					<th>Name</th>
-					<th>Role</th>
-					<th>Identification Number</th>
-					<th>Phone Number</th>
-					<th>E-mail</th>
-				</tr>
-				<tbody id="data">
-					<tr>
-						<td>1</td>
-						<td>Muhammad Luqman bin Sulaiman</td>
-						<td>Leader</td>
-						<td>990715105697</td>
-						<td>0192615483</td>
-						<td>luqmans1599@gmail.com</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Muhammad Zikri bin Mohd Yunan</td>
-						<td>Team Member</td>
-						<td>976545641532</td>
-						<td>0156842358</td>
-						<td>muhammadzikri10@gmail.com</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Ali bin Hussin</td>
-						<td>Team Member</td>
-						<td>995125321056</td>
-						<td>0215683548</td>
-						<td>fortune@gmail.com</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>Ahmad Ahlami bin Anuar</td>
-						<td>Team Member</td>
-						<td>995125321056</td>
-						<td>0215683548</td>
-						<td>mr.ahlami@gmail.com</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>Muhammad Faiz</td>
-						<td>Team Member</td>
-						<td>995125321056</td>
-						<td>0215683548</td>
-						<td>faiztomyam@gmail.com</td>
-					</tr>
-				</tbody>
-			</table>
-	
-			<div class="row">
-				<div class="col-sm-6">
-					<h4 id="TeamName">Barli Suam</h4>
+			<div>
+				<input  type="text" id="searchFilter" onkeyup="searchFilter()" placeholder="Search..">
+			</div>
+			
+			<!--Carousel Wrapper-->
+			<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" align="center">
+		
+				<!--Slides-->
+				<div class="carousel-inner" role="listbox">
+		
+					<!--First slide-->
+					<div class="carousel-item active">
+						<div class="mx-3" align="left">
+							<h4 id="TeamName">Wisdom Hunter</h4>
+						</div>
+						
+						<table align ="center" class="table">
+							<tr>
+								<th>No</th>
+								<th>Name</th>
+								<th>Role</th>
+								<th>Identification Number</th>
+								<th>Phone Number</th>
+								<th>E-mail</th>
+							</tr>
+							<tbody id="data">
+								<tr>
+									<td>1</td>
+									<td>Muhammad Luqman bin Sulaiman</td>
+									<td>Leader</td>
+									<td>990715105697</td>
+									<td>0192615483</td>
+									<td>luqmans1599@gmail.com</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Muhammad Zikri bin Mohd Yunan</td>
+									<td>Team Member</td>
+									<td>976545641532</td>
+									<td>0156842358</td>
+									<td>muhammadzikri10@gmail.com</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Ali bin Hussin</td>
+									<td>Team Member</td>
+									<td>995125321056</td>
+									<td>0215683548</td>
+									<td>fortune@gmail.com</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Ahmad Ahlami bin Anuar</td>
+									<td>Team Member</td>
+									<td>995125321056</td>
+									<td>0215683548</td>
+									<td>mr.ahlami@gmail.com</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>Muhammad Faiz</td>
+									<td>Team Member</td>
+									<td>995125321056</td>
+									<td>0215683548</td>
+									<td>faiztomyam@gmail.com</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--/.First slide-->
+			
+					<!--Second slide-->
+					<div class="carousel-item">
+						<div class="mx-3" align="left">
+							<h4 id="TeamName" >Artifact Hunter</h4>
+						</div>
+			
+						<table align ="center" class="table">
+							<tr>
+								<th>No</th>
+								<th>Name</th>
+								<th>Role</th>
+								<th>Identification Number</th>
+								<th>Phone Number</th>
+								<th>E-mail</th>
+							</tr>
+							<tbody id=data>
+								<tr>
+									<td>1</td>
+									<td>Najmuddin Zain</td>
+									<td>Leader</td>
+									<td>990715105697</td>
+									<td>0192615483</td>
+									<td>dinobambino@gmail.com</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Ady Rahimy</td>
+									<td>Team Member</td>
+									<td>976545641532</td>
+									<td>0156842358</td>
+									<td>adystoner@gmail.com</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Fahmi Abu Yamin</td>
+									<td>Team Member</td>
+									<td>995125321056</td>
+									<td>0215683548</td>
+									<td>manusiagagah@gmail.com</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Amin Saiful</td>
+									<td>Team Member</td>
+									<td>995125321056</td>
+									<td>0215683548</td>
+									<td>aminsaia@gmail.com</td>
+								</tr>
+							</tbody>
+						</table>	
+					</div>
+					<!--/.Second slide-->
+		  
 				</div>
-			</div>			
-			<table align ="center" class="table">
-				<tr>
-					<th>No</th>
-					<th>Name</th>
-					<th>Role</th>
-					<th>Identification Number</th>
-					<th>Phone Number</th>
-					<th>E-mail</th>
-				</tr>
-				<tbody id=data>
-					<tr>
-						<td>1</td>
-						<td>Najmuddin Zain</td>
-						<td>Leader</td>
-						<td>990715105697</td>
-						<td>0192615483</td>
-						<td>dinobambino@gmail.com</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Ady Rahimy</td>
-						<td>Team Member</td>
-						<td>976545641532</td>
-						<td>0156842358</td>
-						<td>adystoner@gmail.com</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Fahmi Abu Yamin</td>
-						<td>Team Member</td>
-						<td>995125321056</td>
-						<td>0215683548</td>
-						<td>manusiagagah@gmail.com</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>Amin Saiful</td>
-						<td>Team Member</td>
-						<td>995125321056</td>
-						<td>0215683548</td>
-						<td>aminsaia@gmail.com</td>
-					</tr>
-				</tbody>
-			</table>	
+				<!--/.Slides-->
+	
+				<!--Controls-->
+				<div class="controls-top p-2">
+					<a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
+					<a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
+				</div>
+				<!--/.Controls-->
+	
+			</div>
+			<!--/.Carousel Wrapper-->
+
+			
+			
+			
 		</div>
 	</div>
 
@@ -261,10 +293,10 @@
 			</div>
 			<div class="col-sm-6" align="center">
 				<p id="socialMedia" class="pull-right">Follow Us
-					<a href="#" class="fa fa-google shadow"></a>
-					<a href="#" class="fa fa-facebook shadow"></a>
-					<a href="#" class="fa fa-twitter shadow"></a>
-					<a href="#" class="fa fa-instagram shadow"></a>
+					<a href="#"><img class="socialMediaIcon" src="/Icon/GmailWhite.svg" width="50"></a>
+					<a href="#"><img class="socialMediaIcon" src="/Icon/FacebookWhite.svg" width="50"></a>
+					<a href="#"><img class="socialMediaIcon" src="/Icon/InstagramWhite.svg" width="50"></a>
+					<a href="#"><img class="socialMediaIcon" src="/Icon/TwitterWhite.svg" width="50"></a>
 				</p>
 			</div>
 		</div>
