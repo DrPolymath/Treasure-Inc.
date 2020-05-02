@@ -46,7 +46,7 @@ nav {
 
 /* Content */
 #OrganiserContent {
-	height: 88%;
+	height: 90%;
   background-color: #F2F2F2;
 }
 
@@ -75,10 +75,20 @@ nav {
   margin: 1.5rem;
 }
 
+.inputGameData {
+  border: none;
+  background-color: #F2F2F2;
+}
+
+.inputGameData:focus {
+  border: none;
+  background-color: #F2F2F2;
+}
+
 /* Footer */
 footer {
 	background-color: #49655C;
-	height: 12%;
+	height: 10%;
 	color: white;
 	display: flex;
   align-items: center;
@@ -144,6 +154,17 @@ footer {
 
 .formAG {
  padding: 5px;
+ border: none;
+}
+
+/*Organiser - Game Detail*/
+
+.teamPlayer{
+  background-color: #F0750F;
+  padding: 20px;
+  border: none;
+  border-radius: 75%;
+  color: white;
 }
 
 .btnOGD {

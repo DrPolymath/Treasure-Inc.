@@ -27,7 +27,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<p id="greeting">Hi, Tom</p>
+					<p id="greeting">Hi, Oliver</p>
 				</li>
 				<li class="nav-item">
 					<div class="dropdown">
@@ -65,6 +65,20 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<img src="/Image/Scenery1.jpg" class="img-fluid">
+							<div class="row align-items-center h-50 font-weight-bold m-1" align="center">
+								<div class="col">
+									<p>Total Team Joined</p>
+								</div>
+								<div class="col">
+									<p class="teamPlayer">5/7</p>
+								</div>
+								<div class="col">
+									<p>Total Player</p>
+								</div>
+								<div class="col">
+									<p class="teamPlayer">15</p>
+								</div>
+							</div>
 						</div>
 						<div class="col-sm-8 px-0">
 							<div class="row">
@@ -111,7 +125,7 @@
 							</div>
 							<div class="form-group">
 								<label for="gameDesc">Game Description</label>
-								<textarea class="form-control" id="gameDesc" rows="4" readonly>The game will require the team to solve every problem in every stage in order to win the grand prize. The problem is in the form historical question about the place of the stage. If the team can answer correct, they can proceed to the next stage.</textarea>
+								<textarea class="form-control" id="gameDesc" rows="4" readonly>The game requires the players to find the treasure that have been buried by the ancient people. There will be 4 stage before the player can discovered the treasure's location. The player need to solve the riddle in every stage in order to proceed to the next stage.</textarea>
 							</div>
 							<div class="form-group" align="center">
 								<button type="button" class="btn btnOGD">View Team List</button>
@@ -171,6 +185,83 @@
 							</div>
 						</div>
 						<button type="submit" class="btn m-3">Send</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="updateGameModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-body" align="center">
+					<div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<h1 class="modal-title p-3">Update Game</h1>
+					<form>
+						<div class="form-group row">
+							<label for="gameName" class="col-sm-3 col-form-label">Game Name</label>
+							<div  class="col-sm-9">
+								<input type="text" class="form-control inputGameData" id="gameName" name="gameName" value="Scavenger Hunt" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="gameVenue" class="col-form-label col-sm-3">Venue</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control inputGameData" id="gameVenue" name="gameVenue" value="2020-05-05" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="gameDate" class="col-form-label col-sm-3">Date</label>
+							<div class="col-sm-9">
+								<input type="date" class="form-control inputGameData" id="gameDate" name="gameDate" value="2020-05-05" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="gameTime" class="col-form-label col-sm-3">Time</label>
+							<div class="col-sm-9">
+								<input type="time" class="form-control inputGameData" id="gameTime" name="gameTime" value="09:00:00" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="gameFee" class="col-form-label col-sm-3">Registration Fee</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control inputGameData" id="gameFee" name="gameFee" value="40.00" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="gameTeam" class="col-form-label col-sm-3">Team Required</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control inputGameData" id="gameTeam" name="gameTeam" value="7" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="gamePlayer" class="col-form-label col-sm-3">Player per Team</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control inputGameData" id="gamePlayer" name="gamePlayer" value="3" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="gameDesc" class="col-form-label col-sm-3" >Game Description</label>
+							<div class="col-sm-9">
+								<textarea class="form-control inputGameData" id="gameDesc" rows="6" required>The game requires the players to find the treasure that have been buried by the ancient people. There will be 4 stage before the player can discovered the treasure's location. The player need to solve the riddle in every stage in order to proceed to the next stage.</textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="customFile" class="col-form-label col-sm-3">Game Picture</label>
+							<div class="col-sm-9 input-group">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input inputGameData" id="customFile">
+									<label class="custom-file-label" for="customFile"></label>
+								</div>
+							</div>
+						</div>
+						<div align="center">
+							<button type="submit" class="btn m-3">Save</button>
+						</div>
 					</form>
 				</div>
 			</div>
