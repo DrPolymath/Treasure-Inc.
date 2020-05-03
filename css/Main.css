@@ -17,6 +17,10 @@ html, body {
 	color: #49655C;
 }
 
+.generalColor {
+	color: #49655C;
+}
+
 /*Navigation Bar*/
 nav {
 	background-color: #DEE7E6;
@@ -110,6 +114,11 @@ nav {
 
 .gameCard {
 	border: none;
+	transition: transform .2s;
+}
+
+.gameCard:hover {
+	transform: scale(1.05);
 }
 
 .fa-chevron-circle-left, .fa-chevron-circle-right{
@@ -167,7 +176,14 @@ th {
 	background-color: #49655C;
 }
 
-
+.circleBG {
+	background-color: #F0750F;
+	color: white;
+	padding: 15px;
+	margin: 0px 30px;
+	border-radius: 50%;
+  }
+  
 /*Footer*/
 footer {
 	background-color: #49655C;
