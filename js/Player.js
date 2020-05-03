@@ -5,3 +5,11 @@ $(document).ready(function(){
     e.preventDefault();
   });
 });
+
+$(".gameCard").click(function(){
+  window.location.href = "/html/Player - Game Detail.html";
+});
+
+$(".showGameCard").click(function(){
+  $("#gameDetailModal").modal("show")
+});
