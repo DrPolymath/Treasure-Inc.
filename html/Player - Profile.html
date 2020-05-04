@@ -39,7 +39,91 @@
 	    					<li class="dropdown-submenu dropleft" >
 	    						<a class="test dropdown-item" tabindex="-1" href="#">Notification</a>
 	    						<ul class="dropdown-menu">
-	    							<li><a class="dropdown-item" href="#">No message.</a></li>
+	    							<hr class="lineMessage">
+									<li><a class="dropdown-item notificationMessage">
+										<div class="row" href="#">
+											<div class="col-2">
+												<img src="/Icon/Player Avatar Icon.svg" width="40" height="40" align="center">
+											</div>
+											<div class="col">
+												<div id="MessageTittle">
+													Cyber Hunt Game Cancellation
+												</div>
+												<div id="MessageContent">
+													Due to certain circumstances, the...
+												</div>
+											</div>
+											<div class="col">
+												<div id="time">
+													11:16 AM
+												</div>
+											</div>
+										</div>
+									</a></li>
+									<hr class="lineMessage">
+									<li><a class="dropdown-item">
+										<div class="row">
+											<div class="col-2">
+												<img src="/Icon/Avatar Icon.svg" width="40" height="40" align="center">
+											</div>
+											<div class="col">
+												<div id="MessageTittle">
+													Remainder on Scavenger Hunt Games
+												</div>
+												<div id="MessageContent">
+													The game will start soon in 3 days....
+												</div>
+											</div>
+											<div class="col">
+												<div id="time">
+													23 Apr
+												</div>
+											</div>
+										</div>
+									</a></li>
+									<hr class="lineMessage">
+									<li><a class="dropdown-item">
+										<div class="row">
+											<div class="col-2">
+												<img src="/Icon/Avatar Icon.svg" width="40" height="40" align="center">
+											</div>
+											<div class="col">
+												<div id="MessageTittle">
+													Fitness Hunt Game Postponement
+												</div>
+												<div id="MessageContent">
+													Because of little participation from..
+												</div>
+											</div>
+											<div class="col">
+												<div id="time">
+													20 Apr
+												</div>
+											</div>
+										</div>
+									</a></li>
+									<hr class="lineMessage">
+									<li><a class="dropdown-item">
+										<div class="row">
+											<div class="col-2">
+												<img src="/Icon/Player Avatar Icon.svg" width="40" height="40" align="center">
+											</div>
+											<div class="col">
+												<div id="MessageTittle">
+													Change of Avenger Hunt Game Venue
+												</div>
+												<div id="MessageContent">
+													Avenger Hunt Game venue has changed to..
+												</div>
+											</div>
+											<div class="col">
+												<div id="time">
+													12 Apr
+												</div>
+											</div>
+										</div>	    								
+									</a></li>
+									<hr class="lineMessage">
 	    						</ul>
 	    					</li>
 	    					<li><a class="dropdown-item" href="/html/Main.html">Sign Out</a></li>
@@ -83,59 +167,183 @@
 							</div>
 						</div>
 					</div>
-					<div align="right">
-						<button type="button" class="btn mx-5" data-toggle="modal" data-target="#editProfileModal">Edit</button>
+					<div align="right" class="mx-5">
+						<button type="submit" class="btn" onclick="deleteAccount()">Delete Account</button>
+						<button type="button" class="btn" data-toggle="modal" data-target="#editProfileModal">Edit</button>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-6 p-0">
 				<div class="card shadow profileCard p-4 mx-4">
-					<h4 class="font-weight-bold">Registered Games</h4>
-					<div class="row p-0 my-3" align="center">
-						<div class="col-sm-4">
-							<div class="card gamesCard m-0">
-								<img src="/Image/Scenery1.jpg" class="card-img-top" height="100">
-								<div>
-									<h5 class="py-2">Scavenger Hunt</h5>
-									<p>
-										Venue : University of Malaya
-										Date : 5 January 2020
-									</p>
-								</div>
-							</div>
+					<div class="row px-3">
+						<div class="col">
+							<h4 class="font-weight-bold">Registered Games</h4>
 						</div>
-						<div class="col-sm-4">
-							<div class="card gamesCard m-0">
-								<img src="/Image/Scenery2.jpg" class="card-img-top" height="100">
-								<div>
-									<h5 class="py-2">Avenger Hunt</h5>
-									<p>
-										Venue : University of Malaya
-										Date : 5 January 2020
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="card gamesCard m-0">
-								<img src="/Image/Scenery3.jpeg" class="card-img-top" height="100">
-								<div>
-									<h5 class="py-2">Villain Hunt</h5>
-									<p>
-										Venue : University of Malaya
-										Date : 5 January 2020
-									</p>
-								</div>
-							</div>
+						<div class="col control-top" align="right">
+							<a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
+							<a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
 						</div>
 					</div>
-					<h4 class="font-weight-bold">Overall Rating</h4>
-					<div class="py-2">
-						<span><img src="/Icon/Yellow Star.svg" width="50"></span>
-						<span><img src="/Icon/Yellow Star.svg" width="50"></span>
-						<span><img src="/Icon/Yellow Star.svg" width="50"></span>
-						<span><img src="/Icon/Yellow Star.svg" width="50"></span>
-						<span><img src="/Icon/Grey Star.svg" width="50"></span>
+					<!--Carousel Wrapper-->
+					<div id="multi-item-example" class="carousel slide carousel-multi-item px-3" data-ride="carousel" align="center">
+				
+						<!--Slides-->
+						<div class="carousel-inner" role="listbox">
+				
+							<!--First slide-->
+							<div class="carousel-item active">
+
+								<div class="row p-0 my-3" align="center">
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery1.jpg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Scavenger Hunt</h5>
+												<p>
+													FSKTM University of Malaya<br>
+													05 May 2020
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery2.jpg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Avenger Hunt</h5>
+												<p>
+													FBL University of Malaya<br>
+													08 June 2020
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery3.jpeg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Villain Hunt</h5>
+												<p>
+													API University of Malaya<br>
+													28 January 2020
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!--/.First slide-->
+
+							<!--Second slide-->
+							<div class="carousel-item">
+
+								<div class="row p-0 my-3" align="center">
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery4.jpg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Hacker Hunt</h5>
+												<p>
+													FD University of Malaya<br>
+													30 May 2020
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery5.jpg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Cyber Hunt</h5>
+												<p>
+													FP University of Malaya<br>
+													30 June 2020
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery6.jpg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Pirates Hunt</h5>
+												<p>
+													FM University of Malaya<br>
+													15 June 2020
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!--/.Second slide-->
+					
+							<!--Third slide-->
+							<div class="carousel-item">
+
+								<div class="row p-0 my-3" align="center">
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery7.jpg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Aqua Hunt</h5>
+												<p>
+													FE University of Malaya<br>
+													20 May 2020
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery8.jpg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Fitness Hunt</h5>
+												<p>
+													FE University of Malaya<br>
+													05 May 2020
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="card gamesCard m-0">
+											<img src="/Image/Scenery9.jpg" class="card-img-top" height="100">
+											<div>
+												<h5 class="font-weight-bold py-2">Gamer Hunt</h5>
+												<p>
+													FL University of Malaya<br>
+													15 June 2020
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!--/.Third slide-->
+
+						</div>
+						<!--/.Slides-->
+
+					</div>
+					<!--/.Carousel Wrapper-->
+
+					<div class="row d-flex">
+						<div class="col-sm-4 m-auto text-center">
+							<p class="font-weight-bold generalColor">Total Games Registered</p>
+							<p class="font-weight-bold generalColor circleBG mx-5">9</p>
+						</div>
+						<div class="col-sm-4 m-auto text-center">
+							<p class="font-weight-bold generalColor">Total Games Played</p>
+							<p class="font-weight-bold generalColor circleBG mx-5">6</p>
+						</div>
+						<div class="col-sm-4 m-auto text-center">
+							<p class="font-weight-bold generalColor">Total Upcoming Games</p>
+							<p class="font-weight-bold generalColor circleBG mx-5">3</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -143,12 +351,12 @@
 	</div>
 
 	<footer>
-		<div class="row container-fluid align-items-center">
-			<div class="col-sm-6">
-				<p id="leftFooter" class="footerContent">COPYRIGHT © 2020 TREASURE INC.</p>
+		<div class="row container-fluid d-flex">
+			<div class="col-sm-6 m-auto d-flex">
+				<p id="leftFooter" class="footerContent m-auto">COPYRIGHT © 2020 TREASURE INC.</p>
 			</div>
-			<div class="col-sm-6" align="center">
-				<p id="socialMedia" class="pull-right">Follow Us
+			<div class="col-sm-6 m-auto d-flex">
+				<p id="socialMedia" class="m-auto">Follow Us
 					<a href="#"><img class="socialMediaIcon" src="/Icon/GmailWhite.svg" width="50"></a>
 					<a href="#"><img class="socialMediaIcon" src="/Icon/FacebookWhite.svg" width="50"></a>
 					<a href="#"><img class="socialMediaIcon" src="/Icon/InstagramWhite.svg" width="50"></a>
@@ -167,39 +375,151 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<h1 class="modal-title p-3">Edit Profile</h1>
+					<h1 class="modal-title p-3 font-weight-bold">Edit Profile</h1>
 					<form>
 						<div class="form-group row">
 							<label for="name" class="col-sm-3 col-form-label">Name</label>
 							<div  class="col-sm-9">
-								<input type="text" class="form-control" id="name" name="name" value="Ali Bin Hussin" required>
+								<input type="text" class="form-control inputGameData" id="name" name="name" value="Ali Bin Hussin" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="email" class="col-sm-3 col-form-label">Email</label>
 							<div  class="col-sm-9">
-								<input type="email" class="form-control" id="email" name="email" value="fortune@gmail.com" required>
+								<input type="email" class="form-control inputGameData" id="email" name="email" value="fortune@gmail.com" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="phoneNumber" class="col-sm-3 col-form-label">Phone Number</label>
 							<div  class="col-sm-9">
-								<input type="number" class="form-control" id="phoneNumber" name="phoneNumber" value="0163254864" required>
+								<input type="number" class="form-control inputGameData" id="phoneNumber" name="phoneNumber" value="0163254864" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="birthDate" class="col-sm-3 col-form-label">Birth Date</label>
 							<div  class="col-sm-9">
-								<input type="date" class="form-control" id="birthDate" name="birthDate" value="1999-02-11" required>
+								<input type="date" class="form-control inputGameData" id="birthDate" name="birthDate" value="1999-02-11" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="address" class="col-sm-3 col-form-label">Address</label>
 							<div  class="col-sm-9">
-								<textarea class="form-control" id="address" name="address" rows="3" required>Kolej Raja Dr Nazrin Shah KK12 University of Malaya</textarea>
+								<textarea class="form-control inputGameData" id="address" name="address" rows="3" required>Kolej Raja Dr Nazrin Shah KK12 University of Malaya</textarea>
 							</div>
 						</div>
 						<button type="submit" class="btn m-3">Update</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body" align="center">
+					<div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<h1 class="modal-title p-2">Message</h1>
+					<form>
+						<div class="form-group row">
+							<label for="email" class="col-sm-2 col-form-label">From</label>
+							<div  class="col-sm-10">
+								<input type="email" class="form-control-plaintext" id="email" name="email" value="cyberhuntgame@gmail.com">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="subject" class="col-sm-2 col-form-label">Subject</label>
+							<div  class="col-sm-10">
+								<input type="text" class="form-control-plaintext" id="subject" name="subject" value="Cyber Hunt Game Cancellation">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="message" class="col-sm-2 col-form-label">Message</label>
+							<div  class="col-sm-10">
+								<textarea class="form-control" id="message" name="message" rows="5" readonly>Due to certain circumstances, the Cyber Hunt Games will be canceled and the registration fee will be return to the participant soon. We are very sorry for the inconvenience.</textarea>
+							</div>
+						</div>
+						<button type="button" class="btn m-3" data-dismiss="modal">Close</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="gameDetailModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content p-2">
+				<div class="modal-body px-5">
+					<div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<h3 class="modal-title font-weight-bold py-3">Scavenger Hunt</h3>
+					<img src="/Image/Scenery1.jpg" class="img-fluid py-3">
+					<div class="d-flex py-3">
+						<div class="row font-weight-bold m-auto text-center d-flex p-2">
+							<div class="col generalColor m-auto text-center">
+								<h4 class="font-weight-bold">Total Team Joined</h4>
+							</div>
+							<div class="col m-auto text-center">
+								<h4 class="circleBG font-weight-bold">5/7</h4>
+							</div>
+							<div class="col generalColor m-auto text-center">
+								<h4 class="font-weight-bold">Total Player</h4>
+							</div>
+							<div class="col m-auto text-center">
+								<h4 class="circleBG font-weight-bold">15</h4>
+							</div>
+						</div>
+					</div>
+					<form class="py-1">
+						<div class="form-group row mx-0">
+							<label for="gameVenue" class="col-form-label col-sm-3">Venue</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control inputGameData" id="gameVenue" name="gameVenue" value="FSKTM University of Malaya" readonly>
+							</div>
+						</div>
+						<div class="form-group row mx-0">
+							<label for="gameDate" class="col-form-label col-sm-3">Date</label>
+							<div class="col-sm-9">
+								<input type="date" class="form-control inputGameData" id="gameDate" name="gameDate" value="2020-05-05" readonly>
+							</div>
+						</div>
+						<div class="form-group row mx-0">
+							<label for="gameTime" class="col-form-label col-sm-3">Time</label>
+							<div class="col-sm-9">
+								<input type="time" class="form-control inputGameData" id="gameTime" name="gameTime" value="09:00:00" readonly>
+							</div>
+						</div>
+						<div class="form-group row mx-0">
+							<label for="gameFee" class="col-form-label col-sm-3">Registration Fee</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control inputGameData" id="gameFee" name="gameFee" value="40.00" readonly>
+							</div>
+						</div>
+						<div class="form-group row mx-0">
+							<label for="gameTeam" class="col-form-label col-sm-3">Team Required</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control inputGameData" id="gameTeam" name="gameTeam" value="7" readonly>
+							</div>
+						</div>
+						<div class="form-group row mx-0">
+							<label for="gamePlayer" class="col-form-label col-sm-3">Player per Team</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control inputGameData" id="gamePlayer" name="gamePlayer" value="3" readonly>
+							</div>
+						</div>
+						<div class="form-group row mx-0">
+							<label for="gameDesc" class="col-form-label col-sm-3" >Game Description</label>
+							<div class="col-sm-9">
+								<textarea class="form-control inputGameData" id="gameDesc" rows="6" readonly>The game requires the players to find the treasure that have been buried by the ancient people. There will be 4 stage before the player can discovered the treasure's location. The player need to solve the riddle in every stage in order to proceed to the next stage.</textarea>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>

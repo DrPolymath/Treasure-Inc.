@@ -148,11 +148,11 @@ footer {
 }
 
 .fa {
-  padding: 0.75rem;
-  font-size: 2vw;
-  max-width: 3.5rem;
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
   text-decoration: none;
-  margin: 0rem 0.25rem;
+  margin: 0px 3px;
   border-radius: 50%;
   transition: transform .2s;
 }
@@ -162,6 +162,7 @@ footer {
     transform: scale(1.1);
     color: white;
 }
+
 
 /*Organiser*/
 
@@ -262,5 +263,21 @@ th {
   background-color: #DEE7E6;
   width: 12rem;
   border: none;
+  transition: box-shadow .5s;
 }
 
+.gamesCard:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.fa-chevron-circle-left, .fa-chevron-circle-right{
+	color: #49655C;
+}
+
+.circleBG {
+  background-color: #F0750F;
+  color: white;
+  padding: 15px;
+  margin: 0px 30px;
+  border-radius: 50%;
+}

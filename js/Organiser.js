@@ -42,3 +42,7 @@ function deleteAccount(){
   if (window.confirm("Do you really want to delete this account?")) { 
   }
 }
+
+$(".gamesCard").click(function(){
+  $("#gameDetailModal").modal("show")
+});

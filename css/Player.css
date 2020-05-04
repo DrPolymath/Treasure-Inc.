@@ -37,7 +37,6 @@ nav {
 .btn:hover {
   background-color: white;
   color: #49655C;
-  border-color: #49655C;
 }
 
 .iconAv {
@@ -46,6 +45,33 @@ nav {
 
 .iconAv:hover {
   transform: scale(1.1);
+}
+
+hr.lineMessage {
+  width: 420px;
+  color: #F2F2F2;
+}
+
+#MessageTittle {
+  font-style: bold;
+  color: #49655C;
+  font-size: 14px;
+  padding: none;
+}
+
+#MessageContent {
+  font-style: normal;
+  font-size: 12px;
+  padding: none;
+}
+
+#time {
+  font-size: 15px;
+  font-style: bold;
+  color: #49655C;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  float: right;
 }
 
 /* Content */
@@ -99,11 +125,15 @@ footer {
 }
 
 #leftFooter {
-	font-size: 0.75vw;
+  font-size: 0.75vw;
+  color: white;
+  margin-left: 0px !important;
 }
 
 #socialMedia {
-	font-weight: bold;
+  font-weight: bold;
+  color: white;
+  margin-right: 0px !important;
 }
 
 .fa {
@@ -234,6 +264,10 @@ section{
   color: white;
 }
 
+.centerItem {
+  height: 200px;
+}
+
 .card-header {
   background-color: #49655C;
   color: white;
@@ -261,4 +295,13 @@ section{
   background-color: #DEE7E6;
   width: 12rem;
   border: none;
+  transition: box-shadow .5s;
+}
+
+.gamesCard:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.fa-chevron-circle-left, .fa-chevron-circle-right{
+	color: #49655C;
 }
