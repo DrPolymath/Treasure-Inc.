@@ -49,7 +49,7 @@
 			</div>
 			<div id="logoTextContainer" class="col-sm-6" align="center">
 				<img class="img-fluid" src="/Icon/Logo Text.svg" width="400">
-				<a id="joinUsBtn" class="nav-link" href="">JOIN US</a>
+				<a id="joinUsBtn" class="nav-link" href="/html/Login.html">JOIN US</a>
 			</div>
 		</div>
 	</div>
@@ -259,7 +259,7 @@
 		<div>
 			<input  type="text" id="searchFilter" onkeyup="searchFilter()" placeholder="Search..">
 		</div>
-		<table class="table table-hover">
+		<table id="gameTable" class="table table-hover shadow">
 			<thead>
 			  <tr>
 				<th scope="col"></th>
@@ -276,7 +276,7 @@
 			  </tr>
 			</thead>
 			<tbody id="data">
-			  <tr class="gameCard">
+			  <tr class="gameTableData">
 				<td>1</td>
 				<td><img src="/Image/Scenery1.jpg" width="100"></td>
 				<td>Scavenger Hunt</td>
@@ -411,16 +411,16 @@
 
 	<div class="modal fade" id="gameDetailModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content p-3">
-				<div class="modal-body">
+			<div class="modal-content p-2">
+				<div class="modal-body px-5">
 					<div>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<h3 class="modal-title font-weight-bold">Scavenger Hunt</h3>
+					<h3 class="modal-title font-weight-bold py-3">Scavenger Hunt</h3>
 					<img src="/Image/Scenery1.jpg" class="img-fluid py-3">
-					<div class="d-flex">
+					<div class="d-flex py-5">
 						<div class="row font-weight-bold m-auto text-center d-flex p-2">
 							<div class="col generalColor m-auto text-center">
 								<h4 class="font-weight-bold">Total Team Joined</h4>

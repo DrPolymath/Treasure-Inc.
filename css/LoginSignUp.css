@@ -32,6 +32,14 @@ a:hover {
 	color: white;
 }
 
+.backIcon {
+	transition: transform .2s;
+}
+
+.backIcon:hover {
+	transform: scale(1.2);
+}
+
 #cardLogin{
 	width: 500px;
 }
@@ -63,7 +71,6 @@ input[type=email].fcEmail{
 .btn:hover {
 	background-color: white;
 	color: #49655C;
-	border-color: #49655C;
 }
 
 #smallLink {

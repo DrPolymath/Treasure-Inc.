@@ -28,13 +28,18 @@ nav {
 	font-size: 1.25rem;
 }
 
-#navLink, #signInBtn {
+#signInBtn {
 	color: #ffffff;
 	padding: 0rem 2rem;
 }
 
-#navLink:hover {
+#navLink {
 	color: #49655C;
+	padding: 0rem 2rem;
+}
+
+#navLink:hover {
+	color: white;
 }
 
 #signInBtn {
@@ -174,6 +179,7 @@ th {
 	font-weight: bold;
 	color: white;
 	background-color: #49655C;
+	border:none !important;
 }
 
 .circleBG {
@@ -182,6 +188,16 @@ th {
 	padding: 15px;
 	margin: 0px 30px;
 	border-radius: 50%;
+  }
+
+  .inputGameData {
+	border: none;
+	background-color: #F2F2F2;
+  }
+  
+  .inputGameData:focus {
+	border: none;
+	background-color: #F2F2F2;
   }
   
 /*Footer*/

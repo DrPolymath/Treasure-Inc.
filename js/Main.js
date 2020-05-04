@@ -35,10 +35,9 @@ $(document).ready(function(){
 });
 
 $("#viewGames").click(function(){
-  $("#gameListPanel").slideToggle();
+  $("#gameListPanel").slideToggle("slow");
 });
 
-$(".gameCard").click(function(){
+$(".gameCard, .gameTableData").click(function(){
   $("#gameDetailModal").modal("show")
 });
-
