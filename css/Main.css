@@ -119,11 +119,11 @@ nav {
 
 .gameCard {
 	border: none;
-	transition: transform .2s;
+	transition: box-shadow .5s;
 }
 
 .gameCard:hover {
-	transform: scale(1.05);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .fa-chevron-circle-left, .fa-chevron-circle-right{

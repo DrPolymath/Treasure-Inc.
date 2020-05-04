@@ -39,7 +39,91 @@
 	    					<li class="dropdown-submenu dropleft" >
 	    						<a class="test dropdown-item" tabindex="-1" href="#">Notification</a>
 	    						<ul class="dropdown-menu">
-	    							<li><a class="dropdown-item" href="#">No message.</a></li>
+	    							<hr>
+									<li><a class="dropdown-item notificationMessage">
+										<div class="row" href="#">
+											<div class="col-2">
+												<img src="/Icon/Player Avatar Icon.svg" width="40" height="40" align="center">
+											</div>
+											<div class="col">
+												<div id="MessageTittle">
+													Cyber Hunt Game Cancellation
+												</div>
+												<div id="MessageContent">
+													Due to certain circumstances, the...
+												</div>
+											</div>
+											<div class="col">
+												<div id="time">
+													11:16 AM
+												</div>
+											</div>
+										</div>
+									</a></li>
+									<hr>
+									<li><a class="dropdown-item">
+										<div class="row">
+											<div class="col-2">
+												<img src="/Icon/Avatar Icon.svg" width="40" height="40" align="center">
+											</div>
+											<div class="col">
+												<div id="MessageTittle">
+													Remainder on Scavenger Hunt Games
+												</div>
+												<div id="MessageContent">
+													The game will start soon in 3 days....
+												</div>
+											</div>
+											<div class="col">
+												<div id="time">
+													23 Apr
+												</div>
+											</div>
+										</div>
+									</a></li>
+									<hr>
+									<li><a class="dropdown-item">
+										<div class="row">
+											<div class="col-2">
+												<img src="/Icon/Avatar Icon.svg" width="40" height="40" align="center">
+											</div>
+											<div class="col">
+												<div id="MessageTittle">
+													Fitness Hunt Game Postponement
+												</div>
+												<div id="MessageContent">
+													Because of little participation from..
+												</div>
+											</div>
+											<div class="col">
+												<div id="time">
+													20 Apr
+												</div>
+											</div>
+										</div>
+									</a></li>
+									<hr>
+									<li><a class="dropdown-item">
+										<div class="row">
+											<div class="col-2">
+												<img src="/Icon/Player Avatar Icon.svg" width="40" height="40" align="center">
+											</div>
+											<div class="col">
+												<div id="MessageTittle">
+													Change of Avenger Hunt Game Venue
+												</div>
+												<div id="MessageContent">
+													Avenger Hunt Game venue has changed to..
+												</div>
+											</div>
+											<div class="col">
+												<div id="time">
+													12 Apr
+												</div>
+											</div>
+										</div>	    								
+									</a></li>
+									<hr>
 	    						</ul>
 	    					</li>
 	    					<li><a class="dropdown-item" href="/html/Main.html">Sign Out</a></li>
@@ -82,8 +166,9 @@
 							</div>
 						</div>
 					</div>
-					<div align="right">
-						<button type="button" class="btn mx-5" data-toggle="modal" data-target="#editProfileModal">Edit</button>
+					<div align="right" class="mx-5">
+						<button type="submit" class="btn" onclick="deleteAccount()">Delete Account</button>
+						<button type="button" class="btn" data-toggle="modal" data-target="#editProfileModal">Edit</button>
 					</div>
 				</div>
 			</div>
@@ -95,7 +180,7 @@
 							<div class="card gamesCard m-0">
 								<img src="/Image/Scenery1.jpg" class="card-img-top" height="100">
 								<div>
-									<h5 class="py-2">Scavenger Hunt</h5>
+									<h5 class="py-2 font-weight-bold">Scavenger Hunt</h5>
 									<p>
 										Venue : University of Malaya
 										Date : 5 January 2020
@@ -107,7 +192,7 @@
 							<div class="card gamesCard m-0">
 								<img src="/Image/Scenery2.jpg" class="card-img-top" height="100">
 								<div>
-									<h5 class="py-2">Avenger Hunt</h5>
+									<h5 class="py-2 font-weight-bold">Avenger Hunt</h5>
 									<p>
 										Venue : University of Malaya
 										Date : 5 January 2020
@@ -119,7 +204,7 @@
 							<div class="card gamesCard m-0">
 								<img src="/Image/Scenery3.jpeg" class="card-img-top" height="100">
 								<div>
-									<h5 class="py-2">Villain Hunt</h5>
+									<h5 class="py-2 font-weight-bold">Villain Hunt</h5>
 									<p>
 										Venue : University of Malaya
 										Date : 5 January 2020
@@ -142,12 +227,12 @@
 	</div>
 
 	<footer>
-		<div class="row container-fluid align-items-center">
-			<div class="col-sm-6">
-				<p id="leftFooter" class="footerContent">COPYRIGHT © 2020 TREASURE INC.</p>
+		<div class="row container-fluid d-flex">
+			<div class="col-sm-6 m-auto d-flex">
+				<p id="leftFooter" class="footerContent m-auto">COPYRIGHT © 2020 TREASURE INC.</p>
 			</div>
-			<div class="col-sm-6" align="center">
-				<p id="socialMedia" class="pull-right">Follow Us
+			<div class="col-sm-6 m-auto d-flex">
+				<p id="socialMedia" class="m-auto">Follow Us
 					<a href="#"><img class="socialMediaIcon" src="/Icon/GmailWhite.svg" width="50"></a>
 					<a href="#"><img class="socialMediaIcon" src="/Icon/FacebookWhite.svg" width="50"></a>
 					<a href="#"><img class="socialMediaIcon" src="/Icon/InstagramWhite.svg" width="50"></a>
@@ -166,39 +251,75 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<h1 class="modal-title p-3">Edit Profile</h1>
+					<h1 class="modal-title p-3 font-weight-bold">Edit Profile</h1>
 					<form>
 						<div class="form-group row">
 							<label for="name" class="col-sm-3 col-form-label">Name</label>
 							<div  class="col-sm-9">
-								<input type="text" class="form-control" id="name" name="name" value="Oliver Buckland" required>
+								<input type="text" class="form-control inputGameData" id="name" name="name" value="Oliver Buckland" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="email" class="col-sm-3 col-form-label">Email</label>
 							<div  class="col-sm-9">
-								<input type="email" class="form-control" id="email" name="email" value="bucklandOli@gmail.com" required>
+								<input type="email" class="form-control inputGameData" id="email" name="email" value="bucklandOli@gmail.com" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="phoneNumber" class="col-sm-3 col-form-label">Phone Number</label>
 							<div  class="col-sm-9">
-								<input type="number" class="form-control" id="phoneNumber" name="phoneNumber" value="0163254864" required>
+								<input type="number" class="form-control inputGameData" id="phoneNumber" name="phoneNumber" value="0163254864" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="birthDate" class="col-sm-3 col-form-label">Birth Date</label>
 							<div  class="col-sm-9">
-								<input type="date" class="form-control" id="birthDate" name="birthDate" value="1995-02-11" required>
+								<input type="date" class="form-control inputGameData" id="birthDate" name="birthDate" value="1995-02-11" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="address" class="col-sm-3 col-form-label">Address</label>
 							<div  class="col-sm-9">
-								<textarea class="form-control" id="address" name="address" rows="3" required>8990 W. Brickyard Ave. North Kingstown, RI 02852</textarea>
+								<textarea class="form-control inputGameData" id="address" name="address" rows="3" required>8990 W. Brickyard Ave. North Kingstown, RI 02852</textarea>
 							</div>
 						</div>
 						<button type="submit" class="btn m-3">Update</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body" align="center">
+					<div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<h1 class="modal-title p-2">Message</h1>
+					<form>
+						<div class="form-group row">
+							<label for="email" class="col-sm-2 col-form-label">From</label>
+							<div  class="col-sm-10">
+								<input type="email" class="form-control-plaintext" id="email" name="email" value="cyberhuntgame@gmail.com">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="subject" class="col-sm-2 col-form-label">Subject</label>
+							<div  class="col-sm-10">
+								<input type="text" class="form-control-plaintext" id="subject" name="subject" value="Cyber Hunt Game Cancellation">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="message" class="col-sm-2 col-form-label">Message</label>
+							<div  class="col-sm-10">
+								<textarea class="form-control" id="message" name="message" rows="5" readonly>Due to certain circumstances, the Cyber Hunt Games will be canceled and the registration fee will be return to the participant soon. We are very sorry for the inconvenience.</textarea>
+							</div>
+						</div>
+						<button type="button" class="btn m-3" data-dismiss="modal">Close</button>
 					</form>
 				</div>
 			</div>

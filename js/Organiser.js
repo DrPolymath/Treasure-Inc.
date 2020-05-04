@@ -28,3 +28,17 @@ $(".gameCard").click(function(){
 $("#teamList").click(function(){
   $("#teamListPanel").slideToggle();
 });
+
+$(".notificationMessage").click(function(){
+  $("#messageModal").modal("show")
+});
+
+function deleteGame(){
+  if (window.confirm("Do you really want to delete this game?")) { 
+  }
+}
+
+function deleteAccount(){
+  if (window.confirm("Do you really want to delete this account?")) { 
+  }
+}

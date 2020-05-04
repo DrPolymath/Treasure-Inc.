@@ -16,7 +16,6 @@ html, body {
 .btn:hover {
   background-color: white;
   color: #49655C;
-  border-color: #49655C;
 }
 
 /*Navigation Bar*/
@@ -42,6 +41,33 @@ nav {
 
 .iconAv:hover {
   transform: scale(1.1);
+}
+
+hr {
+  width: 420px;
+  color: #F2F2F2;
+}
+
+#MessageTittle {
+  font-style: bold;
+  color: #49655C;
+  font-size: 14px;
+  padding: none;
+}
+
+#MessageContent {
+  font-style: normal;
+  font-size: 12px;
+  padding: none;
+}
+
+#time {
+  font-size: 15px;
+  font-style: bold;
+  color: #49655C;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  float: right;
 }
 
 /* Content */
@@ -86,6 +112,20 @@ nav {
   background-color: #F2F2F2;
 }
 
+input[type="file"] {
+  border: none;
+  background-color: #F2F2F2;
+}
+
+.gameCard {
+	border: none;
+	transition: box-shadow .5s;
+}
+
+.gameCard:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 /* Footer */
 footer {
 	background-color: #49655C;
@@ -98,11 +138,13 @@ footer {
 #leftFooter {
   font-size: 0.75vw;
   color: white;
+  margin-left: 0px !important;
 }
 
 #socialMedia {
   font-weight: bold;
   color: white;
+  margin-right: 0px !important;
 }
 
 .fa {
@@ -148,8 +190,12 @@ footer {
   color: white;
 }
 
+.centerItem {
+  height: 200px;
+}
+
 .btnOGD {
-  width: 223px;
+  width: 220px;
 }
 
 #teamListPanel{
