@@ -99,6 +99,7 @@ hr.lineMessage {
 
 .card {
   margin: 0rem 2.5rem;
+  border: none;
 }
 
 .form-group {
@@ -181,14 +182,6 @@ section{
   border-radius: 50%;
 }
 
-.showGameCard {
-  transition: transform .2s;
-}
-
-.showGameCard:hover {
-  transform: scale(1.1);
-}
-
 #searchFilter {
   background-color: white; 
   background-image: url("/Icon/searchIcon.png");
@@ -252,6 +245,31 @@ section{
 
 .gameCard:hover {
   transform: scale(1.1);
+}
+
+.ticketImgH {
+  height: 225px;
+}
+
+.btnTicket {
+ width: 10rem;
+}
+
+.table {
+  padding-right: 50px;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 16px;
+  background-color: white;
+  color: #49655C;
+  width: 90%;
+}
+
+th {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #49655C;
 }
 
 /*Player - Game Detail*/

@@ -21,7 +21,7 @@ $('#customFile').on('change',function(){
   $(this).next('.custom-file-label').html(fileName);
 })
 
-$(".gameCard").click(function(){
+$(".showGameCard").click(function(){
   window.location.href = "/html/Organiser - Game Detail.html";
 });
 
@@ -43,6 +43,6 @@ function deleteAccount(){
   }
 }
 
-$(".gamesCard").click(function(){
+$(".showGamesCard").click(function(){
   $("#gameDetailModal").modal("show")
 });

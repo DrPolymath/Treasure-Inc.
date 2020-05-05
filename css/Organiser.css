@@ -149,7 +149,6 @@ footer {
 
 .fa {
   padding: 10px;
-  font-size: 20px;
   width: 40px;
   text-decoration: none;
   margin: 0px 3px;
@@ -163,6 +162,13 @@ footer {
     color: white;
 }
 
+.faMain {
+  font-size: 40px;
+}
+
+.faProfile {
+  font-size: 20px;
+}
 
 /*Organiser*/
 

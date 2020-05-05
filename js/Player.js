@@ -13,12 +13,16 @@ $(document).ready(function(){
   });
 });
 
-$(".gameCard").click(function(){
+$(".displayGameCard").click(function(){
   window.location.href = "/html/Player - Game Detail.html";
 });
 
 $(".showGameCard").click(function(){
   $("#gameDetailModal").modal("show")
+});
+
+$(".showRegistration").click(function(){
+  $("#registrationModal").modal("show")
 });
 
 $(".notificationMessage").click(function(){
@@ -30,6 +34,16 @@ function deleteAccount(){
   }
 }
 
-$(".gamesCard").click(function(){
+$(".showGamesCard").click(function(){
   $("#gameDetailModal").modal("show")
+});
+
+$(".removeTeamMember").click(function(){
+  if (window.confirm("Do you really want to remove this team member?")) { 
+  }
+});
+
+$(".editTeamMember").click(function(){
+  $("#registrationModal").modal("hide")
+  $("#editMemberModal").modal("show")
 });
