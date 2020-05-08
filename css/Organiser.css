@@ -183,8 +183,22 @@ footer {
 }
 
 .formAG {
- padding: 5px;
+ padding: 1px;
  border: none;
+}
+
+#gamePicture, #gamePictureUpdate {
+  display: none;
+}
+
+#gamePicUpload {
+  max-width: 630px;
+  width: 100%;
+}
+
+#gamePicUploadUpdate {
+  max-width: 690px;
+  width: 100%;
 }
 
 /*Organiser - Game Detail*/
@@ -249,6 +263,30 @@ th {
   font-weight: bold;
   color: white;
   background-color: #49655C;
+}
+
+.imgContainer{
+  position: relative;
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 96%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  margin-left: 14px;
+  text-align: center;
+}
+
+.imgContainer:hover .overlay {
+  opacity: 1;
 }
 
 /*Organiser - Profle*/
