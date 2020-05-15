@@ -61,12 +61,12 @@ function displayImage(e) {
   }
 }
 
-function triggerClick(){
+function triggerClickUpdate(){
   $("#updateGameModal").modal("hide")
   document.querySelector("#gamePictureUpdate").click();
 }
 
-function displayImage(e) {
+function displayImageUpdate(e) {
   if (e.files[0]) {
     var reader = new FileReader();
     reader.onload = function(e){
