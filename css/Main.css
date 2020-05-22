@@ -59,7 +59,7 @@ nav {
 	height: 100%;
 	padding-top: 5rem;
 }
-#aboutUsContent {
+#ourUsersContent {
 	background-color: #DEE7E6;
 	height: 100%;
 	padding-top: 4.5rem;
@@ -82,12 +82,19 @@ nav {
 	border-style: none;
 }
 
+#appDesc {
+	width: 400px;
+	text-align: justify;
+	margin-top: 40px;
+	font-size: 20px;
+}
+
 #joinUsBtn:hover {
 	color: #F0750F;
 	background-color: #ffffff;
 }
 
-/*AboutUsContent*/
+/*Our Users Content*/
 #desc {
 	max-width: 35rem;
 	max-height: 14rem;
@@ -151,7 +158,7 @@ nav {
 
 #searchFilter {
 	background-color: white; 
-	background-image: url("/Icon/searchIcon.png");
+	background-image: url("../Icon/searchIcon.png");
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
 	background-position: 20px 12px;
@@ -263,7 +270,7 @@ footer {
 		padding-right: 3rem;
 	}
 
-	/* About us */
+	/* Our Users */
 	#rowChange {
 		flex-direction: column-reverse;
 	}

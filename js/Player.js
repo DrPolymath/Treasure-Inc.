@@ -14,7 +14,7 @@ $(document).ready(function(){
 });
 
 $(".displayGameCard").click(function(){
-  window.location.href = "/html/Player - Game Detail.html";
+  window.location.href = "../html/Player - Game Detail.html";
 });
 
 $(".showGameCard").click(function(){

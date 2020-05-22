@@ -38,6 +38,6 @@ $("#viewGames").click(function(){
   $("#gameListPanel").slideToggle("slow");
 });
 
-$(".gameCard, .gameTableData").click(function(){
+$(".showGameCard, .gameTableData").click(function(){
   $("#gameDetailModal").modal("show")
 });

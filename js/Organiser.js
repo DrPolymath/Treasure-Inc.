@@ -22,7 +22,7 @@ $('#customFile').on('change',function(){
 })
 
 $(".showGameCard").click(function(){
-  window.location.href = "/html/Organiser - Game Detail.html";
+  window.location.href = "../html/Organiser - Game Detail.html";
 });
 
 $("#teamList").click(function(){
