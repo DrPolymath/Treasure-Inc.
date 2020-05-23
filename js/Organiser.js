@@ -1,51 +1,33 @@
-//navbar dropdown
+//Navbar Dropdown
+
 $(document).ready(function(){
   $('.dropdown-submenu a.test').on("click", function(e){
     $(this).next('ul').toggle();
     e.stopPropagation();
     e.preventDefault();
   });
-  $("#searchFilter").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#data tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
 
-//Organiser - Add Game
-$('#customFile').on('change',function(){
-  //get the file name
-  var fileName = $(this).val();
-  //replace the "Choose a file" label
-  $(this).next('.custom-file-label').html(fileName);
-})
-
-$(".showGameCard").click(function(){
-  window.location.href = "../html/Organiser - Game Detail.html";
-});
-
-$("#teamList").click(function(){
-  $("#teamListPanel").slideToggle();
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("greetingContainer").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("GET","../php/Session.php",true);
+  xmlhttp.send();
 });
 
 $(".notificationMessage").click(function(){
   $("#messageModal").modal("show")
 });
 
-function deleteGame(){
-  if (window.confirm("Do you really want to delete this game?")) { 
-  }
-}
+//Organiser
 
-function deleteAccount(){
-  if (window.confirm("Do you really want to delete this account?")) { 
-  }
-}
-
-$(".showGamesCard").click(function(){
-  $("#gameDetailModal").modal("show")
+$(".showGameCard").click(function(){
+  window.location.href = "../html/Organiser - Game Detail.html";
 });
+
+//Organiser - Add Game
 
 function triggerClick(){
   document.querySelector("#gamePicture").click();
@@ -60,6 +42,8 @@ function displayImage(e) {
     reader.readAsDataURL(e.files[0]);
   }
 }
+
+//Organiser - Game Detail
 
 function triggerClickUpdate(){
   $("#updateGameModal").modal("hide")
@@ -76,3 +60,40 @@ function displayImageUpdate(e) {
   }
   $("#updateGameModal").modal("show")
 }
+
+function deleteGame(){
+  if (window.confirm("Do you really want to delete this game?")) { 
+  }
+}
+
+$("#teamList").click(function(){
+  $("#teamListPanel").slideToggle();
+});
+
+$(document).ready(function(){
+  $("#searchFilter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#data tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+//Organiser - Profile
+
+$(".showGamesCard").click(function(){
+  $("#gameDetailModal").modal("show")
+});
+
+function deleteAccount(){
+  if (window.confirm("Do you really want to delete this account?")) { 
+  }
+}
+
+
+// $('#customFile').on('change',function(){
+//   //get the file name
+//   var fileName = $(this).val();
+//   //replace the "Choose a file" label
+//   $(this).next('.custom-file-label').html(fileName);
+// })
