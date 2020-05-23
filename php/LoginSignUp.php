@@ -25,7 +25,7 @@
         $Email = $_GET["Email"];
         $Password = $_GET["Password"];
 
-        $sql = "SELECT * FROM user WHERE Email='$Email' AND Password='$Password'";
+        $sql = "SELECT UserName, UserCategory FROM user WHERE Email='$Email' AND Password='$Password'";
         $result = $pdo->query($sql);
 
         if($result->rowCount() == 0){
@@ -37,12 +37,7 @@
             session_start();
             while($res = $result->fetch()){
                 $_SESSION['UserName']=$res['UserName'];
-                $_SESSION['Email']=$res['Email'];
-                $_SESSION['PhoneNumber']=$res['PhoneNumber'];
-                $_SESSION['BirthDate']=$res['BirthDate'];
-                $_SESSION['Address']=$res['Address'];
                 $_SESSION['UserCategory']=$res['UserCategory'];
-                $_SESSION['Password']=$res['Password'];
             }
             
             if($_SESSION['UserCategory']=="Player"){
