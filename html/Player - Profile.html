@@ -26,8 +26,7 @@
   		<!-- Navbar links -->
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<p id="greeting">Hi, Ali</p>
+				<li id="greetingContainer" class="nav-item">
 				</li>
 				<li class="nav-item">
 					<div class="dropdown">
@@ -126,7 +125,7 @@
 									<hr class="lineMessage">
 	    						</ul>
 	    					</li>
-	    					<li><a class="dropdown-item" href="../html/Main.html">Sign Out</a></li>
+	    					<li><a class="dropdown-item" href="../php/Session.php?Logout=">Sign Out</a></li>
 	  					</ul>
 	  				</div>
 				</li>
@@ -157,19 +156,16 @@
 							</div>
 						</div>
 						<div class="col py-3" align="left">
-							<div class="mx-3 generalColor">
-								<h3 class="py-4 font-weight-bold">Ali Bin Hussin</h3>
-								<p>21 Years old</p>
-								<p>Player</p>
-								<p>fortune@gmail.com</p>
-								<p>016-3254864</p>
-								<p>Kolej Raja Dr Nazrin Shah KK12 University of Malaya</p>
+							<div id="userInfo" class="mx-3 generalColor">
 							</div>
 						</div>
 					</div>
 					<div align="right" class="mx-5">
-						<button type="submit" class="btn" onclick="deleteAccount()">Delete Account</button>
-						<button type="button" class="btn" data-toggle="modal" data-target="#editProfileModal">Edit</button>
+						<form id="DeleteAccountForm">
+							<input type="text" class="form-control inputGameData" id="DeleteUser" name="DeleteUser" hidden>
+							<button type="submit" class="btn">Delete Account</button>
+							<button type="button" class="btn" data-toggle="modal" data-target="#editProfileModal" onclick="displayUserDetail()">Edit</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -376,37 +372,38 @@
 						</button>
 					</div>
 					<h1 class="modal-title p-3 font-weight-bold generalColor">Edit Profile</h1>
-					<form>
+					<form id="UpdateUserForm">
 						<div class="form-group row">
-							<label for="name" class="col-sm-3 col-form-label">Name</label>
+							<label for="UserName" class="col-sm-3 col-form-label">User Name</label>
 							<div  class="col-sm-9">
-								<input type="text" class="form-control inputGameData" id="name" name="name" value="Ali Bin Hussin" required>
+								<input type="text" class="form-control inputGameData" id="UserName" name="UserName" required>
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="email" class="col-sm-3 col-form-label">Email</label>
+							<label for="Email" class="col-sm-3 col-form-label">Email</label>
 							<div  class="col-sm-9">
-								<input type="email" class="form-control inputGameData" id="email" name="email" value="fortune@gmail.com" required>
+								<input type="email" class="form-control inputGameData" id="Email" name="Email" required>
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="phoneNumber" class="col-sm-3 col-form-label">Phone Number</label>
+							<label for="PhoneNumber" class="col-sm-3 col-form-label">Phone Number</label>
 							<div  class="col-sm-9">
-								<input type="number" class="form-control inputGameData" id="phoneNumber" name="phoneNumber" value="0163254864" required>
+								<input type="number" class="form-control inputGameData" id="PhoneNumber" name="PhoneNumber" minlength="10" maxlength="11" required>
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="birthDate" class="col-sm-3 col-form-label">Birth Date</label>
+							<label for="BirthDate" class="col-sm-3 col-form-label">Birth Date</label>
 							<div  class="col-sm-9">
-								<input type="date" class="form-control inputGameData" id="birthDate" name="birthDate" value="1999-02-11" required>
+								<input type="date" class="form-control inputGameData" id="BirthDate" name="BirthDate" required>
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="address" class="col-sm-3 col-form-label">Address</label>
+							<label for="Address" class="col-sm-3 col-form-label">Address</label>
 							<div  class="col-sm-9">
-								<textarea class="form-control inputGameData" id="address" name="address" rows="3" required>Kolej Raja Dr Nazrin Shah KK12 University of Malaya</textarea>
+								<textarea class="form-control inputGameData" id="Address" name="Address" rows="3" required></textarea>
 							</div>
 						</div>
+						<input type="text" class="form-control inputGameData" id="UpdateUser" name="UpdateUser" hidden>
 						<button type="submit" class="btn m-3">Update</button>
 					</form>
 				</div>
