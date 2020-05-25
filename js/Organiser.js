@@ -22,25 +22,55 @@ $(".notificationMessage").click(function(){
 
 //Organiser
 
-$(".showGameCard").click(function(){
-  window.location.href = "../html/Organiser - Game Detail.html";
+$(document).ready(function(){
+  $.ajax({
+    url: "../php/CRUD Game.php",
+    type: 'GET',
+    data: "Card=Yes",
+    success: function (data) {
+      $('#CarouselInner').html(data);
+    },
+  });
 });
+
+// $(".showGameCard").click(function(){
+//   window.location.href = "../html/Organiser - Game Detail.html";
+// });
 
 //Organiser - Add Game
 
 function triggerClick(){
-  document.querySelector("#gamePicture").click();
+  document.querySelector("#GameImage").click();
 }
 
 function displayImage(e) {
   if (e.files[0]) {
     var reader = new FileReader();
     reader.onload = function(e){
-      document.querySelector('#gamePicUpload').setAttribute('src', e.target.result);
+      document.querySelector('#GameImageUpload').setAttribute('src', e.target.result);
     }
     reader.readAsDataURL(e.files[0]);
   }
 }
+
+$('form#AddGameForm').submit(function(e) {
+  e.preventDefault();    
+  var formData = new FormData(this);
+  var files = $('#GameImage')[0].files[0];
+  formData.append('file',files);
+  $.ajax({
+    url: "../php/CRUD Game.php",
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    cach: false,
+    processData: false,
+    success: function (data) {
+        alert(data);
+        document.location.href='../html/Organiser - Add Game.html';
+    },
+  });
+});
 
 //Organiser - Game Detail
 
@@ -60,11 +90,6 @@ function displayImageUpdate(e) {
   $("#updateGameModal").modal("show")
 }
 
-function deleteGame(){
-  if (window.confirm("Do you really want to delete this game?")) { 
-  }
-}
-
 $("#teamList").click(function(){
   $("#teamListPanel").slideToggle();
 });
@@ -75,6 +100,31 @@ $(document).ready(function(){
     $("#data tr").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
+  });
+  // document.getElementById("GameImageData").src = "data:image;base64," + queries[1];
+  // document.getElementById("GameDescriptionData").value = queries[2];
+  // document.getElementById("VenueData").value = queries[3];
+  // document.getElementById("DateData").value = queries[4];
+  // document.getElementById("TimeData").value = queries[5];
+  // document.getElementById("RegistrationFeeData").value = queries[6];
+  // document.getElementById("TeamRequiredData").value = queries[7];
+  // document.getElementById("PlayerPerTeamData").value = queries[8];
+  // document.getElementById("TotalTeamJoinedData").innerHTML = queries[9] + "/" + queries[7];
+  // document.getElementById("TotalPlayerData").innerHTML = queries[10];
+});
+
+$( window ).on( "load", function() {
+  var queryString = decodeURIComponent(window.location.search);
+  queryString = queryString.substring(1);
+  var queries = queryString.split("&");
+  document.getElementById("GameNameData").innerHTML = queries[0].split("=")[1];
+  $.ajax({
+    type: "GET",
+    url: "../php/CRUD Game.php",
+    data:"GameDetailOrganiser=Yes&"+queries[0]+"&"+queries[1],
+    success: function(data){
+      $('#GameDetailCard').html(data);
+    }
   });
 });
 

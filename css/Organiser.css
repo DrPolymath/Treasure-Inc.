@@ -187,11 +187,11 @@ footer {
  border: none;
 }
 
-#gamePicture, #gamePictureUpdate {
+#GameImage, #gamePictureUpdate {
   display: none;
 }
 
-#gamePicUpload {
+#GameImageUpload {
   max-width: 630px;
   width: 100%;
 }

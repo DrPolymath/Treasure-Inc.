@@ -31,13 +31,28 @@ $(document).ready(function(){
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+});
 
+$(document).ready(function(){
+  $.ajax({
+    url: "../php/Main.php",
+    type: 'GET',
+    data: "Card=Yes",
+    success: function (data) {
+      $('#CarouselInner').html(data);
+    },
+  });
+
+  $.ajax({
+    url: "../php/Main.php",
+    type: 'GET',
+    data: "Table=Yes",
+    success: function (data) {
+      $('#data').html(data);
+    },
+  });
 });
 
 $("#viewGames").click(function(){
   $("#gameListPanel").slideToggle("slow");
-});
-
-$(".showGameCard, .gameTableData").click(function(){
-  $("#gameDetailModal").modal("show")
 });
