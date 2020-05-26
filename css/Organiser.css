@@ -187,7 +187,7 @@ footer {
  border: none;
 }
 
-#GameImage, #gamePictureUpdate {
+#GameImage, #UpdateGameImageData {
   display: none;
 }
 
@@ -196,7 +196,7 @@ footer {
   width: 100%;
 }
 
-#gamePicUploadUpdate {
+#UpdateGameImageDataUpload {
   max-width: 690px;
   width: 100%;
 }

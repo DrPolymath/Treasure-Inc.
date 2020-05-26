@@ -29,6 +29,15 @@ $(document).ready(function(){
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+
+  $.ajax({
+    url: "../php/CRUD Game.php",
+    type: 'GET',
+    data: "PlayerCardGame=Yes",
+    success: function (data) {
+      $('#gameData').html(data);
+    },
+  });
 });
 
 $(".showGameCard").click(function(){
@@ -55,6 +64,21 @@ $(".displayGameCard").click(function(){
 
 //Player - Game Detail
 
+$( window ).on( "load", function() {
+  var queryString = decodeURIComponent(window.location.search);
+  queryString = queryString.substring(1);
+  var queries = queryString.split("&");
+  document.getElementById("GameNameData").innerHTML = queries[0].split("=")[1];
+  $.ajax({
+    type: "GET",
+    url: "../php/CRUD Game.php",
+    data:"GameDetailPlayer=Yes&"+queries[0]+"&"+queries[1],
+    success: function(data){
+      $('#GameDetailCard').html(data);
+    }
+  });
+});
+
 //Player - Profile
 
 $(document).ready(function(event){
@@ -68,15 +92,18 @@ $(document).ready(function(event){
   xmlhttp.send();
 });
 
-$( window ).on( "load", function() {
+function displayUserDetail(){
   document.getElementById('UserName').value = document.getElementById('updateUserName').innerHTML;
   document.getElementById('Email').value = document.getElementById('updateEmail').innerHTML;
   document.getElementById('PhoneNumber').value = document.getElementById('updatePhoneNumber').innerHTML;
   document.getElementById('BirthDate').value = document.getElementById('updateBirthDate').innerHTML;
   document.getElementById('Address').value = document.getElementById('updateAddress').innerHTML;
   document.getElementById('UpdateUser').value = document.getElementById('updateEmail').innerHTML;
+}
+
+function deleteUserDetail(){
   document.getElementById('DeleteUser').value = document.getElementById('updateEmail').innerHTML;
-});
+}
 
 $('#UpdateUserForm').on('submit', function(event){
   event.preventDefault();

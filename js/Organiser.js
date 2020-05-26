@@ -76,23 +76,19 @@ $('form#AddGameForm').submit(function(e) {
 
 function triggerClickUpdate(){
   $("#updateGameModal").modal("hide")
-  document.querySelector("#gamePictureUpdate").click();
+  document.querySelector("#UpdateGameImageData").click();
 }
 
 function displayImageUpdate(e) {
   if (e.files[0]) {
     var reader = new FileReader();
     reader.onload = function(e){
-      document.querySelector('#gamePicUploadUpdate').setAttribute('src', e.target.result);
+      document.querySelector('#UpdateGameImageDataUpload').setAttribute('src', e.target.result);
     }
     reader.readAsDataURL(e.files[0]);
   }
   $("#updateGameModal").modal("show")
 }
-
-$("#teamList").click(function(){
-  $("#teamListPanel").slideToggle();
-});
 
 $(document).ready(function(){
   $("#searchFilter").on("keyup", function() {
@@ -101,16 +97,6 @@ $(document).ready(function(){
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
-  // document.getElementById("GameImageData").src = "data:image;base64," + queries[1];
-  // document.getElementById("GameDescriptionData").value = queries[2];
-  // document.getElementById("VenueData").value = queries[3];
-  // document.getElementById("DateData").value = queries[4];
-  // document.getElementById("TimeData").value = queries[5];
-  // document.getElementById("RegistrationFeeData").value = queries[6];
-  // document.getElementById("TeamRequiredData").value = queries[7];
-  // document.getElementById("PlayerPerTeamData").value = queries[8];
-  // document.getElementById("TotalTeamJoinedData").innerHTML = queries[9] + "/" + queries[7];
-  // document.getElementById("TotalPlayerData").innerHTML = queries[10];
 });
 
 $( window ).on( "load", function() {
@@ -141,15 +127,18 @@ $(document).ready(function(event){
   xmlhttp.send();
 });
 
-$( window ).on( "load", function() {
+function displayUserDetail(){
   document.getElementById('UserName').value = document.getElementById('updateUserName').innerHTML;
   document.getElementById('Email').value = document.getElementById('updateEmail').innerHTML;
   document.getElementById('PhoneNumber').value = document.getElementById('updatePhoneNumber').innerHTML;
   document.getElementById('BirthDate').value = document.getElementById('updateBirthDate').innerHTML;
   document.getElementById('Address').value = document.getElementById('updateAddress').innerHTML;
   document.getElementById('UpdateUser').value = document.getElementById('updateEmail').innerHTML;
+}
+
+function deleteUserDetail(){
   document.getElementById('DeleteUser').value = document.getElementById('updateEmail').innerHTML;
-});
+}
 
 $('#UpdateUserForm').on('submit', function(event){
   event.preventDefault();

@@ -18,6 +18,11 @@
             echo "<p id='updatePhoneNumber'>".$res['PhoneNumber']."</p>";
             echo "<p id='updateAddress'>".$res['Address']."</p>";
         }
+
+        echo"
+        
+        ";
+
     } else if (isset($_POST['UpdateUser'])){
         $UserName = $_POST['UserName'];
         $Email = $_POST['Email'];
