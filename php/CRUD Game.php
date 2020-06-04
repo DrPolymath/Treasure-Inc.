@@ -1,6 +1,7 @@
 <?php
     include_once("DatabaseConnection.php");
     session_start();
+    //Insert Game Data
     if(isset($_POST['GameName'])){
         $GameImage = addslashes($_FILES['file']['tmp_name']);
         $GameImage = file_get_contents($GameImage);
@@ -28,6 +29,7 @@
             echo "Treasure Hunt Game failed to be added!";
             $pdo->rollback();
         }
+    //Display Game Detail at Organiser - Game Detail.html
     } else if(isset($_GET['GameDetailOrganiser'])) {
         $sql = "SELECT * FROM treasurehuntgames WHERE GameName='".$_GET['GameName']."' AND Venue='".$_GET['Venue']."'";
         $result = $pdo->query($sql);
@@ -153,7 +155,7 @@
             </script>
             ';
         }
-
+    //Display Game Card at Player.html
     } else if(isset($_GET['PlayerCardGame'])) {
         
         $sql = "SELECT * FROM treasurehuntgames";
@@ -199,7 +201,7 @@
         }
         </script>
         ';
-
+    //Display Game Detail at Player - Game Detail.html
     } else if(isset($_GET['GameDetailPlayer'])) {
         
         $sql = "SELECT * FROM treasurehuntgames WHERE GameName='".$_GET['GameName']."' AND Venue='".$_GET['Venue']."'";
@@ -278,7 +280,7 @@
             </form>
             ';
         }
-    
+    //Delete Game Data
     } else if (isset($_GET['DeleteGame'])) {
         
         try {
@@ -291,7 +293,7 @@
             echo "fail";
             $pdo->rollback();
         }
-    
+    //Display Game Card at Organiser.html
     } else {
         $sql = "SELECT * FROM treasurehuntgames";
         $result = $pdo->query($sql);

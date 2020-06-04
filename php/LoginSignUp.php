@@ -9,10 +9,8 @@
         $sql = "SELECT Email FROM user WHERE Email='$Email'";
         $result = $pdo->query($sql);
         if($result->rowCount() == 0){
-            $pdo = null;
             return false;
         } else {
-            $pdo = null;
             return true;
         }
     }
@@ -24,8 +22,9 @@
 
         $Email = $_GET["Email"];
         $Password = $_GET["Password"];
+        $hashPassword = "";
 
-        $sql = "SELECT Email, UserName, UserCategory FROM user WHERE Email='$Email' AND Password='$Password'";
+        $sql = "SELECT Email, UserName, UserCategory, Password FROM user WHERE Email='$Email'";
         $result = $pdo->query($sql);
 
         if($result->rowCount() == 0){
@@ -36,15 +35,22 @@
         } else {
             session_start();
             while($res = $result->fetch()){
+                $hashPassword = $res['Password'];
                 $_SESSION['Email']=$res['Email'];
                 $_SESSION['UserName']=$res['UserName'];
                 $_SESSION['UserCategory']=$res['UserCategory'];
             }
-            
-            if($_SESSION['UserCategory']=="Player"){
-                header('Location: ../html/Player.html');
+            if(password_verify($Password,$hashPassword)){
+                if($_SESSION['UserCategory']=="Player"){
+                    header('Location: ../html/Player.html');
+                } else {
+                    header('Location: ../html/Organiser.html');
+                }
             } else {
-                header('Location: ../html/Organiser.html');
+                echo "<script>
+                    alert('You have entered an invalid email or password!');
+                    document.location.href='javascript:history.go(-1)';
+                </script>";
             }
         }
 
@@ -72,7 +78,7 @@
                 $BirthDate = $_POST["BirthDate"];
                 $Address = $_POST["Address"];
                 $UserCategory = $_POST["UserCategory"];
-                $Password = $_POST["Password"];
+                $Password = password_hash($_POST["Password"], PASSWORD_DEFAULT);
 
                 try {
                     $pdo->beginTransaction();
@@ -83,7 +89,7 @@
                         alert('Registration Complete!');
                         document.location.href='../html/SignUp.html';
                     </script>";
-                } catch (Exception $e) {
+                } catch (PDOException $e) {
                     $pdo->rollback();
                 }
 
