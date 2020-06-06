@@ -1,19 +1,23 @@
 //Navbar Dropdown
 $(document).ready(function(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      if(this.responseText=="Not logged in!"){
+        document.location.href='../html/SessionError.html';
+      } else {
+        document.getElementById("greetingContainer").innerHTML=this.responseText;
+      }
+    }
+  }
+  xmlhttp.open("GET","../php/Session.php",true);
+  xmlhttp.send();
+
   $('.dropdown-submenu a.test').on("click", function(e){
     $(this).next('ul').toggle();
     e.stopPropagation();
     e.preventDefault();
   });
-
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("greetingContainer").innerHTML=this.responseText;
-    }
-  }
-  xmlhttp.open("GET","../php/Session.php",true);
-  xmlhttp.send();
 });
 
 $(".notificationMessage").click(function(){
@@ -97,9 +101,7 @@ $(document).ready(function(){
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
-});
 
-$( window ).on( "load", function() {
   var queryString = decodeURIComponent(window.location.search);
   queryString = queryString.substring(1);
   var queries = queryString.split("&");
@@ -117,6 +119,7 @@ $( window ).on( "load", function() {
 //Organiser - Profile
 
 $(document).ready(function(event){
+  //Get User Data
   var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
@@ -125,6 +128,16 @@ $(document).ready(function(event){
   }
   xmlhttp.open("GET","../php/CRUD User.php?ReadUser=Yes",true);
   xmlhttp.send();
+
+  //Get Registered Game
+  var xmlHttp=new XMLHttpRequest();
+  xmlHttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("OrganiserRegisteredGame").innerHTML=this.responseText;
+    }
+  }
+  xmlHttp.open("GET","../php/CRUD Game.php?DisplayOrganiserRegisteredGame=Yes",true);
+  xmlHttp.send();
 });
 
 function displayUserDetail(){

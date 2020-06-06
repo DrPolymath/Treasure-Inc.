@@ -216,69 +216,88 @@
 		</div>
 
 		<div class="card shadow m-5">
-			<form>
+			<form method="post" id="RegistrationForm" >
 				<div class="card-header border-0">
 					<h3 class="font-weight-bold p-3">Team Registration</h3>
 				</div>
-				<div class="card-body my-1 mx-2" align="center">
-					<div class="row my-3">
-						<div class="col-2">
-							<label class="generalColor">First Member</label>
+				<div id="RegisterInput" class="card-body my-1 mx-2" align="center">
+					<div class="row my-5">
+						<div class="col-3">
 						</div>
-						<div class="col-5">
-							<input type="email" class="form-control" id="name" name="name" placeholder="Name" required>
+						<div class="col-6">
+							<input type="text" class="form-control form-control-lg" name="TeamName" placeholder="Team Name" required>
 						</div>
-						<div class="col-5">
-							<input type="number" class="form-control" id="ICNumber" name="ICNumber" placeholder="Identification Number" required>
-						</div>
-					</div>
-					<div class="row my-3">
-						<div class="col-2">
-							
-						</div>
-						<div class="col-10">
-							<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-						</div>
-					</div>
-					<div class="row my-3">
-						<div class="col-2">
-							
-						</div>
-						<div class="col-5">
-							<input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
-						</div>
-						<div class="col-5">
-							<input type="email" class="form-control" id="role" name="role" placeholder="Role" required>
+						<div class="col-3">
 						</div>
 					</div>
 					<hr>
+					<div>
+						<div class="row my-3">
+							<div class="col-2">
+								
+							</div>
+							<div class="col-4">
+								<input type="text" class="form-control" name="name[]" placeholder="Name" required>
+							</div>
+							<div class="col-4">
+								<input type="number" class="form-control" name="ICNumber[]" placeholder="Identification Number" required>
+							</div>
+						</div>
+						<div class="row my-3">
+							<div class="col-2">
+								<label class="generalColor">Member</label>
+							</div>
+							<div class="col-8">
+								<input type="email" class="form-control" name="email[]" placeholder="Email" required>
+							</div>
+							<div class="col-2">
+								<button type="button" name="add" id="add" class="btn">Add Member</button>
+							</div>
+						</div>
+						<div class="row my-3">
+							<div class="col-2">
+								
+							</div>
+							<div class="col-4">
+								<input type="number" class="form-control" name="phoneNumber[]" placeholder="Phone Number" required>
+							</div>
+							<div class="col-4">
+								<input type="text" class="form-control" name="role[]" placeholder="Role" required>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<!-- 
+					<div class="row my-3">
+						<div class="col-2">
+							
+						</div>
+						<div class="col-4">
+							<input type="email" class="form-control" id="name" name="name" placeholder="Name" required>
+						</div>
+						<div class="col-4">
+							<input type="number" class="form-control" id="ICNumber" name="ICNumber" placeholder="Identification Number" required>
+						</div>
+					</div>
 					<div class="row my-3">
 						<div class="col-2">
 							<label class="generalColor">Second Member</label>
 						</div>
-						<div class="col-5">
-							<input type="email" class="form-control" id="name" name="name" placeholder="Name" required>
-						</div>
-						<div class="col-5">
-							<input type="number" class="form-control" id="ICNumber" name="ICNumber" placeholder="Identification Number" required>
-						</div>
-					</div>
-					<div class="row my-3">
-						<div class="col-2">
-							
-						</div>
-						<div class="col-10">
+						<div class="col-8">
 							<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 						</div>
+						<div class="col-2">
+							<button type="button" name="remove" id="'+i+'" class="btn btn_remove">X</button>
+						</div>
 					</div>
 					<div class="row my-3">
 						<div class="col-2">
 							
 						</div>
-						<div class="col-5">
+						<div class="col-4">
 							<input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
 						</div>
-						<div class="col-5">
+						<div class="col-4">
 							<input type="email" class="form-control" id="role" name="role" placeholder="Role" required>
 						</div>
 					</div>
@@ -313,7 +332,7 @@
 							<input type="email" class="form-control" id="role" name="role" placeholder="Role" required>
 						</div>
 					</div>
-					<hr>
+					<hr> -->
 				</div>
 				<div class="card-footer border-0" align="right">
 					<button type="reset" class="btn w-25">Reset</button>

@@ -20,7 +20,7 @@
 
         try {
             $pdo->beginTransaction();
-            $sql = "INSERT INTO treasurehuntgames (GameImage,GameName,GameDescription,RegistrationFee,Venue,Date,Time,PlayerPerTeam,TeamRequired,TotalTeamJoined,TotalPlayer,OrganizerName) VALUES ('$GameImage','$GameName','$GameDescription','$RegistrationFee','$Venue','$Date','$Time','$PlayerPerTeam','$TeamRequired','$TotalTeamJoined','$TotalPlayer','".$_SESSION['UserName']."')";
+            $sql = "INSERT INTO treasurehuntgames (GameImage,GameName,GameDescription,RegistrationFee,Venue,Date,Time,PlayerPerTeam,TeamRequired,TotalTeamJoined,TotalPlayer,UserID) VALUES ('$GameImage','$GameName','$GameDescription','$RegistrationFee','$Venue','$Date','$Time','$PlayerPerTeam','$TeamRequired','$TotalTeamJoined','$TotalPlayer','".$_SESSION['UserID']."')";
             $pdo->query($sql);
             echo "Treasure Hunt Game successfully added!";
             $pdo->commit();
@@ -101,6 +101,7 @@
                         <div class="form-group px-3 my-0">
                             <label for="GameDescriptionData" class="py-2">Game Description</label>
                             <textarea class="form-control inputGameData" id="GameDescriptionData" rows="4" readonly>'.$res['GameDescription'].'</textarea>
+                            <input type="text" class="form-control inputGameData" id="gameID" value="'.$res['GameID'].'" hidden>
                         </div>
                         <div class="form-group" align="center">
                             <button id="teamList" type="button" class="btn btnOGD">Team List</button>
@@ -266,7 +267,7 @@
                                 <div class="form-group row px-0">
                                     <label for="gamePlayer" class="col-form-label col-sm-4 generalColor">Player per Team</label>
                                     <div class="col-sm-8 mx-0">
-                                        <input type="number" class="form-control inputGameData" id="gamePlayer" value="'.$res['PlayerPerTeam'].'" readonly>
+                                        <input type="number" class="form-control inputGameData" id="gamePlayer" name="gamePlayer" value="'.$res['PlayerPerTeam'].'" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -274,12 +275,51 @@
                         <div class="form-group px-3 my-0">
                             <label for="gameDesc" class="generalColor">Game Description</label>
                             <textarea class="form-control inputGameData" id="gameDesc" rows="7" readonly>'.$res['GameDescription'].'</textarea>
+                            <input type="text" class="form-control inputGameData" id="gameID" value="'.$res['GameID'].'" hidden>
                         </div>
                     </div>
                 </div>
             </form>
             ';
         }
+    //Display Organiser Registered Game
+    } else if (isset($_GET['DisplayOrganiserRegisteredGame'])) {
+
+        $sql = "SELECT * FROM treasurehuntgames WHERE UserID='".$_SESSION['UserID']."'";
+        $result = $pdo->query($sql);
+        $counter = 1;
+
+        echo '
+        <div class="carousel-item active">
+        <div class="row p-0 my-3" align="center">
+        ';
+        while ($res = $result->fetch()) {
+            if($counter%3==1&&$counter>3){
+                echo "</div>";
+                echo "</div>";
+                echo "<div class='carousel-item'>";
+                echo "<div class='row p-0 my-3' align='center'>";
+            }
+            echo'
+            <div class="col-sm-4">
+				<div class="card showGamesCard gamesCard m-0">
+					<img src="data:image;base64,'.$res['GameImage'].'" class="card-img-top" height="100">
+					<div>
+						<h5 class="font-weight-bold py-2">'.$res['GameName'].'</h5>
+						<p>
+                            '.$res['Venue'].'<br>
+							'.date('d F Y', strtotime($res['Date'])).'
+						</p>
+					</div>
+				</div>
+			</div>
+            ';
+            $counter++;
+        }
+        
+        echo "</div>";
+        echo "</div>";
+
     //Delete Game Data
     } else if (isset($_GET['DeleteGame'])) {
         
@@ -295,7 +335,7 @@
         }
     //Display Game Card at Organiser.html
     } else {
-        $sql = "SELECT * FROM treasurehuntgames";
+        $sql = "SELECT * FROM treasurehuntgames WHERE UserID='".$_SESSION['UserID']."'";
         $result = $pdo->query($sql);
         $counter = 1;
 

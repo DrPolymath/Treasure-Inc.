@@ -24,7 +24,7 @@
         $Password = $_GET["Password"];
         $hashPassword = "";
 
-        $sql = "SELECT Email, UserName, UserCategory, Password FROM user WHERE Email='$Email'";
+        $sql = "SELECT UserID, Email, UserName, UserCategory, Password FROM user WHERE Email='$Email'";
         $result = $pdo->query($sql);
 
         if($result->rowCount() == 0){
@@ -36,6 +36,7 @@
             session_start();
             while($res = $result->fetch()){
                 $hashPassword = $res['Password'];
+                $_SESSION['UserID']=$res['UserID'];
                 $_SESSION['Email']=$res['Email'];
                 $_SESSION['UserName']=$res['UserName'];
                 $_SESSION['UserCategory']=$res['UserCategory'];
@@ -87,7 +88,7 @@
                     $pdo->commit();
                     echo "<script>
                         alert('Registration Complete!');
-                        document.location.href='../html/SignUp.html';
+                        document.location.href='../html/Login.html';
                     </script>";
                 } catch (PDOException $e) {
                     $pdo->rollback();

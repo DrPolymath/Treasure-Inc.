@@ -46,6 +46,8 @@
     } else if (isset($_GET['DeleteUser'])) {
         try {
             $pdo->beginTransaction();
+            $sql = "DELETE FROM treasurehuntgames WHERE UserID='".$_SESSION['UserID']."'";
+            $pdo->query($sql);
             $sql = "DELETE FROM user WHERE Email='".$_GET['DeleteUser']."'";
             $pdo->query($sql);
             echo "success";
