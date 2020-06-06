@@ -282,7 +282,7 @@
             </form>
             ';
         }
-    //Display Organiser Registered Game
+    //Display Organiser Registered Game at Organiser - Profile.html
     } else if (isset($_GET['DisplayOrganiserRegisteredGame'])) {
 
         $sql = "SELECT * FROM treasurehuntgames WHERE UserID='".$_SESSION['UserID']."'";
@@ -317,6 +317,58 @@
             $counter++;
         }
         
+        echo "</div>";
+        echo "</div>";
+    
+    //Display Player Registered Game at Player - Profile.html
+    } else if (isset($_GET['DisplayPlayerRegisteredGame'])) {
+        
+        $sql = "SELECT DISTINCT GameID FROM gameregistration WHERE UserID='".$_SESSION['UserID']."'";
+        $result = $pdo->query($sql);
+        $counter = 1;
+
+        $listRegisteredGame = array();
+
+        while($res = $result->fetch()){
+            array_push($listRegisteredGame, $res['GameID']);
+        }
+
+        $lengthListRegisteredGame = count($listRegisteredGame);
+
+        echo '
+        <div class="carousel-item active">
+        <div class="row p-0 my-3" align="center">
+        ';
+
+        for($i = 0;$i < $lengthListRegisteredGame;$i++){
+            if($counter%3==1&&$counter>3){
+                echo "</div>";
+                echo "</div>";
+                echo "<div class='carousel-item'>";
+                echo "<div class='row p-0 my-3' align='center'>";
+            }
+            $sql = "SELECT * FROM treasurehuntgames WHERE GameID='".$listRegisteredGame[$i]."'";
+            $result = $pdo->query($sql);
+
+            while($res = $result->fetch()){
+                echo'
+                <div class="col-sm-4">
+                    <div class="card showGamesCard gamesCard m-0">
+                        <img src="data:image;base64,'.$res['GameImage'].'" class="card-img-top" height="100">
+                        <div class="generalColor">
+                            <h5 class="font-weight-bold py-2">'.$res['GameName'].'</h5>
+                            <p>
+                                '.$res['Venue'].'<br>
+                                '.date('d F Y', strtotime($res['Date'])).'
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                ';
+            }
+            $counter++;
+        }
+
         echo "</div>";
         echo "</div>";
 

@@ -113,7 +113,7 @@
     }
 
   } else if (isset($_GET['ReadPlayersDetail'])) {
-	
+	//Stuck fix this
 	$sql = "SELECT DISTINCT TeamName FROM gameregistration WHERE GameID='".$_GET['GameID']."'";
 	$result = $pdo->query($sql);
 

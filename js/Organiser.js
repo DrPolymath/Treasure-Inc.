@@ -133,7 +133,7 @@ $(document).ready(function(event){
   var xmlHttp=new XMLHttpRequest();
   xmlHttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      document.getElementById("OrganiserRegisteredGame").innerHTML=this.responseText;
+      document.getElementById("OrganiserRegisteredGameProfile").innerHTML=this.responseText;
     }
   }
   xmlHttp.open("GET","../php/CRUD Game.php?DisplayOrganiserRegisteredGame=Yes",true);

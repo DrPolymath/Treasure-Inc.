@@ -169,15 +169,15 @@ $(document).ready(function(event){
   xmlhttp.open("GET","../php/CRUD User.php?ReadUser=Yes",true);
   xmlhttp.send();
 
-  //Get Registered Game
-  // var xmlHttp=new XMLHttpRequest();
-  // xmlHttp.onreadystatechange=function() {
-  //   if (this.readyState==4 && this.status==200) {
-  //     document.getElementById("").innerHTML=this.responseText;
-  //   }
-  // }
-  // xmlHttp.open("GET","../php/CRUD Game.php?DisplayOrganiserRegisteredGame=Yes",true);
-  // xmlHttp.send();
+  // Get Registered Game
+  var xmlHttp=new XMLHttpRequest();
+  xmlHttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("PlayerRegisteredGameProfile").innerHTML=this.responseText;
+    }
+  }
+  xmlHttp.open("GET","../php/CRUD Game.php?DisplayPlayerRegisteredGame=Yes",true);
+  xmlHttp.send();
 });
 
 function displayUserDetail(){
