@@ -302,7 +302,7 @@
             }
             echo'
             <div class="col-sm-4">
-				<div class="card showGamesCard gamesCard m-0">
+				<div class="card showGamesCard gamesCard m-0" onclick="passtoGameModal(\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">
 					<img src="data:image;base64,'.$res['GameImage'].'" class="card-img-top" height="100">
 					<div>
 						<h5 class="font-weight-bold py-2">'.$res['GameName'].'</h5>
@@ -319,6 +319,27 @@
         
         echo "</div>";
         echo "</div>";
+
+        echo'
+        <script>
+        $(".showGamesCard").click(function(){
+            $("#gameDetailModal").modal("show")
+        });
+        function passtoGameModal(GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){
+            document.getElementById("GameNameDataModal").innerHTML = GameName;
+            document.getElementById("GameImageDataModal").src = "data:image;base64," + GameImage;
+            document.getElementById("GameDescriptionDataModal").value = GameDescription;
+            document.getElementById("VenueDataModal").value = Venue;
+            document.getElementById("DateDataModal").value = Date;
+            document.getElementById("TimeDataModal").value = Time;
+            document.getElementById("RegistrationFeeDataModal").value = "RM " + RegistrationFee;
+            document.getElementById("TeamRequiredDataModal").value = TeamRequired;
+            document.getElementById("PlayerPerTeamDataModal").value = PlayerPerTeam;
+            document.getElementById("TotalTeamJoinedDataModal").innerHTML = TotalTeamJoined + "/" + TeamRequired;
+            document.getElementById("TotalPlayerDataModal").innerHTML = TotalPlayer;
+        }
+        </script>
+        ';
     
     //Display Player Registered Game at Player - Profile.html
     } else if (isset($_GET['DisplayPlayerRegisteredGame'])) {
@@ -353,7 +374,7 @@
             while($res = $result->fetch()){
                 echo'
                 <div class="col-sm-4">
-                    <div class="card showGamesCard gamesCard m-0">
+                    <div class="card showGamesCard gamesCard m-0" onclick="passtoGameModal(\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">
                         <img src="data:image;base64,'.$res['GameImage'].'" class="card-img-top" height="100">
                         <div class="generalColor">
                             <h5 class="font-weight-bold py-2">'.$res['GameName'].'</h5>
@@ -371,6 +392,27 @@
 
         echo "</div>";
         echo "</div>";
+
+        echo'
+        <script>
+        $(".showGamesCard").click(function(){
+            $("#gameDetailModal").modal("show")
+        });
+        function passtoGameModal(GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){
+            document.getElementById("GameNameDataModal").innerHTML = GameName;
+            document.getElementById("GameImageDataModal").src = "data:image;base64," + GameImage;
+            document.getElementById("GameDescriptionDataModal").value = GameDescription;
+            document.getElementById("VenueDataModal").value = Venue;
+            document.getElementById("DateDataModal").value = Date;
+            document.getElementById("TimeDataModal").value = Time;
+            document.getElementById("RegistrationFeeDataModal").value = "RM " + RegistrationFee;
+            document.getElementById("TeamRequiredDataModal").value = TeamRequired;
+            document.getElementById("PlayerPerTeamDataModal").value = PlayerPerTeam;
+            document.getElementById("TotalTeamJoinedDataModal").innerHTML = TotalTeamJoined + "/" + TeamRequired;
+            document.getElementById("TotalPlayerDataModal").innerHTML = TotalPlayer;
+        }
+        </script>
+        ';
 
     //Delete Game Data
     } else if (isset($_GET['DeleteGame'])) {

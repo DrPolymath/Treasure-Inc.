@@ -130,14 +130,14 @@ $(document).ready(function(event){
   xmlhttp.send();
 
   //Get Registered Game
-  var xmlHttp=new XMLHttpRequest();
-  xmlHttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("OrganiserRegisteredGameProfile").innerHTML=this.responseText;
-    }
-  }
-  xmlHttp.open("GET","../php/CRUD Game.php?DisplayOrganiserRegisteredGame=Yes",true);
-  xmlHttp.send();
+  $.ajax({
+    url: "../php/CRUD Game.php",
+    type: 'GET',
+    data: "DisplayOrganiserRegisteredGame=Yes",
+    success: function (data) {
+      $('#OrganiserRegisteredGameProfile').html(data);
+    },
+  });
 });
 
 function displayUserDetail(){
@@ -191,9 +191,9 @@ $('#DeleteAccountForm').on('submit', function(event){
   }
 });
 
-$(".showGamesCard").click(function(){
-  $("#gameDetailModal").modal("show")
-});
+// $(".showGamesCard").click(function(){
+//   $("#gameDetailModal").modal("show")
+// });
 
 // $('#customFile').on('change',function(){
 //   //get the file name
