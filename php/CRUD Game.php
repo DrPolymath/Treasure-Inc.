@@ -357,9 +357,27 @@
         $lengthListRegisteredGame = count($listRegisteredGame);
 
         echo '
+        <div class="row px-3">
+	    <div class="col">
+		<h4 class="font-weight-bold generalColor">Registered Games</h4>
+		</div>
+		<div class="col control-top" align="right">
+		<a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
+		<a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
+		</div>
+		</div>
+		<!--Carousel Wrapper-->
+		<div id="multi-item-example" class="carousel slide carousel-multi-item px-3" data-ride="carousel" align="center">
+				
+		<!--Slides-->
+		<div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
         <div class="row p-0 my-3" align="center">
         ';
+
+        $totalGameRegistered = 0;
+        $totalGamePlayed = 0;
+        $totalUpcomingGame = 0;
 
         for($i = 0;$i < $lengthListRegisteredGame;$i++){
             if($counter%3==1&&$counter>3){
@@ -372,6 +390,12 @@
             $result = $pdo->query($sql);
 
             while($res = $result->fetch()){
+                $totalGameRegistered++;
+                if(date("Y-m-d")>$res['Date']){
+                    $totalGamePlayed++;
+                } else {
+                    $totalUpcomingGame++;
+                }
                 echo'
                 <div class="col-sm-4">
                     <div class="card showGamesCard gamesCard m-0" onclick="passtoGameModal(\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">
@@ -390,8 +414,31 @@
             $counter++;
         }
 
-        echo "</div>";
-        echo "</div>";
+        echo '
+        </div>
+        </div>
+        </div>
+		<!--/.Slides-->
+
+		</div>
+	    <!--/.Carousel Wrapper-->
+
+		<div class="row d-flex">
+		<div class="col-sm-4 m-auto text-center">
+		<p class="font-weight-bold generalColor">Total Games Registered</p>
+		<p class="font-weight-bold generalColor circleBG mx-5">'.$totalGameRegistered.'</p>
+		</div>
+		<div class="col-sm-4 m-auto text-center">
+		<p class="font-weight-bold generalColor">Total Games Played</p>
+		<p class="font-weight-bold generalColor circleBG mx-5">'.$totalGamePlayed.'</p>
+		</div>
+		<div class="col-sm-4 m-auto text-center">
+		<p class="font-weight-bold generalColor">Total Upcoming Games</p>
+		<p class="font-weight-bold generalColor circleBG mx-5">'.$totalUpcomingGame.'</p>
+		</div>
+		</div>
+        ';
+        
 
         echo'
         <script>
