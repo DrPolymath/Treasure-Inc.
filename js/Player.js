@@ -49,10 +49,6 @@ $(document).ready(function(){
   });
 });
 
-$(".showGameCard").click(function(){
-  $("#gameDetailModal").modal("show")
-});
-
 $(".showRegistration").click(function(){
   $("#registrationModal").modal("show")
 });
@@ -170,15 +166,6 @@ $(document).ready(function(event){
   xmlhttp.send();
 
   // Get Registered Game
-  // var xmlHttp=new XMLHttpRequest();
-  // xmlHttp.onreadystatechange=function() {
-  //   if (this.readyState==4 && this.status==200) {
-  //     document.getElementById("PlayerRegisteredGameProfile").innerHTML=this.responseText;
-  //   }
-  // }
-  // xmlHttp.open("GET","../php/CRUD Game.php?DisplayPlayerRegisteredGame=Yes",true);
-  // xmlHttp.send();
-  //Get Registered Game
   $.ajax({
     url: "../php/CRUD Game.php",
     type: 'GET',

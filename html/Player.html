@@ -618,79 +618,79 @@
 
 	<div class="modal fade" id="gameDetailModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content p-3">
-				<div class="modal-body">
+			<div class="modal-content p-2">
+				<div class="modal-body px-5">
 					<div>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<h3 class="modal-title font-weight-bold generalColor py-2 px-4">Scavenger Hunt</h3>
-					<img src="../Image/Scenery1.jpg" class="img-fluid px-4">
-					<div class="d-flex my-5">
+					<h3 id="GameNameDataModal" class="modal-title font-weight-bold py-3 generalColor"></h3>
+					<img id="GameImageDataModal" src="" class="img-fluid py-3" width="800" height="500">
+					<div class="d-flex py-3">
 						<div class="row font-weight-bold m-auto text-center d-flex p-2">
 							<div class="col generalColor m-auto text-center">
 								<h4 class="font-weight-bold">Total Team Joined</h4>
 							</div>
 							<div class="col m-auto text-center">
-								<h4 class="circleBG font-weight-bold">5/7</h4>
+								<h4 id="TotalTeamJoinedDataModal" class="circleBG font-weight-bold"></h4>
 							</div>
 							<div class="col generalColor m-auto text-center">
 								<h4 class="font-weight-bold">Total Player</h4>
 							</div>
 							<div class="col m-auto text-center">
-								<h4 class="circleBG font-weight-bold">15</h4>
+								<h4 id="TotalPlayerDataModal" class="circleBG font-weight-bold"></h4>
 							</div>
 						</div>
 					</div>
-					<form class="py-0 my-0">
-						<div class="form-group row">
+					<form class="py-1">
+						<div class="form-group row mx-0">
 							<label for="gameVenue" class="col-form-label col-sm-3">Venue</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control inputGameData" id="gameVenue" name="gameVenue" value="FSKTM University of Malaya" readonly>
+								<input type="text" class="form-control inputGameData" id="VenueDataModal" readonly>
 							</div>
 						</div>
-						<div class="form-group row">
+						<div class="form-group row mx-0">
 							<label for="gameDate" class="col-form-label col-sm-3">Date</label>
 							<div class="col-sm-9">
-								<input type="date" class="form-control inputGameData" id="gameDate" name="gameDate" value="2020-05-05" readonly>
+								<input type="date" class="form-control inputGameData" id="DateDataModal" readonly>
 							</div>
 						</div>
-						<div class="form-group row">
+						<div class="form-group row mx-0">
 							<label for="gameTime" class="col-form-label col-sm-3">Time</label>
 							<div class="col-sm-9">
-								<input type="time" class="form-control inputGameData" id="gameTime" name="gameTime" value="09:00:00" readonly>
+								<input type="time" class="form-control inputGameData" id="TimeDataModal" readonly>
 							</div>
 						</div>
-						<div class="form-group row">
+						<div class="form-group row mx-0">
 							<label for="gameFee" class="col-form-label col-sm-3">Registration Fee</label>
 							<div class="col-sm-9">
-								<input type="number" class="form-control inputGameData" id="gameFee" name="gameFee" value="40.00" readonly>
+								<input type="text" class="form-control inputGameData" id="RegistrationFeeDataModal" readonly>
 							</div>
 						</div>
-						<div class="form-group row">
+						<div class="form-group row mx-0">
 							<label for="gameTeam" class="col-form-label col-sm-3">Team Required</label>
 							<div class="col-sm-9">
-								<input type="number" class="form-control inputGameData" id="gameTeam" name="gameTeam" value="7" readonly>
+								<input type="number" class="form-control inputGameData" id="TeamRequiredDataModal" readonly>
 							</div>
 						</div>
-						<div class="form-group row">
+						<div class="form-group row mx-0">
 							<label for="gamePlayer" class="col-form-label col-sm-3">Player per Team</label>
 							<div class="col-sm-9">
-								<input type="number" class="form-control inputGameData" id="gamePlayer" name="gamePlayer" value="3" readonly>
+								<input type="number" class="form-control inputGameData" id="PlayerPerTeamDataModal" readonly>
 							</div>
 						</div>
-						<div class="form-group row">
+						<div class="form-group row mx-0">
 							<label for="gameDesc" class="col-form-label col-sm-3" >Game Description</label>
 							<div class="col-sm-9">
-								<textarea class="form-control inputGameData" id="gameDesc" rows="6" readonly>The game requires the players to find the treasure that have been buried by the ancient people. There will be 4 stage before the player can discovered the treasure's location. The player need to solve the riddle in every stage in order to proceed to the next stage.</textarea>
+								<textarea class="form-control inputGameData" id="GameDescriptionDataModal" rows="6" readonly></textarea>
 							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-
+	</div>
 		
 
 	<script src="../js/Player.js"></script>

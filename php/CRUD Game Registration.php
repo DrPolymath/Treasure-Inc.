@@ -82,7 +82,7 @@
 								</div>
 								<div class="col-5 d-flex">
 									<div class="m-auto">
-										<button class="btn btnTicket showGameCard my-2">Game Detail</button><br>
+										<button class="btn btnTicket showGameCard my-2" onclick="passtoGameModal(\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">Game Detail</button><br>
 										<button class="btn btnTicket showRegistration my-2">Update Registration</button>
 									</div>
 								</div>
@@ -108,7 +108,29 @@
 						</div>
 					</div>
 				</div>
-        ';
+		';
+		
+		echo'
+		<script>
+		$(".showGameCard").click(function(){
+			$("#gameDetailModal").modal("show")
+		});
+
+		function passtoGameModal(GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){
+            document.getElementById("GameNameDataModal").innerHTML = GameName;
+            document.getElementById("GameImageDataModal").src = "data:image;base64," + GameImage;
+            document.getElementById("GameDescriptionDataModal").value = GameDescription;
+            document.getElementById("VenueDataModal").value = Venue;
+            document.getElementById("DateDataModal").value = Date;
+            document.getElementById("TimeDataModal").value = Time;
+            document.getElementById("RegistrationFeeDataModal").value = "RM " + RegistrationFee;
+            document.getElementById("TeamRequiredDataModal").value = TeamRequired;
+            document.getElementById("PlayerPerTeamDataModal").value = PlayerPerTeam;
+            document.getElementById("TotalTeamJoinedDataModal").innerHTML = TotalTeamJoined + "/" + TeamRequired;
+            document.getElementById("TotalPlayerDataModal").innerHTML = TotalPlayer;
+        }
+		</script>
+		';
       }
     }
 
