@@ -114,6 +114,15 @@ $(document).ready(function(){
       $('#GameDetailCard').html(data);
     }
   });
+
+  $.ajax({
+    type: 'GET',
+    url: "../php/CRUD Game Registration.php",
+    data: "ReadPlayersDetail=Yes&"+queries[2],
+    success: function (data) {
+      $('#DisplayPlayersDetail').html(data);
+    },
+  });
 });
 
 //Organiser - Profile

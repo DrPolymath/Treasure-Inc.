@@ -49,10 +49,6 @@ $(document).ready(function(){
   });
 });
 
-$(".showRegistration").click(function(){
-  $("#registrationModal").modal("show")
-});
-
 $(".editTeamMember").click(function(){
   $("#registrationModal").modal("hide")
   $("#editMemberModal").modal("show")
@@ -82,6 +78,11 @@ $( window ).on( "load", function() {
       $('#GameDetailCard').html(data);
     }
   });
+  var TotalTeamJoined = queries[2].split("=")[1];
+  var TeamRequired = queries[3].split("=")[1];
+  if(TotalTeamJoined==TeamRequired){
+    $("#RegistrationCard").hide();
+  }
 });
 
 $(document).ready(function(event){
@@ -126,12 +127,14 @@ $(document).ready(function(event){
       html += '</div>';
       $('#RegisterInput').append(html);
     }
-  });  
+  });
+
   $(document).on('click', '.btn_remove', function(){  
     var button_id = $(this).attr("id");   
     $('#row'+button_id+'').remove();
     i--; 
   });
+
   $('#RegistrationForm').on('submit', function(event){
     event.preventDefault();
     var form_data = $(this).serialize();

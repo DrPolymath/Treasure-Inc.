@@ -44,10 +44,12 @@
 
   } else if (isset($_GET['PlayerRegisteredGame'])) {
 
-    $sql = "SELECT DISTINCT GameID FROM gameregistration WHERE UserID='".$_SESSION['UserID']."'";
-    $result = $pdo->query($sql);
+    $sql = "SELECT DISTINCT TeamName, GameID FROM gameregistration WHERE UserID='".$_SESSION['UserID']."'";
+	$result = $pdo->query($sql);
+	$listRegisteredTeam = array();
     $listRegisteredGame = array();
     while($res = $result->fetch()){
+	  array_push($listRegisteredTeam,$res['TeamName']);
       array_push($listRegisteredGame,$res['GameID']);
     }
 
@@ -77,13 +79,13 @@
 									<div class="px-4">
 										<p>Venue	:	'.$res['Venue'].'</p>
 										<p>Time		:	'.date('h:i A', strtotime($res['Time'])).'</p>
-										<p>Group	:	Wisdom Hunter</p>
+										<p>Group	:	'.$listRegisteredTeam[$i].'</p>
 									</div>
 								</div>
 								<div class="col-5 d-flex">
 									<div class="m-auto">
 										<button class="btn btnTicket showGameCard my-2" onclick="passtoGameModal(\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">Game Detail</button><br>
-										<button class="btn btnTicket showRegistration my-2">Update Registration</button>
+										<button class="btn btnTicket showRegistration my-2" onclick="displayPlayer(\''.$res['GameID'].'\',\''.$_SESSION['UserID'].'\',\''.$listRegisteredTeam[$i].'\')">Update Registration</button>
 									</div>
 								</div>
 							</div>
@@ -128,24 +130,71 @@
             document.getElementById("PlayerPerTeamDataModal").value = PlayerPerTeam;
             document.getElementById("TotalTeamJoinedDataModal").innerHTML = TotalTeamJoined + "/" + TeamRequired;
             document.getElementById("TotalPlayerDataModal").innerHTML = TotalPlayer;
-        }
+		}
+		
+		$(".showRegistration").click(function(){
+			$("#registrationModal").modal("show")
+		});
 		</script>
 		';
       }
     }
 
   } else if (isset($_GET['ReadPlayersDetail'])) {
-	//Stuck fix this
+	
 	$sql = "SELECT DISTINCT TeamName FROM gameregistration WHERE GameID='".$_GET['GameID']."'";
 	$result = $pdo->query($sql);
 
-	echo '<div class="carousel-item active">';
-
+	$j = 0;
 	while($res = $result->fetch()){
-		echo $res['TeamName'];
+		if($j==0){
+			echo '<div class="carousel-item active">';
+		} else {
+			echo '<div class="carousel-item">';
+		}
+		echo '
+		<div class="mx-3" align="left">
+			<h4 id="TeamName">'.$res['TeamName'].'</h4>
+		</div>
+		';
+
+		echo '
+		<table align ="center" class="table shadow">
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Role</th>
+				<th>Identification Number</th>
+				<th>Phone Number</th>
+				<th>E-mail</th>
+			</tr>
+			<tbody id="data">
+		';
+
+		$sql = "SELECT DISTINCT MemberName,Role,ICNumber,PhoneNumber,Email FROM gameregistration WHERE GameID='".$_GET['GameID']."' AND TeamName='".$res['TeamName']."'";
+		$rows = $pdo->query($sql);
+		$i=1;
+		while($row = $rows->fetch()){
+			echo '
+			<tr>
+				<td>'.$i.'</td>
+				<td>'.$row['MemberName'].'</td>
+				<td>'.$row['Role'].'</td>
+				<td>'.$row['ICNumber'].'</td>
+				<td>'.$row['PhoneNumber'].'</td>
+				<td>'.$row['Email'].'</td>
+			</tr>
+			';
+			$i++;
+		}
+
+		echo '
+			</tbody>
+		</table>
+		';
+		echo '</div>';
+		$j++;
 	}
-	echo'bodo';
-	echo '</div>';
 
   } else {
     echo 'failed';

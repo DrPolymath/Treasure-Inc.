@@ -194,10 +194,11 @@
         }
 
         echo "</div>";
+        //fix parameter
         echo '
         <script>
         function passDatatoGameDetail(GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){
-            var queryString = "?GameName=" + GameName + "&Venue=" + Venue;
+            var queryString = "?GameName=" + GameName + "&Venue=" + Venue + "&TotalTeamJoined=" + TotalTeamJoined + "&TeamRequired=" + TeamRequired;
             window.location.href = "Player - Game Detail.html" + queryString;
         }
         </script>
@@ -492,7 +493,7 @@
             }
             echo'
             <div class="col-md-4 px-0">
-				<div class="showGameCard gameCard card mb-2" onclick="passDatatoGameDetail(\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">
+				<div class="showGameCard gameCard card mb-2" onclick="passDatatoGameDetail(\''.$res['GameID'].'\',\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">
 					<img class="gameImage card-img-top" src="data:image;base64,'.$res['GameImage'].'" alt="">
 					<div class="card-body" align="left">
 						<h4 class="card-title font-weight-bold">'.$res['GameName'].'</h4>
@@ -519,8 +520,8 @@
         //     window.location.href = "Organiser - Game Detail.html";
         // });
 
-        function passDatatoGameDetail(GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){
-            var queryString = "?GameName=" + GameName + "&Venue=" + Venue;
+        function passDatatoGameDetail(GameID,GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){
+            var queryString = "?GameName=" + GameName + "&Venue=" + Venue + " &GameID=" + GameID;
             window.location.href = "Organiser - Game Detail.html" + queryString;
             // document.getElementById("GameNameData").innerHTML = GameName;
             // document.getElementById("GameImageData").src = "data:image;base64," + GameImage;
