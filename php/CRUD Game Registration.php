@@ -86,6 +86,7 @@
 									<div class="m-auto">
 										<button class="btn btnTicket showGameCard my-2" onclick="passtoGameModal(\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">Game Detail</button><br>
 										<button class="btn btnTicket showRegistration my-2" onclick="displayPlayer(\''.$res['GameID'].'\',\''.$_SESSION['UserID'].'\',\''.$listRegisteredTeam[$i].'\')">Update Registration</button>
+										<button class="btn btnTicket cancelGame my-2" onclick="cancelGameRegistration(\''.$res['GameID'].'\',\''.$_SESSION['UserID'].'\',\''.$listRegisteredTeam[$i].'\')">Cancel Participation</button>
 									</div>
 								</div>
 							</div>
@@ -142,6 +143,24 @@
 				},
 			  });
 			$("#registrationModal").modal("show")
+		}
+
+		function cancelGameRegistration(GameID,UserID,TeamName){
+			if (window.confirm("Do you really want to withdraw from the game?")) {
+				$.ajax({
+					url: "../php/CRUD Game Registration.php",
+					type: "GET",
+					data: "CancelGameRegistration=Yes&GameID="+GameID+"&UserID="+UserID+"&TeamName="+TeamName,
+					success: function (data) {
+						if(data == "success"){
+							alert("Game Registration is cancelled successfully!");
+							document.location.href="../html/Player.html";
+						} else {
+							alert("Game Registration Cancellation is failed!");
+						}
+					},
+				});
+			}
 		}
 		</script>
 		';
@@ -247,10 +266,24 @@
 	echo'
 		</tbody>
 	</table>
+
+	<!--<div id="AddNewMemberButton">
+		<button class="btn">Add New Member</button>
+	</div>
+	<div id="AddNewMemberPanel" style="display:none;">
+		<h1>test</h1>
+	</div>-->
 	';
 
 	echo'
 	<script>
+
+	$(document).ready(function(){
+		$("#AddNewMemberButton").click(function(){
+		  	$("#AddNewMemberPanel").slideToggle("slow");
+		});
+	});
+
 	function passDatatoEditMemberModal(TeamName,MemberName,Role,ICNumber,PhoneNumber,Email,GameID,UserID){
 		document.getElementById("TeamName").value = TeamName;
 		document.getElementById("MemberName").value = MemberName;
@@ -329,6 +362,31 @@
 
 	}
   
+  } else if (isset($_GET['CancelGameRegistration'])) { 
+	
+	try {
+		$pdo->beginTransaction();
+		$sql = "DELETE FROM gameregistration WHERE TeamName='".$_GET['TeamName']."' AND GameID='".$_GET['GameID']."' AND UserID='".$_GET['UserID']."'";
+		$result = $pdo->query($sql);
+		$num = $result->rowCount();
+		
+		$sql = "SELECT TotalTeamJoined,TotalPlayer FROM treasurehuntgames WHERE GameID='".$_GET['GameID']."'";
+		$result = $pdo->query($sql);
+		while($res = $result->fetch()){
+			$TotalTeamJoined = $res['TotalTeamJoined'];
+			$TotalPlayer = $res['TotalPlayer'];
+		}
+		$TotalTeamJoined--;
+		$TotalPlayer = $TotalPlayer-$num;
+		$sql = "UPDATE treasurehuntgames SET TotalTeamJoined='$TotalTeamJoined', TotalPlayer='$TotalPlayer' WHERE GameID='".$_GET['GameID']."'";
+		$pdo->query($sql);
+		echo "success";
+		$pdo->commit();
+	} catch (Exception $e) {
+		echo "fail";
+		$pdo->rollback();
+	}
+
   } else {
     echo 'failed';
   }
