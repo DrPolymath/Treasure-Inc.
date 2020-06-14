@@ -41,7 +41,7 @@
       echo 'failed';
       $pdo->rollback();
     }
-
+  // Ticket at Player.html
   } else if (isset($_GET['PlayerRegisteredGame'])) {
 
     $sql = "SELECT DISTINCT TeamName, GameID FROM gameregistration WHERE UserID='".$_SESSION['UserID']."'";
@@ -131,15 +131,23 @@
             document.getElementById("TotalTeamJoinedDataModal").innerHTML = TotalTeamJoined + "/" + TeamRequired;
             document.getElementById("TotalPlayerDataModal").innerHTML = TotalPlayer;
 		}
-		
-		$(".showRegistration").click(function(){
+
+		function displayPlayer(GameID,UserID,TeamName){
+			$.ajax({
+				url: "../php/CRUD Game Registration.php",
+				type: "GET",
+				data: "ReadTeamMember=Yes&GameID="+GameID+"&UserID="+UserID+"&TeamName="+TeamName,
+				success: function (data) {
+				  $("#DisplayTeamMember").html(data);
+				},
+			  });
 			$("#registrationModal").modal("show")
-		});
+		}
 		</script>
 		';
       }
     }
-
+  //View Team List at Organiser - Game detail.html
   } else if (isset($_GET['ReadPlayersDetail'])) {
 	
 	$sql = "SELECT DISTINCT TeamName FROM gameregistration WHERE GameID='".$_GET['GameID']."'";
@@ -195,7 +203,132 @@
 		echo '</div>';
 		$j++;
 	}
+  //Registration Modal at Player.html
+  } else if(isset($_GET['ReadTeamMember'])) {
+	echo'
+	<div>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<h1 class="modal-title p-4 font-weight-bold generalColor">'.$_GET['TeamName'].'</h1>
+	<table align ="center" class="table">
+		<tr>
+			<th>No</th>
+			<th>Name</th>
+			<th>Role</th>
+			<th>Identification Number</th>
+			<th>Phone Number</th>
+			<th>E-mail</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tbody>
+	';
 
+	$sql = "SELECT MemberName,Role,ICNumber,PhoneNumber,Email,GameID,UserID FROM gameregistration WHERE TeamName='".$_GET['TeamName']."' AND GameID='".$_GET['GameID']."' AND UserID='".$_GET['UserID']."'";
+	$result = $pdo->query($sql);
+	$i = 1;
+	while($res = $result->fetch()){
+		echo'
+			<tr>
+				<td>'.$i.'</td>
+				<td>'.$res['MemberName'].'</td>
+				<td>'.$res['Role'].'</td>
+				<td>'.$res['ICNumber'].'</td>
+				<td>'.$res['PhoneNumber'].'</td>
+				<td>'.$res['Email'].'</td>
+				<td><button class="btn editTeamMember" onclick="passDatatoEditMemberModal(\''.$_GET['TeamName'].'\',\''.$res['MemberName'].'\',\''.$res['Role'].'\',\''.$res['ICNumber'].'\',\''.$res['PhoneNumber'].'\',\''.$res['Email'].'\',\''.$res['GameID'].'\',\''.$res['UserID'].'\')">Edit</button></td>
+				<td><button class="btn removeTeamMember" onclick="passDatatoDelete(\''.$_GET['TeamName'].'\',\''.$res['ICNumber'].'\',\''.$res['GameID'].'\',\''.$res['UserID'].'\')">Remove</button></td>
+			</tr>
+		';
+		$i++;
+	}
+	echo'
+		</tbody>
+	</table>
+	';
+
+	echo'
+	<script>
+	function passDatatoEditMemberModal(TeamName,MemberName,Role,ICNumber,PhoneNumber,Email,GameID,UserID){
+		document.getElementById("TeamName").value = TeamName;
+		document.getElementById("MemberName").value = MemberName;
+		document.getElementById("Role").value = Role;
+		document.getElementById("ICNumber").value = ICNumber;
+		document.getElementById("OldICNumber").value = ICNumber;
+		document.getElementById("PhoneNumber").value = PhoneNumber;
+		document.getElementById("Email").value = Email;
+		document.getElementById("GameID").value = GameID;
+		document.getElementById("UserID").value = UserID;
+		$("#registrationModal").modal("hide")
+  		$("#editMemberModal").modal("show")
+	}
+
+	function passDatatoDelete(TeamName,ICNumber,GameID,UserID){
+		if (window.confirm("Do you really want to remove this team member?")) {
+			$.ajax({
+				type: "POST",
+				url: "../php/CRUD Game Registration.php",
+				data:"DeleteTeamMember=Yes&TeamName="+TeamName+"&ICNumber="+ICNumber+"&GameID="+GameID+"&UserID="+UserID,
+				success: function(data){
+					if(data == "success"){
+						alert("Team Member successfully removed!");
+						document.location.href="../html/Player.html";
+					} else if(data == "OneMember") {
+						alert("You cannot remove anymore member. At least 1 member are needed to participate the game!");
+					} else {
+						alert("Team Member failed to be removed!");
+					}
+				}
+			});
+		}
+	}
+	</script>
+	';
+
+  } else if(isset($_POST['UpdateTeamMember'])){
+   
+	try {
+		$pdo->beginTransaction();
+		$sql = "UPDATE gameregistration SET MemberName='".$_POST['MemberName']."', Role='".$_POST['Role']."', ICNumber='".$_POST['ICNumber']."', PhoneNumber='".$_POST['PhoneNumber']."', Email='".$_POST['Email']."' WHERE TeamName='".$_POST['TeamName']."' AND GameID='".$_POST['GameID']."' AND UserID='".$_POST['UserID']."' AND ICNumber='".$_POST['OldICNumber']."'";
+		$pdo->query($sql);
+		echo "success";
+		$pdo->commit();
+	} catch (Exception $e) {
+		echo "fail";
+		$pdo->rollback();
+	}
+
+  } else if (isset($_POST['DeleteTeamMember'])) { 
+
+	$sql = "SELECT MemberName FROM gameregistration WHERE TeamName='".$_POST['TeamName']."' AND GameID='".$_POST['GameID']."' AND UserID='".$_POST['UserID']."'";
+	$result = $pdo->query($sql);
+	if ($result->rowCount()==1){
+		echo 'OneMember'; 
+	} else {
+
+		try {
+			$pdo->beginTransaction();
+			$sql = "DELETE FROM gameregistration WHERE ICNumber='".$_POST['ICNumber']."'";
+			$pdo->query($sql);
+			$sql = "SELECT TotalPlayer FROM treasurehuntgames WHERE GameID='".$_POST['GameID']."'";
+			$result = $pdo->query($sql);
+			while($res = $result->fetch()){
+				$OldTotalPlayer = $res['TotalPlayer'];
+			}
+			$OldTotalPlayer--;
+			$sql = "UPDATE treasurehuntgames SET TotalPlayer='$OldTotalPlayer' WHERE GameID='".$_POST['GameID']."'";
+			$pdo->query($sql);
+			echo "success";
+			$pdo->commit();
+		} catch (Exception $e) {
+			echo "fail";
+			$pdo->rollback();
+		}
+
+	}
+  
   } else {
     echo 'failed';
   }

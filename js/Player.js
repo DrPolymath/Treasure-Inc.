@@ -47,16 +47,24 @@ $(document).ready(function(){
       $('#gameData').html(data);
     },
   });
-});
 
-$(".editTeamMember").click(function(){
-  $("#registrationModal").modal("hide")
-  $("#editMemberModal").modal("show")
-});
-
-$(".removeTeamMember").click(function(){
-  if (window.confirm("Do you really want to remove this team member?")) { 
-  }
+  $('#UpdateMemberForm').on('submit', function(event){
+    event.preventDefault();
+    var form_data = $(this).serialize();
+    $.ajax({
+      type: "POST",
+      url: "../php/CRUD Game Registration.php",
+      data:form_data + "&UpdateTeamMember=Yes",
+      success: function(data){
+        if(data == "success"){
+          alert("Team Member successfully updated!");
+          document.location.href='../html/Player.html';
+        } else {
+          alert("Team Member failed to update!");
+        }
+      }
+    });
+  });
 });
 
 $(".displayGameCard").click(function(){
