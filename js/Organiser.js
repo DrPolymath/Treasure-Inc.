@@ -123,6 +123,47 @@ $(document).ready(function(){
       $('#DisplayPlayersDetail').html(data);
     },
   });
+
+  $.ajax({
+    type: 'GET',
+    url: "../phpmailer/Email.php",
+    data: "DisplayEmailList=Yes&"+queries[2],
+    success: function (data) {
+      $('#EmailList').html(data);
+    },
+  });
+});
+
+function checkALL() {
+  var checkBox = document.getElementById("selectAll");
+  if (checkBox.checked == true){
+    $('#email').prop('disabled', true);
+  } else {
+    $('#email').prop('disabled', false);
+  }
+  $('#email').selectpicker('refresh');
+}
+
+$(document).ready(function(){
+  $('#NotificationForm').on('submit', function(event){
+    var currentpage = document.location.href;
+    event.preventDefault();
+    var form_data = $(this).serialize();
+    form_data = form_data + "&GameID=" + document.getElementById("gameID").value;
+    $.ajax({
+      type: "POST",
+      url: "../phpmailer/Email.php",
+      data:form_data,
+      success: function(data){
+        if(data == "success"){
+          alert("Notification successfully sent!");
+          document.location.href=currentpage;
+        } else {
+          alert("Notification sending failed!");
+        }
+      }
+    });
+  });
 });
 
 //Organiser - Profile

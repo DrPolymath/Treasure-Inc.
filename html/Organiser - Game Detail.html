@@ -8,6 +8,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/Organiser.css">
 </head>
@@ -395,11 +397,25 @@
 						</button>
 					</div>
 					<h2 class="modal-title p-3 font-weight-bold">Create Notification</h2>
-					<form>
+					<form id="NotificationForm">
+						<div id="EmailList" class="form-group row">
+							<!-- <label for="Receipient" class="col-sm-3 col-form-label">Receipient</label>
+							<div class="col-sm-9">
+								<select class="selectpicker form-control inputGameData" id="email" name="email[]" multiple required>
+									<option value="muhammadzikri10@gmail.com">muhammadzikri10@gmail.com</option>
+									<option value="muhammadafiq@gmail.com">muhammadafiq@gmail.com</option>
+								</select>
+							</div> -->
+						</div>
 						<div class="form-group row">
-							<label for="email" class="col-sm-3 col-form-label">Receipient</label>
-							<div  class="col-sm-9">
-								<input type="email" class="form-control inputGameData" id="email" name="email" required>
+							<label class="col-sm-3 col-form-label"></label>
+							<div class="col-sm-9">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="" id="selectAll" name="selectAll" onclick="checkALL()">
+									<label class="form-check-label" for="selectAll">
+									  All Participants
+									</label>
+								  </div>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -414,7 +430,7 @@
 								<textarea class="form-control inputGameData" id="message" name="message" rows="3" required></textarea>
 							</div>
 						</div>
-						<button type="submit" class="btn m-3">Send</button>
+						<button type="submit" class="btn button m-3">Send</button>
 					</form>
 				</div>
 			</div>
@@ -495,7 +511,7 @@
 							</div>
 						</div>
 						<div align="center">
-							<button type="submit" class="btn m-3">Save</button>
+							<button type="submit" class="btn button m-3">Save</button>
 						</div>
 					</form>
 				</div>
@@ -532,7 +548,7 @@
 								<textarea class="form-control" id="message" name="message" rows="5" readonly>Due to certain circumstances, the Cyber Hunt Games will be canceled and the registration fee will be return to the participant soon. We are very sorry for the inconvenience.</textarea>
 							</div>
 						</div>
-						<button type="button" class="btn m-3" data-dismiss="modal">Close</button>
+						<button type="button" class="btn button m-3" data-dismiss="modal">Close</button>
 					</form>
 				</div>
 			</div>

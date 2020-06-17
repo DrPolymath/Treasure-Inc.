@@ -8,12 +8,12 @@ html, body {
 	height: 100%;
 }
 
-.btn {
+.button {
   background-color: #49655C;
   color: white;
 }
 
-.btn:hover {
+.button:hover {
   background-color: white;
   color: #49655C;
 }
@@ -104,7 +104,7 @@ hr {
 
 .inputGameData {
   border: none;
-  background-color: #F2F2F2;
+  background-color: #F2F2F2; 
 }
 
 .inputGameData:focus {

@@ -18,7 +18,7 @@
 //                                                                  MAIN
 
     //LOGIN
-    if(isset($_GET["Email"])){
+    if(isset($_GET["Email"])&&isset($_GET["Password"])){
 
         $Email = $_GET["Email"];
         $Password = $_GET["Password"];

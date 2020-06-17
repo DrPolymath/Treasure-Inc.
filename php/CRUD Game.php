@@ -104,10 +104,10 @@
                             <input type="text" class="form-control inputGameData" id="gameID" value="'.$res['GameID'].'" hidden>
                         </div>
                         <div class="form-group" align="center">
-                            <button id="teamList" type="button" class="btn btnOGD">Team List</button>
-                            <button type="button" class="btn btnOGD" data-toggle="modal" data-target="#createNotificationModal">Create Notification</button>
-                            <button type="button" class="btn btnOGD" onclick="deleteGame(\''.$res['GameName'].'\')">Delete Game</button>
-                            <button id="DisplayToUpdateGame" type="button" class="btn btnOGD">Update Game</button>
+                            <button id="teamList" type="button" class="btn button btnOGD">Team List</button>
+                            <button type="button" class="btn button btnOGD" data-toggle="modal" data-target="#createNotificationModal">Create Notification</button>
+                            <button type="button" class="btn button btnOGD" onclick="deleteGame(\''.$res['GameName'].'\')">Delete Game</button>
+                            <button id="DisplayToUpdateGame" type="button" class="btn button btnOGD">Update Game</button>
                         </div>
                     </div>
                 </div>
@@ -523,17 +523,6 @@
         function passDatatoGameDetail(GameID,GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){
             var queryString = "?GameName=" + GameName + "&Venue=" + Venue + " &GameID=" + GameID;
             window.location.href = "Organiser - Game Detail.html" + queryString;
-            // document.getElementById("GameNameData").innerHTML = GameName;
-            // document.getElementById("GameImageData").src = "data:image;base64," + GameImage;
-            // document.getElementById("GameDescriptionData").value = GameDescription;
-            // document.getElementById("VenueData").value = Venue;
-            // document.getElementById("DateData").value = Date;
-            // document.getElementById("TimeData").value = Time;
-            // document.getElementById("RegistrationFeeData").value = "RM " + RegistrationFee;
-            // document.getElementById("TeamRequiredData").value = TeamRequired;
-            // document.getElementById("PlayerPerTeamData").value = PlayerPerTeam;
-            // document.getElementById("TotalTeamJoinedData").innerHTML = TotalTeamJoined + "/" + TeamRequired;
-            // document.getElementById("TotalPlayerData").innerHTML = TotalPlayer;
         }
         </script>
         ';
