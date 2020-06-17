@@ -94,10 +94,12 @@
                     $pdo->rollback();
                 }
 
-                $pdo = null;
+                
 
             }
         }
     }
+
+    $pdo = null;
     
 ?>

@@ -240,7 +240,7 @@
 								<input type="text" class="form-control" name="name[]" placeholder="Name" required>
 							</div>
 							<div class="col-4">
-								<input type="number" class="form-control" name="ICNumber[]" placeholder="Identification Number" required>
+								<input type="number" class="form-control" name="ICNumber[]" placeholder="Identification Number" min="0" required>
 							</div>
 						</div>
 						<div class="row my-3">
@@ -259,10 +259,15 @@
 								
 							</div>
 							<div class="col-4">
-								<input type="number" class="form-control" name="phoneNumber[]" placeholder="Phone Number" required>
+								<input type="number" class="form-control" name="phoneNumber[]" placeholder="Phone Number" min="0" required>
 							</div>
 							<div class="col-4">
-								<input type="text" class="form-control" name="role[]" placeholder="Role" required>
+								<!-- <input type="text" class="form-control" name="role[]" placeholder="Role" required> -->
+								<select class="form-control form-control-register" name="role[]" required>
+									<option selected disabled>Role</option>
+									<option value="Leader">Leader</option>
+									<option value="Member">Member</option>
+								</select>
 							</div>
 						</div>
 						<hr>

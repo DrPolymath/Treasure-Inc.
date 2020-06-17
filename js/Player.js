@@ -108,7 +108,7 @@ $(document).ready(function(event){
       html += '<input type="text" class="form-control" name="name[]" placeholder="Name" required>';
       html += '</div>';
       html += '<div class="col-4">';
-      html += '<input type="number" class="form-control" name="ICNumber[]" placeholder="Identification Number" required>';
+      html += '<input type="number" class="form-control" name="ICNumber[]" placeholder="Identification Number" min="0" required>';
       html += '</div>';
       html += '</div>';
       html += '<div class="row my-3">';
@@ -125,10 +125,14 @@ $(document).ready(function(event){
       html += '<div class="row my-3">';
       html += '<div class="col-2"></div>';
       html += '<div class="col-4">';
-      html += '<input type="number" class="form-control" name="phoneNumber[]" placeholder="Phone Number" required>';
+      html += '<input type="number" class="form-control" name="phoneNumber[]" placeholder="Phone Number" min="0" required>';
       html += '</div>';
       html += '<div class="col-4">';
-      html += '<input type="text" class="form-control" name="role[]" placeholder="Role" required>';
+      html += '<select class="form-control form-control-register" name="role[]" required>';
+      html +=	'<option selected disabled>Role</option>'
+      html +=	'<option value="Leader">Leader</option>';
+      html +=	'<option value="Member">Member</option>';
+      html +=	'</select>';
       html += '</div>';
       html += '</div>';
       html += '<hr>';

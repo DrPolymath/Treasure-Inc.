@@ -51,8 +51,6 @@ $(document).ready(function(){
       $('#data').html(data);
     },
   });
-
-  
 });
 
 $("#viewGames").click(function(){
