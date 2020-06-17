@@ -137,11 +137,11 @@ $(document).ready(function(){
 function checkALL() {
   var checkBox = document.getElementById("selectAll");
   if (checkBox.checked == true){
-    $('#email').prop('disabled', true);
+    $('#TeamNameList').prop('disabled', true);
   } else {
-    $('#email').prop('disabled', false);
+    $('#TeamNameList').prop('disabled', false);
   }
-  $('#email').selectpicker('refresh');
+  $('#TeamNameList').selectpicker('refresh');
 }
 
 $(document).ready(function(){

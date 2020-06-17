@@ -16,17 +16,17 @@
 
     if (isset($_GET['DisplayEmailList'])){
 
-        $sql = "SELECT Email FROM gameregistration WHERE GameID='".$_GET['GameID']."'";
+        $sql = "SELECT DISTINCT TeamName FROM gameregistration WHERE GameID='".$_GET['GameID']."'";
         $result = $pdo->query($sql);
 
         echo '
         <label for="Receipient" class="col-sm-3 col-form-label">Receipient</label>
         <div class="col-sm-9">
-            <select class="selectpicker form-control inputGameData" id="email" name="email[]" multiple required>
+            <select class="selectpicker form-control inputGameData" id="TeamNameList" name="TeamName[]" multiple required>
         ';
 
         while($res = $result->fetch()){
-            echo '<option value="'.$res['Email'].'">'.$res['Email'].'</option>';
+            echo '<option value="'.$res['TeamName'].'">'.$res['TeamName'].'</option>';
         }
 
         echo '
@@ -34,7 +34,7 @@
         </div>
         ';
 
-    } else if(isset($_POST['email'])&&isset($_POST['subject'])&&isset($_POST['message'])){
+    } else if(isset($_POST['TeamName'])&&isset($_POST['subject'])&&isset($_POST['message'])){
 
         $subject = $_POST['subject'];
         $message = "<p>".$_POST['message']."</p>";
@@ -53,8 +53,17 @@
             // Email ID from which you want to send the email
             $mail->setFrom('treasureinc.2020@gmail.com');
 
-            for($i=0;$i<count($_POST['email']);$i++){
-                $mail->addAddress($_POST['email'][$i]);
+            $sql = "SELECT Email FROM gameregistration WHERE ";
+
+            for($i=0;$i<count($_POST['TeamName']);$i++){
+
+                $sql = "SELECT Email FROM gameregistration WHERE TeamName='".$_POST['TeamName'][$i]."' AND GameID='".$_POST['GameID']."'";
+                $result = $pdo->query($sql);
+
+                while($res = $result->fetch()){
+                    $mail->addAddress($res['Email']);
+                }
+                
             }
       
             $mail->isHTML(true);
@@ -68,6 +77,7 @@
             }
             
         } catch (Exception $e) {
+            echo $e->getmessage();
             echo 'error';
         }
 
