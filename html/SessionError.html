@@ -2,13 +2,43 @@
 <html>
 <head>
     <title>Treasure Inc.</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	        color: #49655C;
+        }
+        .container-fluid {
+            height: 100%;
+            background-color: #90D4CC;
+        }
+        a {
+            color: #49655C;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #90D4CC;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body style="background-color: #90D4CC;">
-    <div class="d-flex" style="width: 200px;">
-        <div class="m-auto">
-            <h1>Error</h1>
-            <p>You are not logged in!</p>
-            <a href="../html/Login.html"></a>
+<body>
+    <div class="container-fluid d-flex">
+        <div class="row m-auto">
+          <div class="col">
+            <h1>YOU ARE NOT LOGGED IN!</h1>
+            <div class="alert alert-light" role="alert">
+                Please log in to access the page.<br>
+                <a href="../html/Login.html">Go to Login page.</a>
+            </div>
+          </div>
         </div>
     </div>
 </body>

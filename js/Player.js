@@ -1,19 +1,23 @@
 //Navbar Dropdown
 $(document).ready(function(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      if(this.responseText=="Not logged in!"){
+        document.location.href='../html/SessionError.html';
+      } else {
+        document.getElementById("greetingContainer").innerHTML=this.responseText;
+      }
+    }
+  }
+  xmlhttp.open("GET","../php/Session.php",true);
+  xmlhttp.send();
+
   $('.dropdown-submenu a.test').on("click", function(e){
     $(this).next('ul').toggle();
     e.stopPropagation();
     e.preventDefault();
   });
-
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("greetingContainer").innerHTML=this.responseText;
-    }
-  }
-  xmlhttp.open("GET","../php/Session.php",true);
-  xmlhttp.send();
 });
 
 $(".notificationMessage").click(function(){
