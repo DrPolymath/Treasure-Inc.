@@ -4,7 +4,7 @@
   session_start();
   $success = true;
 
-  if (!empty($_POST['TeamName'])&&!empty($_POST['name'])&&!empty($_POST['role'])&&!empty($_POST['ICNumber'])&&!empty($_POST['phoneNumber'])&&!empty($_POST['email'])){
+  if (!empty($_POST['RegisterGame'])&&!empty($_POST['TeamName'])&&!empty($_POST['name'])&&!empty($_POST['role'])&&!empty($_POST['ICNumber'])&&!empty($_POST['phoneNumber'])&&!empty($_POST['email'])){
     $TeamName = $_POST['TeamName'];
     $GameID = $_POST['GameID'];
     $UserID = $_SESSION['UserID'];
@@ -85,7 +85,7 @@
 								<div class="col-5 d-flex">
 									<div class="m-auto">
 										<button class="btn btnTicket showGameCard my-2" onclick="passtoGameModal(\''.$res['GameImage'].'\',\''.$res['GameName'].'\',\''.$res['GameDescription'].'\',\''.$res['Venue'].'\',\''.$res['Date'].'\',\''.$res['Time'].'\',\''.$res['RegistrationFee'].'\',\''.$res['TeamRequired'].'\',\''.$res['PlayerPerTeam'].'\',\''.$res['TotalTeamJoined'].'\',\''.$res['TotalPlayer'].'\')">Game Detail</button><br>
-										<button class="btn btnTicket showRegistration my-2" onclick="displayPlayer(\''.$res['GameID'].'\',\''.$_SESSION['UserID'].'\',\''.$listRegisteredTeam[$i].'\')">Update Registration</button>
+										<button class="btn btnTicket showRegistration my-2" onclick="displayPlayer(\''.$res['GameID'].'\',\''.$_SESSION['UserID'].'\',\''.$listRegisteredTeam[$i].'\',\''.$res['PlayerPerTeam'].'\')">Update Registration</button>
 										<button class="btn btnTicket cancelGame my-2" onclick="cancelGameRegistration(\''.$res['GameID'].'\',\''.$_SESSION['UserID'].'\',\''.$listRegisteredTeam[$i].'\')">Cancel Participation</button>
 									</div>
 								</div>
@@ -133,11 +133,11 @@
             document.getElementById("TotalPlayerDataModal").innerHTML = TotalPlayer;
 		}
 
-		function displayPlayer(GameID,UserID,TeamName){
+		function displayPlayer(GameID,UserID,TeamName,PlayerPerTeam){
 			$.ajax({
 				url: "../php/CRUD Game Registration.php",
 				type: "GET",
-				data: "ReadTeamMember=Yes&GameID="+GameID+"&UserID="+UserID+"&TeamName="+TeamName,
+				data: "ReadTeamMember=Yes&GameID="+GameID+"&UserID="+UserID+"&TeamName="+TeamName+"&PlayerPerTeam="+PlayerPerTeam,
 				success: function (data) {
 				  $("#DisplayTeamMember").html(data);
 				},
@@ -230,7 +230,9 @@
 			<span aria-hidden="true">&times;</span>
 		</button>
 	</div>
-	<h1 class="modal-title p-4 font-weight-bold generalColor">'.$_GET['TeamName'].'</h1>
+	<h1 id="ANMTeamMember" class="modal-title p-4 font-weight-bold generalColor">'.$_GET['TeamName'].'</h1>
+	<input type="number" class="form-control inputGameData" id="PlayerPerTeam" value="'.$_GET['PlayerPerTeam'].'" hidden>
+	<p id="ANMGameID" hidden>'.$_GET['GameID'].'</p>
 	<table align ="center" class="table">
 		<tr>
 			<th>No</th>
@@ -263,16 +265,57 @@
 		';
 		$i++;
 	}
+	$i--;
 	echo'
 		</tbody>
 	</table>
-
-	<!--<div id="AddNewMemberButton">
+	<input type="number" class="form-control inputGameData" id="TotalPlayer" value="'.$i.'" hidden>
+	<div id="AddNewMemberButton">
 		<button class="btn">Add New Member</button>
 	</div>
 	<div id="AddNewMemberPanel" style="display:none;">
-		<h1>test</h1>
-	</div>-->
+		<form>
+			<hr>
+			<div>
+				<div class="row my-3">
+					<div class="col-2">
+						
+					</div>
+					<div class="col-4">
+						<input type="text" class="form-control" id="ANMname" name="name" placeholder="Name" required>
+					</div>
+					<div class="col-6">
+						<input type="number" class="form-control" id="ANMICNumber" name="ICNumber" placeholder="Identification Number" min="0" required>
+					</div>
+				</div>
+				<div class="row my-3">
+					<div class="col-2">
+						<label class="generalColor">Member</label>
+					</div>
+					<div class="col-10">
+						<input type="email" class="form-control" id="ANMemail" name="email" placeholder="Email" required>
+					</div>
+				</div>
+				<div class="row my-3">
+					<div class="col-2">
+						
+					</div>
+					<div class="col-4">
+						<input type="number" class="form-control" id="ANMphoneNumber" name="phoneNumber" placeholder="Phone Number" min="0" required>
+					</div>
+					<div class="col-6">
+						<select class="form-control form-control-register" id="ANMrole" name="role" required>
+							<option selected disabled>Role</option>
+							<option value="Leader">Leader</option>
+							<option value="Member">Member</option>
+						</select>
+					</div>
+				</div>
+				<hr>
+				<button id="SubmitNewMember" type="button" class="btn">Save</button>
+			</div>
+		</form>
+	</div>
 	';
 
 	echo'
@@ -280,7 +323,35 @@
 
 	$(document).ready(function(){
 		$("#AddNewMemberButton").click(function(){
-		  	$("#AddNewMemberPanel").slideToggle("slow");
+			if(document.getElementById("TotalPlayer").value<document.getElementById("PlayerPerTeam").value){
+				$("#AddNewMemberPanel").slideToggle("slow");
+			} else {
+				alert("You cannot add anymore member.")
+			}
+		});
+
+		$("#SubmitNewMember").on("click", function(){
+			var TeamName = document.getElementById("ANMTeamMember").innerHTML;
+			var MemberName = document.getElementById("ANMname").value;
+			var ICNumber = document.getElementById("ANMICNumber").value;
+			var Email = document.getElementById("ANMemail").value;
+			var PhoneNumber = document.getElementById("ANMphoneNumber").value;
+			var Role = document.getElementById("ANMrole").value;
+			var GameID = document.getElementById("ANMGameID").innerHTML;
+			var form_data = "AddNewMember=Yes&TeamName="+TeamName+"&MemberName="+MemberName+"&ICNumber="+ICNumber+"&Email="+Email+"&PhoneNumber="+PhoneNumber+"&Role="+Role+"&GameID="+GameID;
+			$.ajax({
+			  type: "POST",
+			  url: "../php/CRUD Game Registration.php",
+			  data:form_data,
+			  success: function(data){
+				if(data == "success"){
+				  alert("A new member successfully added!");
+				  document.location.href="../html/Player.html";
+				} else {
+				  alert("Member addition failed!");
+				}
+			  }
+			});
 		});
 	});
 
@@ -386,6 +457,42 @@
 		echo "fail";
 		$pdo->rollback();
 	}
+
+  } else if (isset($_POST['AddNewMember'])&&!empty($_POST['MemberName'])&&!empty($_POST['Role'])&&!empty($_POST['ICNumber'])&&!empty($_POST['PhoneNumber'])&&!empty($_POST['Email'])) {
+	
+	try {
+		$pdo->beginTransaction();
+
+		$TeamName = $_POST['TeamName'];
+		$MemberName = $_POST['MemberName'];
+		$Role = $_POST['Role'];
+		$ICNumber = $_POST['ICNumber'];
+		$PhoneNumber = $_POST['PhoneNumber'];
+		$Email = $_POST['Email'];
+		$GameID = $_POST['GameID'];
+    	$UserID = $_SESSION['UserID'];
+		
+		$sql = "INSERT INTO gameregistration (TeamName,MemberName,Role,ICNumber,PhoneNumber,Email,GameID,UserID) VALUES ('$TeamName','$MemberName','$Role','$ICNumber','$PhoneNumber','$Email','$GameID','$UserID')";
+		$pdo->query($sql);
+		
+		$sql = "SELECT TotalPlayer FROM treasurehuntgames WHERE GameID='$GameID'";
+		$result = $pdo->query($sql);
+  
+		while($res = $result->fetch()){
+		  $TotalPlayer = $res['TotalPlayer'];
+		}
+  
+		$TotalPlayer++;
+		
+		$sql = "UPDATE treasurehuntgames SET TotalPlayer='$TotalPlayer' WHERE GameID='$GameID'";
+		$pdo->query($sql);
+  
+		echo 'success';
+		$pdo->commit();
+	  } catch (Exception $e) {
+		echo 'failed';
+		$pdo->rollback();
+	  }
 
   } else {
     echo 'failed';

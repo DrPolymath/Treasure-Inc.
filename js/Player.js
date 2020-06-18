@@ -154,7 +154,7 @@ $(document).ready(function(event){
     $.ajax({
       type: "POST",
       url: "../php/CRUD Game Registration.php",
-      data:form_data,
+      data:"RegisterGame=Yes&"+form_data,
       success: function(data){
         if(data == "success"){
           alert("Game Registration is completed!");
