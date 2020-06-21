@@ -188,6 +188,16 @@ $(document).ready(function(event){
       $('#OrganiserRegisteredGameProfile').html(data);
     },
   });
+
+  //Get Company Info
+  $.ajax({
+    url: "../php/CRUD User.php",
+    type: 'GET',
+    data: "ReadCompanyInfo=Yes",
+    success: function (data) {
+      $('#CompanyInfo').html(data);
+    },
+  });
 });
 
 function displayUserDetail(){

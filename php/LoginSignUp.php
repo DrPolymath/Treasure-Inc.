@@ -56,7 +56,7 @@
         }
 
     //SIGN UP
-    } else if(isset($_POST["Email"])) {
+    } else if(isset($_POST["UserName"])&&isset($_POST["Email"])&&isset($_POST["PhoneNumber"])&&isset($_POST["BirthDate"])&&isset($_POST["Address"])&&isset($_POST["UserCategory"])&&isset($_POST["Password"])) {
         if($_POST["Password"]!=$_POST["ConfirmPassword"]){
             echo "<script>
                     alert('Passwords do not match!');
@@ -81,21 +81,36 @@
                 $UserCategory = $_POST["UserCategory"];
                 $Password = password_hash($_POST["Password"], PASSWORD_DEFAULT);
 
-                try {
-                    $pdo->beginTransaction();
-                    $sql = "INSERT INTO user(UserName,Email,PhoneNumber,BirthDate,Address,UserCategory,Password) VALUES ('$UserName','$Email','$PhoneNumber','$BirthDate','$Address','$UserCategory','$Password')";
-                    $pdo->query($sql);
-                    $pdo->commit();
+                if($UserCategory=="Organiser"&&(empty($_POST["CompanyName"])||empty($_POST["CompanyAddress"])||empty($_POST["CompanyPhoneNumber"]))){
                     echo "<script>
-                        alert('Registration Complete!');
-                        document.location.href='../html/Login.html';
+                    alert('Please complete the company details!Please enter - if you do not belong to an organization.');
+                        document.location.href='../html/SignUp.html';
                     </script>";
-                } catch (PDOException $e) {
-                    $pdo->rollback();
-                }
-
-                
-
+                } else {
+                    try {
+                        $pdo->beginTransaction();
+                        if($UserCategory=="Organiser"){
+                            $CompanyName = $_POST["CompanyName"];
+                            $CompanyAddress = $_POST["CompanyAddress"];
+                            $CompanyPhoneNumber = $_POST["CompanyPhoneNumber"];
+                            $sql = "INSERT INTO user(UserName,Email,PhoneNumber,BirthDate,Address,UserCategory,CompanyName,CompanyAddress,CompanyPhoneNumber,Password) VALUES ('$UserName','$Email','$PhoneNumber','$BirthDate','$Address','$UserCategory','$CompanyName','$CompanyAddress','$CompanyPhoneNumber','$Password')";
+                        } else {
+                            $sql = "INSERT INTO user(UserName,Email,PhoneNumber,BirthDate,Address,UserCategory,Password) VALUES ('$UserName','$Email','$PhoneNumber','$BirthDate','$Address','$UserCategory','$Password')";
+                        }
+                        $pdo->query($sql);
+                        $pdo->commit();
+                        echo "<script>
+                            alert('Registration Complete!');
+                            document.location.href='../html/Login.html';
+                        </script>";
+                    } catch (PDOException $e) {
+                        $pdo->rollback();
+                        echo "<script>
+                            alert('Registration failed!');
+                            document.location.href='../html/Login.html';
+                        </script>";
+                    }
+                } 
             }
         }
     }

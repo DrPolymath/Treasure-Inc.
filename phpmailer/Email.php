@@ -53,8 +53,6 @@
             // Email ID from which you want to send the email
             $mail->setFrom('treasureinc.2020@gmail.com');
 
-            $sql = "SELECT Email FROM gameregistration WHERE ";
-
             for($i=0;$i<count($_POST['TeamName']);$i++){
 
                 $sql = "SELECT Email FROM gameregistration WHERE TeamName='".$_POST['TeamName'][$i]."' AND GameID='".$_POST['GameID']."'";

@@ -37,96 +37,6 @@
 						</a>
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
 	   						<li><a class="dropdown-item" href="../html/Organiser - Profile.html">Profile</a></li>
-	    					<li class="dropdown-submenu dropleft" >
-	    						<a class="test dropdown-item" tabindex="-1" href="#">Notification</a>
-	    						<ul class="dropdown-menu">
-	    							<hr>
-									<li><a class="dropdown-item notificationMessage">
-										<div class="row" href="#">
-											<div class="col-2">
-												<img src="../Icon/Player Avatar Icon.svg" width="40" height="40" align="center">
-											</div>
-											<div class="col">
-												<div id="MessageTittle">
-													Cyber Hunt Game Cancellation
-												</div>
-												<div id="MessageContent">
-													Due to certain circumstances, the...
-												</div>
-											</div>
-											<div class="col">
-												<div id="time">
-													11:16 AM
-												</div>
-											</div>
-										</div>
-									</a></li>
-									<hr>
-									<li><a class="dropdown-item">
-										<div class="row">
-											<div class="col-2">
-												<img src="../Icon/Avatar Icon.svg" width="40" height="40" align="center">
-											</div>
-											<div class="col">
-												<div id="MessageTittle">
-													Remainder on Scavenger Hunt Games
-												</div>
-												<div id="MessageContent">
-													The game will start soon in 3 days....
-												</div>
-											</div>
-											<div class="col">
-												<div id="time">
-													23 Apr
-												</div>
-											</div>
-										</div>
-									</a></li>
-									<hr>
-									<li><a class="dropdown-item">
-										<div class="row">
-											<div class="col-2">
-												<img src="../Icon/Avatar Icon.svg" width="40" height="40" align="center">
-											</div>
-											<div class="col">
-												<div id="MessageTittle">
-													Fitness Hunt Game Postponement
-												</div>
-												<div id="MessageContent">
-													Because of little participation from..
-												</div>
-											</div>
-											<div class="col">
-												<div id="time">
-													20 Apr
-												</div>
-											</div>
-										</div>
-									</a></li>
-									<hr>
-									<li><a class="dropdown-item">
-										<div class="row">
-											<div class="col-2">
-												<img src="../Icon/Player Avatar Icon.svg" width="40" height="40" align="center">
-											</div>
-											<div class="col">
-												<div id="MessageTittle">
-													Change of Avenger Hunt Game Venue
-												</div>
-												<div id="MessageContent">
-													Avenger Hunt Game venue has changed to..
-												</div>
-											</div>
-											<div class="col">
-												<div id="time">
-													12 Apr
-												</div>
-											</div>
-										</div>	    								
-									</a></li>
-									<hr>
-	    						</ul>
-	    					</li>
 	    					<li><a class="dropdown-item" href="../php/Session.php?Logout=">Sign Out</a></li>
 	  					</ul>
 	  				</div>
@@ -399,13 +309,6 @@
 					<h2 class="modal-title p-3 font-weight-bold">Create Notification</h2>
 					<form id="NotificationForm">
 						<div id="EmailList" class="form-group row">
-							<!-- <label for="Receipient" class="col-sm-3 col-form-label">Receipient</label>
-							<div class="col-sm-9">
-								<select class="selectpicker form-control inputGameData" id="email" name="email[]" multiple required>
-									<option value="muhammadzikri10@gmail.com">muhammadzikri10@gmail.com</option>
-									<option value="muhammadafiq@gmail.com">muhammadafiq@gmail.com</option>
-								</select>
-							</div> -->
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label"></label>
@@ -513,42 +416,6 @@
 						<div align="center">
 							<button type="submit" class="btn button m-3">Save</button>
 						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-body" align="center">
-					<div>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<h1 class="modal-title p-2">Message</h1>
-					<form>
-						<div class="form-group row">
-							<label for="email" class="col-sm-2 col-form-label">From</label>
-							<div  class="col-sm-10">
-								<input type="email" class="form-control-plaintext" id="email" name="email" value="cyberhuntgame@gmail.com">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="subject" class="col-sm-2 col-form-label">Subject</label>
-							<div  class="col-sm-10">
-								<input type="text" class="form-control-plaintext" id="subject" name="subject" value="Cyber Hunt Game Cancellation">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="message" class="col-sm-2 col-form-label">Message</label>
-							<div  class="col-sm-10">
-								<textarea class="form-control" id="message" name="message" rows="5" readonly>Due to certain circumstances, the Cyber Hunt Games will be canceled and the registration fee will be return to the participant soon. We are very sorry for the inconvenience.</textarea>
-							</div>
-						</div>
-						<button type="button" class="btn button m-3" data-dismiss="modal">Close</button>
 					</form>
 				</div>
 			</div>

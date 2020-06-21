@@ -78,5 +78,7 @@ input[type=email].fcEmail{
 	font-weight: bolder;
 }
 
-
+#OrganiserAdditionalInfo {
+	display: none;
+}
 

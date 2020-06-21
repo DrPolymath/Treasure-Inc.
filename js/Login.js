@@ -8,13 +8,8 @@ $(document).ready(function(){
           url: "../phpmailer/Email.php",
           data:form_data,
           success: function(data){
-              alert(data);
-            // if(data == "success"){
-            //   alert("Notification successfully sent!");
-            //   document.location.href="../html/Login.html";
-            // } else {
-            //   alert("Notification sending failed!");
-            // }
+            alert(data);
+            document.location.href="../html/Login.html";
           }
         });
     });
