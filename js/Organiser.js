@@ -33,10 +33,6 @@ $(document).ready(function(){
   });
 });
 
-// $(".showGameCard").click(function(){
-//   window.location.href = "../html/Organiser - Game Detail.html";
-// });
-
 //Organiser - Add Game
 
 function triggerClick(){

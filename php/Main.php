@@ -1,5 +1,6 @@
 <?php
     include_once("DatabaseConnection.php");
+    // Select all game details to be display in the form of card
     if(isset($_GET['Card'])){
         $sql = "SELECT * FROM treasurehuntgames";
         $result = $pdo->query($sql);
@@ -34,7 +35,7 @@
         }
         echo "</div>";
         echo "</div>";
-
+    // Select all game details to be display in the form of table
     } else {
         $sql = "SELECT * FROM treasurehuntgames";
         $result = $pdo->query($sql);
@@ -59,7 +60,7 @@
             $counter++;
         }
     }
-
+    // Game Detail Modal
     echo'
         <div class="modal fade" id="gameDetailModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -137,8 +138,9 @@
             </div>
         </div>
     ';
-
+    // function to pass data from table list to game detail modal and open the game detail modal
     echo'
+
         <script>
         $(".showGameCard, .gameTableData").click(function(){
             $("#gameDetailModal").modal("show")

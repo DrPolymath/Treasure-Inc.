@@ -24,7 +24,7 @@ $(document).ready(function(){
       });
     }  // End if
   });
-
+  //Searching for game inside table game list
   $("#searchFilter").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $("#data tr").filter(function() {
@@ -34,6 +34,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+  // Display list of games in the form of card 
   $.ajax({
     url: "../php/Main.php",
     type: 'GET',
@@ -44,6 +45,7 @@ $(document).ready(function(){
   });
 
   $.ajax({
+    // Display list of game in the form of table
     url: "../php/Main.php",
     type: 'GET',
     data: "Table=Yes",
@@ -52,7 +54,7 @@ $(document).ready(function(){
     },
   });
 });
-
+// toggling panel to show list of game table
 $("#viewGames").click(function(){
   $("#gameListPanel").slideToggle("slow");
 });

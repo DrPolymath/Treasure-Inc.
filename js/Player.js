@@ -78,6 +78,7 @@ $( window ).on( "load", function() {
   queryString = queryString.substring(1);
   var queries = queryString.split("&");
   document.getElementById("GameNameData").innerHTML = queries[0].split("=")[1];
+
   $.ajax({
     type: "GET",
     url: "../php/CRUD Game.php",
@@ -86,6 +87,7 @@ $( window ).on( "load", function() {
       $('#GameDetailCard').html(data);
     }
   });
+
   var TotalTeamJoined = queries[2].split("=")[1];
   var TeamRequired = queries[3].split("=")[1];
   if(TotalTeamJoined==TeamRequired){
@@ -119,7 +121,7 @@ $(document).ready(function(event){
       html += '<input type="email" class="form-control" name="email[]" placeholder="Email" required>';
       html += '</div>';
       html += '<div class="col-2">';
-      html += '<button type="button" name="remove" id="'+i+'" class="btn btn_remove">X</button>';//
+      html += '<button type="button" name="remove" id="'+i+'" class="btn btn_remove">X</button>';
       html += '</div>';
       html += '</div>';
       html += '<div class="row my-3">';

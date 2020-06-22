@@ -63,13 +63,6 @@
             $pdo->rollback();
         }
 
-        // if(isset($_FILES['file']['tmp_name'])){
-        //     echo var_dump($_POST);
-        //     echo $_FILES['file']['tmp_name'];
-        // } else {
-        //     echo var_dump($_POST);
-        // }
-
     //Delete Game Data
     } else if (isset($_GET['DeleteGame'])) {
             
@@ -250,7 +243,7 @@
         }
 
         echo "</div>";
-        //fix parameter
+        
         echo '
         <script>
         function passDatatoGameDetail(GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){

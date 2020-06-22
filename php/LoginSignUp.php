@@ -26,7 +26,7 @@
 
         $sql = "SELECT UserID, Email, UserName, UserCategory, Password FROM user WHERE Email='$Email'";
         $result = $pdo->query($sql);
-
+        // Checking validity of email
         if($result->rowCount() == 0){
             echo "<script>
                     alert('You have entered an invalid email or password!');
@@ -41,6 +41,7 @@
                 $_SESSION['UserName']=$res['UserName'];
                 $_SESSION['UserCategory']=$res['UserCategory'];
             }
+            // Checking validity of password
             if(password_verify($Password,$hashPassword)){
                 if($_SESSION['UserCategory']=="Player"){
                     header('Location: ../html/Player.html');
@@ -57,13 +58,14 @@
 
     //SIGN UP
     } else if(isset($_POST["UserName"])&&isset($_POST["Email"])&&isset($_POST["PhoneNumber"])&&isset($_POST["BirthDate"])&&isset($_POST["Address"])&&isset($_POST["UserCategory"])&&isset($_POST["Password"])) {
+        //Checking whether the password and confirmpassword are matched
         if($_POST["Password"]!=$_POST["ConfirmPassword"]){
             echo "<script>
                     alert('Passwords do not match!');
                     document.location.href='javascript:history.go(-1)';
                 </script>";
         } else {
-
+            //Check if email entered already registered or not
             if(emailRegistered($_POST["Email"])){
 
                 echo "<script>
@@ -80,7 +82,7 @@
                 $Address = $_POST["Address"];
                 $UserCategory = $_POST["UserCategory"];
                 $Password = password_hash($_POST["Password"], PASSWORD_DEFAULT);
-
+                // Check if user complete the all the company detail if they register as an organiser 
                 if($UserCategory=="Organiser"&&(empty($_POST["CompanyName"])||empty($_POST["CompanyAddress"])||empty($_POST["CompanyPhoneNumber"]))){
                     echo "<script>
                     alert('Please complete the company details!Please enter - if you do not belong to an organization.');
@@ -90,11 +92,13 @@
                     try {
                         $pdo->beginTransaction();
                         if($UserCategory=="Organiser"){
+                            //Organiser register
                             $CompanyName = $_POST["CompanyName"];
                             $CompanyAddress = $_POST["CompanyAddress"];
                             $CompanyPhoneNumber = $_POST["CompanyPhoneNumber"];
                             $sql = "INSERT INTO user(UserName,Email,PhoneNumber,BirthDate,Address,UserCategory,CompanyName,CompanyAddress,CompanyPhoneNumber,Password) VALUES ('$UserName','$Email','$PhoneNumber','$BirthDate','$Address','$UserCategory','$CompanyName','$CompanyAddress','$CompanyPhoneNumber','$Password')";
                         } else {
+                            //Player register
                             $sql = "INSERT INTO user(UserName,Email,PhoneNumber,BirthDate,Address,UserCategory,Password) VALUES ('$UserName','$Email','$PhoneNumber','$BirthDate','$Address','$UserCategory','$Password')";
                         }
                         $pdo->query($sql);

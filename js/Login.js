@@ -1,3 +1,4 @@
+// Sending temporary password for resetting password
 $(document).ready(function(){
     $('#ForgotPasswordForm').on('submit', function(event){
         event.preventDefault();

@@ -13,7 +13,7 @@
     require 'vendor/autoload.php';
     // Create object of PHPMailer class
     $mail = new PHPMailer(true);
-
+    // Display List of Team for particular game
     if (isset($_GET['DisplayEmailList'])){
 
         $sql = "SELECT DISTINCT TeamName FROM gameregistration WHERE GameID='".$_GET['GameID']."'";
@@ -33,7 +33,7 @@
             </select>
         </div>
         ';
-
+    // Send notification for selected team
     } else if(isset($_POST['TeamName'])&&isset($_POST['subject'])&&isset($_POST['message'])){
 
         $subject = $_POST['subject'];
@@ -78,7 +78,7 @@
             echo $e->getmessage();
             echo 'error';
         }
-
+    // Send notification for all team
     } else if(isset($_POST['selectAll'])&&isset($_POST['subject'])&&isset($_POST['message'])){
 
         $subject = $_POST['subject'];
@@ -119,6 +119,7 @@
         } catch (Exception $e) {
             echo 'error';
         }
+    // Notification for temporary password to reset the password
     } else if ($_POST['ForgotPassword']) {
         $success = false;
         $sql = "SELECT Email FROM user WHERE Email='".$_POST['email']."'";

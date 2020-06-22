@@ -45,7 +45,7 @@
 		</div>
 
 	</nav>
-
+	<!-- Content -->
 	<div id="OrganiserContent" class="container-fluid">
 		<div class="row align-items-center contentTitle">
 			<div class="col-sm-6">
@@ -56,81 +56,7 @@
 			</div>
 		</div>
 			<div id="GameDetailCard" class="card shadow gameDetailCard">
-				<!-- <form>
-					<div class="row">
-						<div class="col-sm-4">
-							<img id="GameImageData" src="" class="img-fluid p-4">
-							<div class="row font-weight-bold m-2 d-flex centerItem" align="center">
-								<div class="col m-auto text-center">
-									<p>Total Team Joined</p>
-								</div>
-								<div class="col m-auto text-center">
-									<p id="TotalTeamJoinedData" class="teamPlayer"></p>
-								</div>
-								<div class="col m-auto text-center">
-									<p>Total Player</p>
-								</div>
-								<div class="col m-auto text-center">
-									<p id="TotalPlayerData" class="teamPlayer"></p>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-8 px-0 py-3">
-							<div class="row px-3">
-								<div class="col-6 px-0">
-									<div class="form-group row px-0">
-										<label for="VenueData" class="col-form-label col-sm-3">Venue</label>
-										<div class="col-sm-9 mx-0">
-											<input type="text" class="form-control inputGameData" id="VenueData"  readonly>
-										</div>
-									</div>
-									<div class="form-group row px-0">
-										<label for="DateData" class="col-form-label col-sm-3">Date</label>
-										<div class="col-sm-9 mx-0">
-											<input type="date" class="form-control inputGameData" id="DateData" readonly>
-										</div>
-									</div>
-									<div class="form-group row px-0">
-										<label for="TimeData" class="col-form-label col-sm-3">Time</label>
-										<div class="col-sm-9 mx-0">
-											<input type="time" class="form-control inputGameData" id="TimeData" readonly>
-										</div>
-									</div>
-								</div>
-								<div class="col-6 px-0">
-									<div class="form-group row px-0">
-										<label for="RegistrationFeeData" class="col-form-label col-sm-4">Fee</label>
-										<div class="col-sm-8 mx-0">
-											<input type="number" class="form-control inputGameData" id="RegistrationFeeData" readonly>
-										</div>
-									</div>
-									<div class="form-group row px-0">
-										<label for="TeamRequiredData" class="col-form-label col-sm-4">Team Required</label>
-										<div class="col-sm-8 mx-0">
-											<input type="number" class="form-control inputGameData" id="TeamRequiredData" readonly>
-										</div>
-									</div>
-									<div class="form-group row px-0">
-										<label for="PlayerPerTeamData" class="col-form-label col-sm-4">Player per Team</label>
-										<div class="col-sm-8 mx-0">
-											<input type="number" class="form-control inputGameData" id="PlayerPerTeamData" readonly>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group px-3 my-0">
-								<label for="GameDescriptionData" class="py-2">Game Description</label>
-								<textarea class="form-control inputGameData" id="GameDescriptionData" rows="4" readonly></textarea>
-							</div>
-							<div class="form-group" align="center">
-								<button id="teamList" type="button" class="btn btnOGD">Team List</button>
-								<button type="button" class="btn btnOGD" data-toggle="modal" data-target="#createNotificationModal">Create Notification</button>
-								<button type="submit" class="btn btnOGD" onclick="deleteGame()">Delete Game</button>
-								<button type="button" class="btn btnOGD" data-toggle="modal" data-target="#updateGameModal">Update Game</button>
-							</div>
-						</div>
-					</div>
-				</form> -->
+				
 			</div>
 
 		<div id="teamListPanel" class="p-2" align="center">
@@ -147,120 +73,6 @@
 		
 				<!--Slides-->
 				<div id="DisplayPlayersDetail" class="carousel-inner" role="listbox">
-		
-<!-- 					
-					<div class="carousel-item active">
-						<div class="mx-3" align="left">
-							<h4 id="TeamName">Wisdom Hunter</h4>
-						</div>
-						
-						<table align ="center" class="table shadow">
-							<tr>
-								<th>No</th>
-								<th>Name</th>
-								<th>Role</th>
-								<th>Identification Number</th>
-								<th>Phone Number</th>
-								<th>E-mail</th>
-							</tr>
-							<tbody id="data">
-								<tr>
-									<td>1</td>
-									<td>Muhammad Luqman bin Sulaiman</td>
-									<td>Leader</td>
-									<td>990715105697</td>
-									<td>0192615483</td>
-									<td>luqmans1599@gmail.com</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Muhammad Zikri bin Mohd Yunan</td>
-									<td>Team Member</td>
-									<td>976545641532</td>
-									<td>0156842358</td>
-									<td>muhammadzikri10@gmail.com</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Ali bin Hussin</td>
-									<td>Team Member</td>
-									<td>995125321056</td>
-									<td>0215683548</td>
-									<td>fortune@gmail.com</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>Ahmad Ahlami bin Anuar</td>
-									<td>Team Member</td>
-									<td>995125321056</td>
-									<td>0215683548</td>
-									<td>mr.ahlami@gmail.com</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>Muhammad Faiz</td>
-									<td>Team Member</td>
-									<td>995125321056</td>
-									<td>0215683548</td>
-									<td>faiztomyam@gmail.com</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					
-			
-					
-					<div class="carousel-item">
-						<div class="mx-3" align="left">
-							<h4 id="TeamName" >Artifact Hunter</h4>
-						</div>
-			
-						<table align ="center" class="table shadow">
-							<tr>
-								<th>No</th>
-								<th>Name</th>
-								<th>Role</th>
-								<th>Identification Number</th>
-								<th>Phone Number</th>
-								<th>E-mail</th>
-							</tr>
-							<tbody id=data>
-								<tr>
-									<td>1</td>
-									<td>Najmuddin Zain</td>
-									<td>Leader</td>
-									<td>990715105697</td>
-									<td>0192615483</td>
-									<td>dinobambino@gmail.com</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Ady Rahimy</td>
-									<td>Team Member</td>
-									<td>976545641532</td>
-									<td>0156842358</td>
-									<td>adystoner@gmail.com</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Fahmi Abu Yamin</td>
-									<td>Team Member</td>
-									<td>995125321056</td>
-									<td>0215683548</td>
-									<td>manusiagagah@gmail.com</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>Amin Saiful</td>
-									<td>Team Member</td>
-									<td>995125321056</td>
-									<td>0215683548</td>
-									<td>aminsaia@gmail.com</td>
-								</tr>
-							</tbody>
-						</table>	
-					</div>
-					 -->
 		  
 				</div>
 				<!--/.Slides-->
@@ -274,13 +86,10 @@
 	
 			</div>
 			<!--/.Carousel Wrapper-->
-
-			
-			
 			
 		</div>
 	</div>
-
+	<!-- Footer -->
 	<footer>
 		<div class="row container-fluid d-flex">
 			<div class="col-sm-6 m-auto d-flex">
@@ -296,7 +105,7 @@
 			</div>
 		</div>
 	</footer>
-
+	<!-- Modal to create notification -->
 	<div class="modal fade" id="createNotificationModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -339,7 +148,7 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- Modal to update game -->
 	<div class="modal fade" id="updateGameModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
@@ -357,15 +166,6 @@
 							<div class="overlay">Change</div>
 							<input type="file" id="UpdateGameImageData" onChange="displayImageUpdate(this)" name="UpdateGameImageData">
 						</div>
-						<!-- <div class="form-group row">
-							<label for="customFile" class="col-form-label col-sm-3">Game Picture</label>
-							<div class="col-sm-9 input-group">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input inputGameData" id="customFile">
-									<label class="custom-file-label" for="customFile"></label>
-								</div>
-							</div>
-						</div> -->
 						<div class="form-group row">
 							<label for="UpdateGameNameData" class="col-sm-3 col-form-label">Game Name</label>
 							<div  class="col-sm-9">

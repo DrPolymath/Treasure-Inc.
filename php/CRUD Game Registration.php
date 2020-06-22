@@ -3,7 +3,7 @@
   
   session_start();
   $success = true;
-
+  // Player Registration at Player - Game Detail.html
   if (!empty($_POST['RegisterGame'])&&!empty($_POST['TeamName'])&&!empty($_POST['name'])&&!empty($_POST['role'])&&!empty($_POST['ICNumber'])&&!empty($_POST['phoneNumber'])&&!empty($_POST['email'])){
     $TeamName = $_POST['TeamName'];
     $GameID = $_POST['GameID'];
@@ -390,7 +390,7 @@
 	}
 	</script>
 	';
-
+  // Update Team Member at Player.html
   } else if(isset($_POST['UpdateTeamMember'])){
    
 	try {
@@ -403,7 +403,7 @@
 		echo "fail";
 		$pdo->rollback();
 	}
-
+  // Delete Team Member at Player.html
   } else if (isset($_POST['DeleteTeamMember'])) { 
 
 	$sql = "SELECT MemberName FROM gameregistration WHERE TeamName='".$_POST['TeamName']."' AND GameID='".$_POST['GameID']."' AND UserID='".$_POST['UserID']."'";
@@ -432,7 +432,7 @@
 		}
 
 	}
-  
+  // Cancel Game Registration at Player.html
   } else if (isset($_GET['CancelGameRegistration'])) { 
 	
 	try {
@@ -457,7 +457,7 @@
 		echo "fail";
 		$pdo->rollback();
 	}
-
+  // Add a new Team Member at Player.html
   } else if (isset($_POST['AddNewMember'])&&!empty($_POST['MemberName'])&&!empty($_POST['Role'])&&!empty($_POST['ICNumber'])&&!empty($_POST['PhoneNumber'])&&!empty($_POST['Email'])) {
 	
 	try {

@@ -1,6 +1,7 @@
 <?php
     include_once("DatabaseConnection.php");
     session_start();
+    // Display User Info
     if(isset($_GET['ReadUser'])){
         $sql = "SELECT * FROM user WHERE Email='".$_SESSION['Email']."'";
         $result = $pdo->query($sql);
@@ -19,10 +20,7 @@
             echo "<p id='updateAddress'>".$res['Address']."</p>";
         }
 
-        echo"
-        
-        ";
-
+    // Update User Account
     } else if (isset($_POST['UpdateUser'])){
         $UserName = $_POST['UserName'];
         $Email = $_POST['Email'];
@@ -42,7 +40,7 @@
             echo "fail";
             $pdo->rollback();
         }
-
+    // Delete User Account
     } else if (isset($_GET['DeleteUser'])) {
         try {
             $pdo->beginTransaction();
@@ -56,6 +54,7 @@
             echo "fail";
             $pdo->rollback();
         }
+    // Display Company Info
     } else if (isset($_GET['ReadCompanyInfo'])){
         $sql = "SELECT CompanyName, CompanyAddress, CompanyPhoneNumber FROM user WHERE Email='".$_SESSION['Email']."'";
         $result = $pdo->query($sql);
@@ -89,6 +88,7 @@
             </script>
             ";
         }
+    //Update Company Info
     } else if (isset($_GET['UpdateCompany'])){
 
         $CompanyName = $_GET['UpdateCompanyName'];
