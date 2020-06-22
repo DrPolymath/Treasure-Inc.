@@ -20,10 +20,6 @@ $(document).ready(function(){
   });
 });
 
-$(".notificationMessage").click(function(){
-  $("#messageModal").modal("show")
-});
-
 //Organiser
 
 $(document).ready(function(){
@@ -93,6 +89,25 @@ function displayImageUpdate(e) {
   }
   $("#updateGameModal").modal("show")
 }
+
+$('form#UpdateGameForm').submit(function(e) {
+  e.preventDefault();    
+  var formData = new FormData(this);
+  var files = $('#UpdateGameImageData')[0].files[0];
+  formData.append('file',files);
+  $.ajax({
+    url: "../php/CRUD Game.php",
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    cach: false,
+    processData: false,
+    success: function (data) {
+        alert(data);
+        document.location.href='../html/Organiser.html';
+    },
+  });
+});
 
 $(document).ready(function(){
   $("#searchFilter").on("keyup", function() {
@@ -250,14 +265,3 @@ $('#DeleteAccountForm').on('submit', function(event){
     });
   }
 });
-
-// $(".showGamesCard").click(function(){
-//   $("#gameDetailModal").modal("show")
-// });
-
-// $('#customFile').on('change',function(){
-//   //get the file name
-//   var fileName = $(this).val();
-//   //replace the "Choose a file" label
-//   $(this).next('.custom-file-label').html(fileName);
-// })

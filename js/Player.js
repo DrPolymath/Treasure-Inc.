@@ -20,10 +20,6 @@ $(document).ready(function(){
   });
 });
 
-$(".notificationMessage").click(function(){
-  $("#messageModal").modal("show")
-});
-
 //Player
 
 $(document).ready(function(){

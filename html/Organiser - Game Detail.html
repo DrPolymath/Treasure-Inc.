@@ -350,11 +350,12 @@
 						</button>
 					</div>
 					<h1 class="modal-title p-3 font-weight-bold">Update Game</h1>
-					<form>
+					<form id="UpdateGameForm">
+						<input type="text" class="form-control inputGameData" id="UpdateGameIDData" name="UpdateGame" hidden>
 						<div class="imgContainer form-group row d-flex" align="center">
 							<img id="UpdateGameImageDataUpload" onclick="triggerClickUpdate()" src="" height="300" class="m-auto">
 							<div class="overlay">Change</div>
-							<input type="file" id="UpdateGameImageData" onChange="displayImageUpdate(this)" name="UpdateGameImagenData">
+							<input type="file" id="UpdateGameImageData" onChange="displayImageUpdate(this)" name="UpdateGameImageData">
 						</div>
 						<!-- <div class="form-group row">
 							<label for="customFile" class="col-form-label col-sm-3">Game Picture</label>
@@ -392,19 +393,19 @@
 						<div class="form-group row">
 							<label for="UpdateRegistrationFeeData" class="col-form-label col-sm-3">Registration Fee</label>
 							<div class="col-sm-9">
-								<input type="number" class="form-control inputGameData" id="UpdateRegistrationFeeData" name="UpdateRegistrationFeeData" required>
+								<input type="number" class="form-control inputGameData" id="UpdateRegistrationFeeData" name="UpdateRegistrationFeeData" min="1" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="UpdateTeamRequiredData" class="col-form-label col-sm-3">Team Required</label>
 							<div class="col-sm-9">
-								<input type="number" class="form-control inputGameData" id="UpdateTeamRequiredData" name="UpdateTeamRequiredData" required>
+								<input type="number" class="form-control inputGameData" id="UpdateTeamRequiredData" name="UpdateTeamRequiredData" min="1" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="UpdatePlayerPerTeamData" class="col-form-label col-sm-3">Player per Team</label>
 							<div class="col-sm-9">
-								<input type="number" class="form-control inputGameData" id="UpdatePlayerPerTeamData" name="UpdatePlayerPerTeamData" required>
+								<input type="number" class="form-control inputGameData" id="UpdatePlayerPerTeamData" name="UpdatePlayerPerTeamData" min="1" required>
 							</div>
 						</div>
 						<div class="form-group row">

@@ -2,7 +2,7 @@
     include_once("DatabaseConnection.php");
     session_start();
     //Insert Game Data
-    if(isset($_POST['GameName'])){
+    if(isset($_FILES['file']['tmp_name'])&&isset($_POST['GameName'])&&isset($_POST['GameDescription'])&&isset($_POST['RegistrationFee'])&&isset($_POST['Venue'])&&isset($_POST['Date'])&&isset($_POST['Time'])&&isset($_POST['PlayerPerTeam'])&&isset($_POST['TeamRequired'])){
         $GameImage = addslashes($_FILES['file']['tmp_name']);
         $GameImage = file_get_contents($GameImage);
         $GameImage = base64_encode($GameImage);
@@ -29,6 +29,61 @@
             echo "Treasure Hunt Game failed to be added!";
             $pdo->rollback();
         }
+
+    //Update Game Data
+    } else if (isset($_POST['UpdateGame'])&&isset($_POST['UpdateGameNameData'])&&isset($_POST['UpdateGameDescriptionData'])&&isset($_POST['UpdateRegistrationFeeData'])&&isset($_POST['UpdateVenueData'])&&isset($_POST['UpdateDateData'])&&isset($_POST['UpdateTimeData'])&&isset($_POST['UpdatePlayerPerTeamData'])&&isset($_POST['UpdateTeamRequiredData'])) {
+
+        $GameID = $_POST['UpdateGame'];
+        $GameName = $_POST['UpdateGameNameData'];
+        $GameDescription = $_POST['UpdateGameDescriptionData'];
+        $RegistrationFee = $_POST['UpdateRegistrationFeeData'];
+        $Venue = $_POST['UpdateVenueData'];
+        $Date = $_POST['UpdateDateData'];
+        $Time = $_POST['UpdateTimeData'];
+        $PlayerPerTeam = $_POST['UpdatePlayerPerTeamData'];
+        $TeamRequired = $_POST['UpdateTeamRequiredData'];
+        
+        try {
+            $pdo->beginTransaction();
+            if(isset($_FILES['file']['tmp_name'])){
+                $GameImage = addslashes($_FILES['file']['tmp_name']);
+                $GameImage = file_get_contents($GameImage);
+                $GameImage = base64_encode($GameImage);
+                $sql = "UPDATE treasurehuntgames SET GameImage='$GameImage', GameName='$GameName', GameDescription='$GameDescription', RegistrationFee='$RegistrationFee', Venue='$Venue', Date='$Date', Time='$Time', PlayerPerTeam='$PlayerPerTeam', TeamRequired='$TeamRequired' WHERE GameID='$GameID'";
+            } else {
+                $sql = "UPDATE treasurehuntgames SET GameName='$GameName', GameDescription='$GameDescription', RegistrationFee='$RegistrationFee', Venue='$Venue', Date='$Date', Time='$Time', PlayerPerTeam='$PlayerPerTeam', TeamRequired='$TeamRequired' WHERE GameID='$GameID'";
+            }
+            
+            $pdo->query($sql);
+            echo "Treasure Hunt Game successfully updated!";
+            $pdo->commit();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            echo "Treasure Hunt Game failed to be updated!";
+            $pdo->rollback();
+        }
+
+        // if(isset($_FILES['file']['tmp_name'])){
+        //     echo var_dump($_POST);
+        //     echo $_FILES['file']['tmp_name'];
+        // } else {
+        //     echo var_dump($_POST);
+        // }
+
+    //Delete Game Data
+    } else if (isset($_GET['DeleteGame'])) {
+            
+        try {
+            $pdo->beginTransaction();
+            $sql = "DELETE FROM treasurehuntgames WHERE GameName='".$_GET['GameName']."'";
+            $pdo->query($sql);
+            echo "success";
+            $pdo->commit();
+        } catch (Exception $e) {
+            echo "fail";
+            $pdo->rollback();
+        }
+
     //Display Game Detail at Organiser - Game Detail.html
     } else if(isset($_GET['GameDetailOrganiser'])) {
         $sql = "SELECT * FROM treasurehuntgames WHERE GameName='".$_GET['GameName']."' AND Venue='".$_GET['Venue']."'";
@@ -117,6 +172,7 @@
             echo'
             <script>
             $("#DisplayToUpdateGame").click(function(){
+                document.getElementById("UpdateGameIDData").value = document.getElementById("gameID").value
                 document.getElementById("UpdateGameNameData").value = document.getElementById("GameNameData").innerHTML;
                 document.getElementById("UpdateGameImageDataUpload").src = document.getElementById("GameImageData").src;
                 document.getElementById("UpdateGameDescriptionData").value = document.getElementById("GameDescriptionData").value;
@@ -461,22 +517,8 @@
         }
         </script>
         ';
-
-    //Delete Game Data
-    } else if (isset($_GET['DeleteGame'])) {
-        
-        try {
-            $pdo->beginTransaction();
-            $sql = "DELETE FROM treasurehuntgames WHERE GameName='".$_GET['GameName']."'";
-            $pdo->query($sql);
-            echo "success";
-            $pdo->commit();
-        } catch (Exception $e) {
-            echo "fail";
-            $pdo->rollback();
-        }
     //Display Game Card at Organiser.html
-    } else {
+    } else if(isset($_GET['Card'])) {
         $sql = "SELECT * FROM treasurehuntgames WHERE UserID='".$_SESSION['UserID']."'";
         $result = $pdo->query($sql);
         $counter = 1;
