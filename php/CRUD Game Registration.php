@@ -38,7 +38,7 @@
       echo 'success';
       $pdo->commit();
     } catch (Exception $e) {
-      echo 'failed';
+	  echo 'failed';
       $pdo->rollback();
     }
   // Ticket at Player.html

@@ -129,7 +129,8 @@
                                 <div class="form-group row px-0">
                                     <label for="RegistrationFeeData" class="col-form-label col-sm-4">Fee</label>
                                     <div class="col-sm-8 mx-0">
-                                        <input type="number" class="form-control inputGameData" id="RegistrationFeeData" value="'.$res['RegistrationFee'].'" readonly>
+                                        <input type="text" class="form-control inputGameData" value="RM'.$res['RegistrationFee'].'" readonly>
+                                        <input type="number" class="form-control inputGameData" id="RegistrationFeeData" value="'.$res['RegistrationFee'].'" readonly hidden>
                                     </div>
                                 </div>
                                 <div class="form-group row px-0">
@@ -239,7 +240,7 @@
                 </div>
             </div>
             ';
-
+            $counter++;
         }
 
         echo "</div>";

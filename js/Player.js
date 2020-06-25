@@ -244,5 +244,27 @@ $('#DeleteAccountForm').on('submit', function(event){
   }
 });
 
+$('#changeUserPass').on('submit', function(event){
+  event.preventDefault();
+  var form_data = $(this).serialize();
+  $.ajax({
+    type: "POST",
+    url: "../php/CRUD User.php",
+    data:form_data,
+    success: function(data){
+      if(data=="success"){
+        alert("Password Change Successfully!");
+        document.location.href='../php/Session.php?Logout=Yes';
+      }else if(data=="notMatch"){
+        alert("New Password Does not Match with Confirm Password");
+      }else if(data=="WrongPassword"){
+        alert("Wrong Password");
+      }else if(data=="Email does not match"){
+        alert("Email does not match");
+      }
+    }
+  });
+});
+
 
 

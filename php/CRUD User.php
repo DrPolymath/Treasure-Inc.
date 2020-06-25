@@ -54,6 +54,47 @@
             echo "fail";
             $pdo->rollback();
         }
+
+    // Change Account Password
+    } else if (isset($_POST['Email'])){
+            
+        $msg = "";
+        $email = $_POST['Email'];
+        $opwd = $_POST['opwd'];
+        $npwd = $_POST['npwd'];
+        $cpwd = $_POST['cpwd'];
+        $hashnpwd = "";
+        
+        $sql = "SELECT Email, Password FROM user WHERE Email ='$email'";
+        $result = $pdo->query($sql);
+        
+        if($result->rowCount()>0){
+            
+            if($npwd != $cpwd){
+                echo "notMatch";
+            }
+            else{
+                $res = $result->fetch();
+                if(password_verify($opwd, $res['Password'])){
+                    $hashnpwd = password_hash($npwd,PASSWORD_DEFAULT);
+                    try {
+                        $pdo->beginTransaction();
+                        $sql = "UPDATE user set Password = '$hashnpwd' WHERE Email = '$email'";
+                        $pdo->query($sql);
+                        $pdo->commit();
+                        echo "success";
+                    } catch (PDOException $e) {
+                        $pdo->rollback();
+                    }
+                    
+                }
+                else{
+                    echo "WrongPassword";
+                }
+            }       
+        }else{
+            echo "Email does not match";
+        }
     // Display Company Info
     } else if (isset($_GET['ReadCompanyInfo'])){
         $sql = "SELECT CompanyName, CompanyAddress, CompanyPhoneNumber FROM user WHERE Email='".$_SESSION['Email']."'";

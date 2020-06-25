@@ -62,6 +62,7 @@
 								<input type="text" class="form-control inputGameData" id="DeleteUser" name="DeleteUser" hidden>
 								<button type="submit" class="btn button" onclick="deleteUserDetail()">Delete Account</button>
 								<button type="button" class="btn button" data-toggle="modal" data-target="#editProfileModal" onclick="displayUserDetail()">Edit Account</button>
+								<button type="button" class="btn button my-3" data-toggle="modal" data-target="#ChangePassword">Change Password</button>
 							</form>
 						</div>
 						<div class="col py-3" align="left">
@@ -162,6 +163,53 @@
 						</div>
 						<input type="text" class="form-control inputGameData" id="UpdateUser" name="UpdateUser" hidden>
 						<button type="submit" class="btn button m-3">Update</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal to change password-->
+	<div class="modal fade" id="ChangePassword" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-body" align="center">
+					<div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<h1 class="modal-title p-3 font-weight-bold">Change Password</h1>
+					
+					<form id="changeUserPass">
+						<div class="form-group row">
+							<label for="Email" class="col-sm-3 col-form-label">Email</label>
+							<div  class="col-sm-9">
+								<input type="email" class="form-control inputGameData" id="Email" name="Email" required>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label for="PhoneNumber" class="col-sm-3 col-form-label">Old Password</label>
+							<div  class="col-sm-9">
+								<input type="password" class="form-control inputGameData" id="opwd" name="opwd" required>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label for="BirthDate" class="col-sm-3 col-form-label">New Password</label>
+							<div  class="col-sm-9">
+								<input type="password" class="form-control inputGameData" id="npwd" name="npwd" required>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label for="Address" class="col-sm-3 col-form-label">Confirm Password</label>
+							<div  class="col-sm-9">
+								<input type="password" class="form-control inputGameData" id="cpwd" name="cpwd" required>
+							</div>
+						</div>
+
+						<button type="submit" class="btn button m-3">Confirm</button>
 					</form>
 				</div>
 			</div>

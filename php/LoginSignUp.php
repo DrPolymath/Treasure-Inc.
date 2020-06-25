@@ -43,6 +43,7 @@
             }
             // Checking validity of password
             if(password_verify($Password,$hashPassword)){
+               
                 if($_SESSION['UserCategory']=="Player"){
                     header('Location: ../html/Player.html');
                 } else {
