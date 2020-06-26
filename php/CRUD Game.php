@@ -30,8 +30,10 @@
             $pdo->rollback();
         }
 
+    
+    } 
     //Update Game Data
-    } else if (isset($_POST['UpdateGame'])&&isset($_POST['UpdateGameNameData'])&&isset($_POST['UpdateGameDescriptionData'])&&isset($_POST['UpdateRegistrationFeeData'])&&isset($_POST['UpdateVenueData'])&&isset($_POST['UpdateDateData'])&&isset($_POST['UpdateTimeData'])&&isset($_POST['UpdatePlayerPerTeamData'])&&isset($_POST['UpdateTeamRequiredData'])) {
+    else if (isset($_POST['UpdateGame'])&&isset($_POST['UpdateGameNameData'])&&isset($_POST['UpdateGameDescriptionData'])&&isset($_POST['UpdateRegistrationFeeData'])&&isset($_POST['UpdateVenueData'])&&isset($_POST['UpdateDateData'])&&isset($_POST['UpdateTimeData'])&&isset($_POST['UpdatePlayerPerTeamData'])&&isset($_POST['UpdateTeamRequiredData'])) {
 
         $GameID = $_POST['UpdateGame'];
         $GameName = $_POST['UpdateGameNameData'];
@@ -62,9 +64,9 @@
             echo "Treasure Hunt Game failed to be updated!";
             $pdo->rollback();
         }
-
+    } 
     //Delete Game Data
-    } else if (isset($_GET['DeleteGame'])) {
+    else if (isset($_GET['DeleteGame'])) {
             
         try {
             $pdo->beginTransaction();
@@ -77,8 +79,9 @@
             $pdo->rollback();
         }
 
+    } 
     //Display Game Detail at Organiser - Game Detail.html
-    } else if(isset($_GET['GameDetailOrganiser'])) {
+    else if(isset($_GET['GameDetailOrganiser'])) {
         $sql = "SELECT * FROM treasurehuntgames WHERE GameName='".$_GET['GameName']."' AND Venue='".$_GET['Venue']."'";
         $result = $pdo->query($sql);
 
@@ -511,8 +514,10 @@
         }
         </script>
         ';
+    
+    } 
     //Display Game Card at Organiser.html
-    } else if(isset($_GET['Card'])) {
+    else if(isset($_GET['Card'])) {
         $sql = "SELECT * FROM treasurehuntgames WHERE UserID='".$_SESSION['UserID']."'";
         $result = $pdo->query($sql);
         $counter = 1;
@@ -552,9 +557,6 @@
 
         echo '
         <script>
-        // $(".showGameCard").click(function(){
-        //     window.location.href = "Organiser - Game Detail.html";
-        // });
 
         function passDatatoGameDetail(GameID,GameImage,GameName,GameDescription,Venue,Date,Time,RegistrationFee,TeamRequired,PlayerPerTeam,TotalTeamJoined,TotalPlayer){
             var queryString = "?GameName=" + GameName + "&Venue=" + Venue + " &GameID=" + GameID;
@@ -564,6 +566,5 @@
         ';
     }
     
-
     $pdo = null;
 ?>
